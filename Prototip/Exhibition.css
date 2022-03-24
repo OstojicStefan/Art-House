@@ -1,0 +1,47 @@
+.centerEx{
+    text-align: center;
+    align-items: center;
+
+}
+
+img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+ .hoveruj{
+     padding: 0.25rem;
+     background-color: #fff;
+     border: 7px solid green;
+     border-radius: 0.25rem;
+     max-width: 100%;
+     height: auto;
+}
+
+img:hover{
+    border: 7px solid green;
+}
+
+img:focus{
+    border-color: green;
+    border-width: 7px;
+}
+
+#tabela_uredjivanje{
+    border-collapse:separate; 
+    border-spacing:5em;
+}
+
+#tabela_finalno{
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+.centriraj{
+    text-align: center;
+}
+
+.noHover{
+    pointer-events: none;
+}

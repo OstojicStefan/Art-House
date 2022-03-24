@@ -1,0 +1,45 @@
+<!-- Bogdan Arsic-->
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "opste.css">
+        <title>
+            Pravljenje aukcije
+        </title>
+    </head>
+    <body>
+        <form>
+            <label for="imeSlike">Ime slike: </label><br>
+            <input type="text" maxlength="30" id="imeSlike" name="imeSlike"><br><br>
+
+            <label for="opisniTekst">Opisni tekst (do 5000 karaktera): </label><br>
+            <textarea rows = "12" cols = "30" maxlength="5000" id="opisniTekst" name="opisniTekst"></textarea><br><br>
+
+            <label for="Autor">Autor: </label><br>
+            <input type="text" maxlength="30" id="Autor" name="Autor"><br><br>
+
+            <label for="godinaSlikanja">Godina kreiranja: </label><br>
+            <input type="number" max="30" id="godinaSlikanja" name="godinaSlikanja"><br><br>
+
+            <label for="myfile">Odaberi sliku:</label>
+            <input type="file" id="myfile" name="myfile" /><br><br>
+
+            <label>Tagovi(1-5 tagova): </label><br>
+            <select name="predmeti"  multiple = 5>
+                <option>Moderno</option>
+                <option>Portret</option>
+                <option>Apstraktno</option>
+                <option>Pejzaž</option>
+                <option>Photoshop</option>
+                <option>Priroda</option>option>
+                </select><br><br>
+
+            <label for="pocetnaCena">Početna cena na aukciji(din): </label><br>
+            <input type="number" maxlength="30" id="pocetnaCena" name="pocetnaCena"><br><br>
+
+            <label for="vremeTrajanja">Vreme trajanja aukcije(1-30 dana): </label><br>
+            <input type="number" maxlength="30" id="vremeTrajanja" name="vremeTrajanja"><br><br>
+
+            <a href="pravljenjeAukcijeFizickeSlikeSporedno.html" class="button">Napravi aukciju</a><br>
+        </form>
+    </body>
+</html>
