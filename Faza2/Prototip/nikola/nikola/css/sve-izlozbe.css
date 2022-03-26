@@ -32,12 +32,12 @@ label{
     color:#292F36;
 }
 
-button{
+/*button{
     height: 30px;
     width: 100px;
     border-radius: 10%;
     color:#1F2421;
-}
+}*/
 form{
     display: flex;
     justify-content: space-around;

@@ -22,12 +22,23 @@ $(document).ready(function(){
 
 function inicijalizujIzlozbu(){
     for (let i=1;i<nizSlika.length;i++){
-        $("#tabela_uredjivanje").append("<tr><td><img src='"+nizSlika[i].ime+"' class='noHover'></td><td>Opis slike<textarea cols='75' rows='10'></textarea>Redni broj slike u izložbi<input type='number' min='1' max='"+(nizSlika.length-1)+"'></td></tr>");
+        $("#tabela_uredjivanje").append("<tr><td><img src='"+nizSlika[i].ime+"' class='noHover'></td><td>Description<textarea cols='75' rows='10'></textarea>Ordinal number in exhibiton <input type='number' min='1' max='"+(nizSlika.length-1)+"'></td></tr>");
     }
 }
 
 function dodajSlike(){
-    
+    let provera = localStorage.getItem("slike");
+    if (provera){
+        localStorage.clear();
+        nizSlika=[
+            {
+                ime : "_",
+                redniBroj : "_",
+                opis : "_"
+            }
+        ];
+    }
+
     var table = document.getElementById("moja_tabela");
  	//iteriranje kroz redove
     for (var i = 1, row; row = table.rows[i]; i++) {

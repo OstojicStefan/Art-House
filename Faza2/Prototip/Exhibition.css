@@ -45,3 +45,65 @@ img:focus{
 .noHover{
     pointer-events: none;
 }
+
+#myAccHeader{
+    height: 400px;
+    width: 100%;
+    background-image: url("img/header_yellow.jpg");
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#profilePicture{
+    height: 250px;
+    width: 250px;
+    margin-top: 150px;
+    border: 5px solid black;
+}
+
+#myAuctions a{
+    color: black;
+}
+
+#myAuctions a:hover{
+    color: #ffc107;
+    text-decoration: none;
+}
+
+#myPictures img{
+    height: 250px;
+    width: 250px;
+    pointer-events: none;
+    margin-bottom: 60px;
+}
+
+#index_body{
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    height: 100%;
+}
+
+#index_logo img{
+    max-width:100%;
+    height:auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#index_login{
+    margin-top: 400px;
+}
+
+#index_login_dugme{
+    border-radius: 50px;
+    font-size: 36px;
+    padding: 10px 30px;
+    padding-top: 3px;
+    font-weight: bold;
+}
