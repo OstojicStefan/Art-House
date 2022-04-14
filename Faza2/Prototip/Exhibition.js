@@ -43,6 +43,10 @@ function dodajSlike(){
  	//iteriranje kroz redove
     for (var i = 1, row; row = table.rows[i]; i++) {
         if (i==4){
+            if (nizSlika.length==1){
+                alert("Morate odabrati slike za svoju izložbu");
+                return;
+            }
             localStorage.setItem("slike", JSON.stringify(nizSlika));
             window.location.href="myExhibition.html";
             return;
@@ -68,4 +72,13 @@ function dodajSlike(){
     }
 
     localStorage.setItem("slike", JSON.stringify(nizSlika));
+}
+
+function kreirajIzlozbu(){
+    let vreme = document.getElementById("vreme_izlozbe");
+    if (vreme.value == ''){
+        alert("Morate odabrati vreme izložbe");
+        return;
+    }
+    window.location.href='nikola/nikola/pages/sve-izlozbe.html';
 }
