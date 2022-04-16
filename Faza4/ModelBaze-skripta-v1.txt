@@ -1,0 +1,218 @@
+
+CREATE TABLE Administrator
+(
+	IDUser               INTEGER NOT NULL
+);
+
+ALTER TABLE Administrator
+ADD CONSTRAINT XPKAdministrator PRIMARY KEY (IDUser);
+
+CREATE TABLE Auction
+(
+	IDAuc                INTEGER NOT NULL,
+	Name                 VARCHAR(30) NOT NULL,
+	Description          VARCHAR(512) NULL,
+	Author               VARCHAR(30) NOT NULL,
+	Year                 INTEGER NOT NULL,
+	IDIm                 INTEGER NOT NULL,
+	IDTag                INTEGER NOT NULL,
+	Price                DECIMAL(10,3) NOT NULL,
+	Duration             INTEGER NOT NULL,
+	IsActive             CHAR NOT NULL,
+	Owner                INTEGER NOT NULL,
+	ViewCount            INTEGER NOT NULL,
+	HighestBidder        INTEGER NULL
+);
+
+ALTER TABLE Auction
+ADD CONSTRAINT XPKAuction PRIMARY KEY (IDAuc);
+
+CREATE TABLE Bid
+(
+	IDUser               INTEGER NOT NULL,
+	IDAuc                INTEGER NOT NULL,
+	IdBid                INTEGER NOT NULL,
+	Price                DECIMAL(10,3) NOT NULL
+);
+
+ALTER TABLE Bid
+ADD CONSTRAINT XPKBid PRIMARY KEY (IdBid);
+
+CREATE TABLE Bot
+(
+	MaxPrice             DECIMAL(10,3) NOT NULL,
+	IDUser               INTEGER NOT NULL,
+	IDAuc                INTEGER NOT NULL
+);
+
+ALTER TABLE Bot
+ADD CONSTRAINT XPKBot PRIMARY KEY (IDUser,IDAuc);
+
+CREATE TABLE Exhibition
+(
+	IDExh                INTEGER NOT NULL,
+	ImageNumber          INTEGER NOT NULL,
+	Song                 VARCHAR(256) NULL,
+	FlagDonations        CHAR NOT NULL,
+	AccumulatedDonations INTEGER NULL,
+	Date                 TIMESTAMP NOT NULL,
+	IsActive             CHAR NOT NULL,
+	IDUser               INTEGER NOT NULL,
+	Rating               DECIMAL() NOT NULL
+);
+
+ALTER TABLE Exhibition
+ADD CONSTRAINT XPKExhibition PRIMARY KEY (IDExh);
+
+CREATE TABLE Image
+(
+	IDIm                 INTEGER NOT NULL,
+	Image                VARBINARY NOT NULL,
+	IDUser               INTEGER NOT NULL
+);
+
+ALTER TABLE Image
+ADD CONSTRAINT XPKImage PRIMARY KEY (IDIm);
+
+CREATE TABLE ImageOnExhibition
+(
+	IDExh                INTEGER NOT NULL,
+	IDIm                 INTEGER NOT NULL,
+	Description          VARCHAR(512) NULL,
+	OrdinalNumber        INTEGER NOT NULL
+);
+
+ALTER TABLE ImageOnExhibition
+ADD CONSTRAINT XPKImageOnExhibition PRIMARY KEY (IDExh,IDIm);
+
+CREATE TABLE ImageWithTags
+(
+	IDIm                 INTEGER NOT NULL,
+	IDTag                INTEGER NOT NULL
+);
+
+ALTER TABLE ImageWithTags
+ADD CONSTRAINT XPKImageWithTags PRIMARY KEY (IDIm,IDTag);
+
+CREATE TABLE Message
+(
+	IDMes                INTEGER NOT NULL,
+	IDUser               INTEGER NOT NULL,
+	IDExh                INTEGER NOT NULL,
+	Text                 VARCHAR(128) NOT NULL
+);
+
+ALTER TABLE Message
+ADD CONSTRAINT XPKMessage PRIMARY KEY (IDMes);
+
+CREATE TABLE Moderator
+(
+	IDUser               INTEGER NOT NULL
+);
+
+ALTER TABLE Moderator
+ADD CONSTRAINT XPKModerator PRIMARY KEY (IDUser);
+
+CREATE TABLE Physical
+(
+	IDAuc                INTEGER NOT NULL,
+	Location             VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE Physical
+ADD CONSTRAINT XPKPhysical PRIMARY KEY (IDAuc);
+
+CREATE TABLE Registred
+(
+	IDUser               INTEGER NOT NULL,
+	Username             VARCHAR(30) NOT NULL,
+	E_mail               VARCHAR(30) NOT NULL,
+	Balance              DECIMAL(10,3) NULL,
+	CardNmber            INTEGER NULL,
+	Password             VARCHAR(30) NOT NULL,
+	IsBanned             CHAR NOT NULL,
+	CCV                  INTEGER NULL,
+	FlagHotAuctions      CHAR NOT NULL,
+	FlagNotifyEnding     CHAR NOT NULL
+);
+
+ALTER TABLE Registred
+ADD CONSTRAINT XPKRegistred PRIMARY KEY (IDUser);
+
+CREATE TABLE Tag
+(
+	IDTag                INTEGER NOT NULL,
+	Name                 VARCHAR(40) NOT NULL
+);
+
+ALTER TABLE Tag
+ADD CONSTRAINT XPKTag PRIMARY KEY (IDTag);
+
+CREATE TABLE Virtual
+(
+	IDAuc                INTEGER NOT NULL
+);
+
+ALTER TABLE Virtual
+ADD CONSTRAINT XPKVirtual PRIMARY KEY (IDAuc);
+
+ALTER TABLE Administrator
+ADD CONSTRAINT R_1 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser)
+		ON DELETE CASCADE;
+
+ALTER TABLE Auction
+ADD CONSTRAINT R_7 FOREIGN KEY (IDIm, IDTag) REFERENCES ImageWithTags (IDIm, IDTag);
+
+ALTER TABLE Auction
+ADD CONSTRAINT R_12 FOREIGN KEY (Owner) REFERENCES Registred (IDUser);
+
+ALTER TABLE Auction
+ADD CONSTRAINT R_26 FOREIGN KEY (HighestBidder) REFERENCES Registred (IDUser);
+
+ALTER TABLE Bid
+ADD CONSTRAINT R_14 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser);
+
+ALTER TABLE Bid
+ADD CONSTRAINT R_15 FOREIGN KEY (IDAuc) REFERENCES Auction (IDAuc);
+
+ALTER TABLE Bot
+ADD CONSTRAINT R_22 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser);
+
+ALTER TABLE Bot
+ADD CONSTRAINT R_23 FOREIGN KEY (IDAuc) REFERENCES Auction (IDAuc);
+
+ALTER TABLE Exhibition
+ADD CONSTRAINT R_13 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser);
+
+ALTER TABLE Image
+ADD CONSTRAINT R_19 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser);
+
+ALTER TABLE ImageOnExhibition
+ADD CONSTRAINT R_10 FOREIGN KEY (IDExh) REFERENCES Exhibition (IDExh);
+
+ALTER TABLE ImageOnExhibition
+ADD CONSTRAINT R_11 FOREIGN KEY (IDIm) REFERENCES Image (IDIm);
+
+ALTER TABLE ImageWithTags
+ADD CONSTRAINT R_5 FOREIGN KEY (IDIm) REFERENCES Image (IDIm);
+
+ALTER TABLE ImageWithTags
+ADD CONSTRAINT R_6 FOREIGN KEY (IDTag) REFERENCES Tag (IDTag);
+
+ALTER TABLE Message
+ADD CONSTRAINT R_24 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser);
+
+ALTER TABLE Message
+ADD CONSTRAINT R_25 FOREIGN KEY (IDExh) REFERENCES Exhibition (IDExh);
+
+ALTER TABLE Moderator
+ADD CONSTRAINT R_2 FOREIGN KEY (IDUser) REFERENCES Registred (IDUser)
+		ON DELETE CASCADE;
+
+ALTER TABLE Physical
+ADD CONSTRAINT R_9 FOREIGN KEY (IDAuc) REFERENCES Auction (IDAuc)
+		ON DELETE CASCADE;
+
+ALTER TABLE Virtual
+ADD CONSTRAINT R_8 FOREIGN KEY (IDAuc) REFERENCES Auction (IDAuc)
+		ON DELETE CASCADE;
