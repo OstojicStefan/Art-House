@@ -44,7 +44,7 @@ function dodajSlike(){
     for (var i = 1, row; row = table.rows[i]; i++) {
         if (i==4){
             if (nizSlika.length==1){
-                alert("Morate odabrati slike za svoju izložbu");
+                alert("You have to select at least one image to create an exhibition");
                 return;
             }
             localStorage.setItem("slike", JSON.stringify(nizSlika));
@@ -77,7 +77,7 @@ function dodajSlike(){
 function kreirajIzlozbu(){
     let vreme = document.getElementById("vreme_izlozbe");
     if (vreme.value == ''){
-        alert("Morate odabrati vreme izložbe");
+        alert("Please select the time of your exhibition");
         return;
     }
     window.location.href='nikola/nikola/pages/sve-izlozbe.html';
