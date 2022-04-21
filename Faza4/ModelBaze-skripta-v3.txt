@@ -68,7 +68,8 @@ CREATE TABLE Image
 (
 	IDIm                 INTEGER NOT NULL,
 	Image                VARBINARY NOT NULL,
-	IDUser               INTEGER NOT NULL
+	IDUser               INTEGER NOT NULL,
+	IsPhysical           CHAR NULL
 );
 
 ALTER TABLE Image
