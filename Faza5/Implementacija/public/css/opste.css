@@ -1,0 +1,23 @@
+.button {
+    color: white;
+    text-decoration: none;
+    padding: 2px;
+    background-color: #ffc107;
+    border-radius: 5px;
+}
+
+.center {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+
+.center-top{
+  position: absolute;
+  width: 600px;
+  height: 200px;
+  z-index: 15;
+  top: 22%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+}
