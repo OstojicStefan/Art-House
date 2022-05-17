@@ -1,4 +1,5 @@
-<!-- Bogdan Arsic-->
+<!-- Bogdan Arsic 0329/19-->
+<!-- Stranica za login-ovanje korisnika-->
 @extends('template_defined')
 
 @section('content')

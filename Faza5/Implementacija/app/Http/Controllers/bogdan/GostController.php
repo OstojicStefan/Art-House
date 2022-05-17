@@ -1,5 +1,6 @@
 <?php
-
+// Bogdan Arsic 329/19
+// kontroler koji pokriva funkcionalnost gosta
 
 namespace App\Http\Controllers\bogdan;
 
@@ -9,9 +10,14 @@ use Illuminate\Http\Request;
 
 class GostController extends Controller
 {
+    // kontroler za login
     public function login(){
-        $tagovi = SviTagovi::all();
-        
-        return view('bogdan/login', ['tagovi' => $tagovi]);
+        return view('bogdan/login');
     }
+
+    // kontroler za register
+    public function register(){
+        return view('bogdan/register');
+    }
+
 }
