@@ -3,18 +3,18 @@
 @extends('template_defined')
 
 @section('content')
+<script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">
                 <div class="col-sm-12 center">
-                    <form name = "tagoviZaUklanjanje" action = "removeTags2" method = "get">
-                           @if(!empty($povratna)) 
-                               <label style="color:blue;"> Uspeh! </label><br>
-                            @endif
+                    <form name = "tagoviZaUklanjanje" action = "removeTags2" method = "post" id = "tagoviZaUklanjanje">
+                        @csrf
+                        <label id="RemoveTagsGreska"></label><br>
                         <label>Select the tags to be removed(ctrl+click): </label><br>
-                        <select multiple="multiple" name="tagovi[]" id="tagovi" size = 15>
+                        <select multiple="multiple" name="tagovi[]" id="tagovi" size = 15 id = "tagovi">
                             @foreach ($svitagovi as $tag)
                                 <option value = "{{$tag->IDTag}}">{{$tag->Name}}</option>
                             @endforeach
-                            </select><br><br>
+                        </select><br><br>
                             <input type = "submit" value = "Delete tags">  </input><br>
                     </form>
                 </div>

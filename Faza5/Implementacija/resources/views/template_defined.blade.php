@@ -3,6 +3,7 @@
 @section('title', 'Etf vesti') 
 
 @section('header')
+@auth
             <div class="row">
                 <div class="col-sm-12">
                     <nav class="navbar navbar-expand-sm heder">
@@ -58,31 +59,65 @@
                             <a onclick="odjaviKorisnika()" class="dropdown-item" href="logovanje.html">Log out</a>
                             </div>
                         </div>
-     
+                        @if((Session::get('privilegije') == 'Administrator') || (Session::get('privilegije') == 'Moderator'))
                         <li class="nav-item dropdown">
                          <a href="" class="nav-link">
                              <div class="dropdown btn-warning">
                                  <button id="recepti_dugme" class="dropbtn btn-warning">Admin privileges</button>
                                  <div class="dropdown-content">
+                                @if(Session::get('privilegije') == 'Administrator')
                                      <a href="unapredjivanjeKorisnickogNalogaGlavno.html">Upgrade roles</a>
                                      <a href="../dimitrije/ukidanjeModeratora.html">Downgrade roles</a>
+                                @endif
                                      <a href="../dimitrije/banovanjeKorisnika.html">Ban user</a>
                                      <a href="../dimitrije/unbanovanjeKorisnika.html">Unban user</a>
                                      <a href="dodavanjeTagovaGlavno.html">Create tags</a>
                                      <a href="brisanjeTagovaGlavno.html">Remove tags</a>
+                                @if(Session::get('privilegije') == 'Administrator')
                                      <a href="../dimitrije/brisanjeKorisnickihNaloga.html">Delete user accounts</a>
+                                @endif
                                  </div>
                              </div>
                          </a>
                          </li>
+                         @endif
      
                         </ul>
                        </nav>
                 </div> 
             </div>
+@endauth
+
+@guest
+<div class="row">
+                <div class="col-sm-12">
+                    <nav class="navbar navbar-expand-sm heder">
+                        <a class="navbar-brand" href="../index.html">
+                        <img src="{{url('slike/logo.png')}}" alt="Logo" class="noHover">
+                        </a>
+                        <ul class="navbar-nav centriraj">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Home</a>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="../nikola/nikola/pages/sve-aukcije.html">Auctions</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="../nikola/nikola/pages/sve-izlozbe.html">Exhibitions</a>
+                        </li>
+     
+                        <li class="nav-item">
+                            <a class="nav-link" href="">About us</a>
+                        </li>
+                        </ul>
+                       </nav>
+                </div> 
+            </div>
+@endguest
 @endsection
 
 @section('footer')
-    <hr>
-    <center style = "background-color:#ffc107;">Copyright 2020</center>
+<hr>
+<center style = "background-color:#ffc107;">Copyright 2020</center>
 @endsection
