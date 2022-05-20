@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SviKorisnici extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'registred';
     protected $primaryKey = 'IDUser';

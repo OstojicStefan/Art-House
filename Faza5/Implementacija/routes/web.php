@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/login',[App\Http\Controllers\bogdan\GostController::class,'login'] )->name('login');
 Route::post('/loginSubmit',[App\Http\Controllers\bogdan\GostController::class,'loginSubmit'] )->name('loginSubmit');
 Route::get('/register',[App\Http\Controllers\bogdan\GostController::class,'register'] )->name('register');
+Route::post('/registerSubmit',[App\Http\Controllers\bogdan\GostController::class,'registerSubmit'] )->name('registerSubmit');
 Route::get('/addTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTags'] )->name('addTags');
 Route::get('/removeTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'removeTags'] )->name('removeTags');
 Route::get('/createAuctionVirtual',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionVirtual'] )->name('createAuctionVirtual');
