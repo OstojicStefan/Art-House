@@ -24,8 +24,12 @@ Route::post('/registerSubmit',[App\Http\Controllers\bogdan\GostController::class
 Route::get('/addTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTags'] )->name('addTags');
 Route::get('/removeTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'removeTags'] )->name('removeTags');
 Route::get('/createAuctionVirtual',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionVirtual'] )->name('createAuctionVirtual');
+Route::post('/createAuctionVirtualSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionVirtualSubmit'] )->name('createAuctionVirtualSubmit');
 Route::get('/createAuctionPhysical',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionPhysical'] )->name('createAuctionPhysical');
 Route::post('/removeTags2',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'removeTags2'] )->name('removeTags2');
 Route::post('/addTagsSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTagsSubmit'] )->name('addTagsSubmit');
 Route::get('/upgradeUserRoles',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'upgradeUserRoles'] )->name('upgradeUserRoles');
 Route::post('/upgradeUserRolesSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'upgradeUserRolesSubmit'] )->name('upgradeUserRolesSubmit');
+Route::get('/test1',[App\Http\Controllers\bogdan\GostController::class,'test1'] )->name('test1');
+Route::get('/test2',[App\Http\Controllers\bogdan\GostController::class,'test2'] )->name('test2');
+Route::get('/test3',[App\Http\Controllers\bogdan\GostController::class,'test3'] )->name('test3');

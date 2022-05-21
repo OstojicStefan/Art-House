@@ -9,7 +9,10 @@ use App\Models\bogdan\SviTagovi;
 use App\Models\bogdan\SviModeratori;
 use App\Models\bogdan\SviAdministratori;
 use App\Models\bogdan\SviKorisnici;
+use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class GostController extends Controller
 {
@@ -28,21 +31,45 @@ class GostController extends Controller
             'min' => 'Field :attribute has to be at least :min characters'
         ]);
 
-        if(!auth()->attempt($request->only('username','password'))){
-            return back()->with('status','Bad credentials!');
+        // if(!auth()->attempt($request->only('username','password'))){
+           // return back()->with('status','Bad credentials!');
+        //}
+
+
+
+        $id = -1;
+        $svi = SviKorisnici::all();
+        foreach ($svi as  $jedan) {
+            if($request['username'] == $jedan->Username){
+                $id = $jedan->IDUser;
+                break;
+            }
+        }
+        if($id == -1){
+            return back()->with('status',"Username doesn't exist!");
+        }
+        $lozinka = SviKorisnici::find($id)->Password;
+        if($lozinka != $request['password']){
+            return back()->with('status',"Password is not correct!");
         }
 
-        $isModerator = SviModeratori::find(auth()->user()->IDUser);
-        $isAdministrator = SviAdministratori::find(auth()->user()->IDUser);
+        Session::put('IDUser',$id);
+        Session::put('Username',$request['username']);
+        Session::put('E_mail',$request['email']);
+
+
+        $isModerator = SviModeratori::find($id);
+        $isAdministrator = SviAdministratori::find($id);
 
         if(!empty($isModerator)){
-            $request->session()->put('privilegije','Moderator');
+            Session::put('privilegije','Moderator');
         }else if(!empty($isAdministrator)){
-            $request->session()->put('privilegije','Administrator');
+            Session::put('privilegije','Administrator');
         }else{
-            $request->session()->put('privilegije','Obicni');
+            Session::put('privilegije','Obicni');
         }
-        return view('bogdan/register');
+        
+       return redirect()->route('addTags');
     }
 
     // kontroler za register
@@ -104,6 +131,23 @@ class GostController extends Controller
 
     }
 
+    public function test1(){
+        Session::flush();
+        return "flushed";
+    }   
+
+    public function test2(){
+        if(empty(Session::get('privilegije'))){
+            return "Empty";
+        }
+        return Session::get('privilegije');
+    }
+
+    public function test3(){
+        $slike = SveSlike::all();
+        return view('bogdan/TestView', compact('slike'));
+        //return view('bogdan/TestView',['slike' => $slike]);
+    }
 }
 
 

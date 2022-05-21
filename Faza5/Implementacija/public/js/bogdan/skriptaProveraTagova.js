@@ -96,7 +96,15 @@ function registracijaProvera(){
     }
 }
 
+function createAuctionProvera(){
+    let imeSlike = document.getElementById('imeSlike').value;
+    let opisniTekst = document.getElementById('opisniTekst').value;
+    let Autor = document.getElementById('Autor').value;
+    let godinaSlikanja = document.getElementById('godinaSlikanja').value;
+    
 
+    
+}
 
 $(function(){
     $("#registerform").on('submit', function(e){

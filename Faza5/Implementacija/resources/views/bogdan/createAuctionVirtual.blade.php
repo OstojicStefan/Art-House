@@ -3,9 +3,11 @@
 @extends('template_defined')
 
 @section('content')
+<script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">
                 <div class="col-sm-12 center">
-                    <form>
+                <form name = "addvirtualauction" action = "{{route('createAuctionVirtualSubmit')}}" method = "post" id = "addvirtualauction" enctype="multipart/form-data">
+                    @csrf
                         <label for="imeSlike">Image name: </label><br>
                         <input type="text" maxlength="30" id="imeSlike" name="imeSlike"><br><br>
             
@@ -23,14 +25,9 @@
             
                         <label>Tags(1-5): </label><br>
                         <select name="predmeti"  multiple = 5>
-                            <option>Modern</option>
-                            <option>Portrait</option>
-                            <option>Abstract</option>
-                            <option>Scenery</option>
-                            <option>Photoshop</option>
-                            <option>Nature</option>
-                            <option>Family</option>
-                            <option>Animals</option>
+                            @foreach ($svitagovi as $tag)
+                                <option value = "{{$tag->IDTag}}">{{$tag->Name}}</option>
+                            @endforeach
                             </select><br><br>
             
                             <label for="pocetnaCena">Starting price on auction(din): </label><br>
@@ -38,8 +35,8 @@
                 
                             <label for="vremeTrajanja">Austion duration(1-30 days): </label><br>
                             <input type="number" maxlength="30" id="vremeTrajanja" name="vremeTrajanja"><br><br>
-                
-                            <a href="pravljenjeAukcijeFizickeSlikeSporedno.html" class="button">Create auction</a><br><br>
+
+                            <input type = "submit" value = "Create auction" onclick= "createAuctionProvera()">  </input><br>
                     </form>
                 </div>
             </div>

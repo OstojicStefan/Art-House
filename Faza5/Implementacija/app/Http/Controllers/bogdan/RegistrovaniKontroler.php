@@ -8,6 +8,7 @@ use App\Models\bogdan\SviTagovi;
 use App\Models\bogdan\SviKorisnici;
 use App\Models\bogdan\SviAdministratori;
 use App\Models\bogdan\SviModeratori;
+use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
 
 
@@ -51,7 +52,28 @@ class RegistrovaniKontroler extends Controller
 
     // dodavanje aukcije virtuelne slike
     public function createAuctionVirtual(){
-        return view('bogdan/createAuctionVirtual');
+        $svitagovi = SviTagovi::all();
+
+        return view('bogdan/createAuctionVirtual', ['svitagovi' => $svitagovi]);
+    }
+
+    // submit dugme na stranici dodavanja aukcije virtuelne slike
+    public function createAuctionVirtualSubmit(Request $request){
+
+    //dd($request->file());
+
+        $size = $request->file('myfile')->getSize();
+        $name = uniqid(). '.'.  $request->file('myfile')->getClientOriginalExtension();
+
+        $request->file('myfile')->storeAs('public/images/', $name);
+
+        $novi = new SveSlike();
+        $novi->IDUser = '1';
+        $novi->Imagee = $name;
+        $novi->IsPhysical = '1';
+        $novi->save();
+
+        return redirect()->back();
     }
 
     // dodavanje aukcije fizicke slike
@@ -133,4 +155,5 @@ class RegistrovaniKontroler extends Controller
 
         return response()->json(['status'=>1, 'msg'=>$povr]);
     }
+
 }

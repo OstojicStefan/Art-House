@@ -33,7 +33,7 @@
                         <input type="password" maxlength="3" id="ccvKartice" name="ccvKartice"><br>
                         <label id="ccvKarticeGreskaRegistracija"></label><br>
             
-                        <label for="iznos">Amount to be transferred(optional): </label> <br>
+                        <label for="iznos">Amount to be transferred(din)(optional): </label> <br>
                         <input type="text" maxlength="3" id="iznos" name="iznos" value = "0"><br>
                         <label id="iznosGreskaRegistracija"></label><br>
             

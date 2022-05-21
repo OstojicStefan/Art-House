@@ -3,7 +3,7 @@
 @section('title', 'Etf vesti') 
 
 @section('header')
-@auth
+@if((Session::get('privilegije') == 'Administrator') || (Session::get('privilegije') == 'Moderator') || (Session::get('privilegije') == 'Obicni'))
             <div class="row">
                 <div class="col-sm-12">
                     <nav class="navbar navbar-expand-sm heder">
@@ -86,9 +86,9 @@
                        </nav>
                 </div> 
             </div>
-@endauth
+@endif
 
-@guest
+@if(empty(Session::get('privilegije')) || Session::get('privilegije')== 'gost')
 <div class="row">
                 <div class="col-sm-12">
                     <nav class="navbar navbar-expand-sm heder">
@@ -114,7 +114,7 @@
                        </nav>
                 </div> 
             </div>
-@endguest
+@endif
 @endsection
 
 @section('footer')

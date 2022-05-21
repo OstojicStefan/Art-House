@@ -16,7 +16,7 @@ class AutorModel extends Authenticatable
     
     protected $fillable = [
         'Username',
-        'E_mail',
+        'E-mail',
         'Balance',
         'CardNmber',
         'Password',
@@ -25,7 +25,6 @@ class AutorModel extends Authenticatable
         'FlagHotAuctions',
         'FlagNotifyEnding'
     ];
-
     public function getAuthPassword()
     {
         return $this->Password;
