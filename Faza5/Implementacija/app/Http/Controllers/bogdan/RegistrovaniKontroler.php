@@ -6,10 +6,15 @@ namespace App\Http\Controllers\bogdan;
 use App\Http\Controllers\Controller;
 use App\Models\bogdan\SviTagovi;
 use App\Models\bogdan\SviKorisnici;
+use App\Models\bogdan\SviTagoviWithImage;
 use App\Models\bogdan\SviAdministratori;
+use App\Models\bogdan\SveAukcije;
+use App\Models\bogdan\SveVirtuelne;
+use App\Models\bogdan\SveFizicke;
 use App\Models\bogdan\SviModeratori;
 use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 class RegistrovaniKontroler extends Controller
@@ -58,10 +63,10 @@ class RegistrovaniKontroler extends Controller
     }
 
     // submit dugme na stranici dodavanja aukcije virtuelne slike
-    public function createAuctionVirtualSubmit(Request $request){
+    public function createAuctionSubmit(Request $request){
 
     //dd($request->file());
-
+/*
         $size = $request->file('myfile')->getSize();
         $name = uniqid(). '.'.  $request->file('myfile')->getClientOriginalExtension();
 
@@ -72,13 +77,81 @@ class RegistrovaniKontroler extends Controller
         $novi->Imagee = $name;
         $novi->IsPhysical = '1';
         $novi->save();
+*/
+        //ubacivanje u Image:
+        $novi = new SveSlike();
+        $path = $request->file('myfile')->getRealPath();
+        $logo = file_get_contents($path);
+        $base64 = base64_encode($logo);
+        $novi->Imagee = $base64;
+        if($request['PhysicalVirtual'] == 'virtual'){
+            $novi->IsPhysical = '0';
+        }else{
+            $novi->IsPhysical = '1';
+        }
+        $novi->IDUser = $request->session()->get('IDUser');
+        $novi->save();
+
+        // ubacivanje u ImageWithTags
+        $idSlike =  $novi->IDIm;
+        $tagovi = $request->input('tagoviCA');
+        if(!empty($tagovi)){
+            $broj = 0;
+            foreach ($tagovi as $tag){
+                $jedan = SviTagovi::find($tag);
+                if(!empty($jedan)){
+                   $ivt = new SviTagoviWithImage();
+                   $ivt->IDIm = $idSlike;
+                   $ivt->IDTag = $jedan->IDTag;
+                   $ivt->save();
+                   if(++$broj == 5) break;
+                }
+            }
+        }
+
+        //ubacivanje u Auction
+        $vremeTrajanja = $request['vremeTrajanja'];
+        $pocetnaCena = $request['pocetnaCena'];
+        $godinaSlikanja = $request['godinaSlikanja'];
+        $Autor = $request['Autor'];
+        $opisniTekst = $request['opisniTekst'];
+        $imeSlike = $request['imeSlike'];
+
+        $novaAukcija = new SveAukcije();
+        $novaAukcija->Name = $imeSlike;
+        $novaAukcija->Description = $opisniTekst;
+        $novaAukcija->Author = $Autor;
+        $novaAukcija->Year = $godinaSlikanja;
+        $novaAukcija->IDIm = $idSlike;
+        $novaAukcija->Price = $pocetnaCena;
+        $novaAukcija->Duration = $vremeTrajanja;
+        $novaAukcija->IsActive = '1';
+        $novaAukcija->Owner = $request->session()->get('IDUser');
+        $novaAukcija->ViewCount = '0';
+        $novaAukcija->save();
+
+        $IDAucNew = $novaAukcija->IDAuc;
+        //ubacivanje u Virtuall ili Physucal
+        if($request['PhysicalVirtual'] == 'virtual'){
+            $novaVirt = new SveVirtuelne();
+            $novaVirt->IDAuc = $IDAucNew;
+            $novaVirt->save();
+        }else{
+            $novaFiz = new SveFizicke();
+            $novaFiz->IDAuc = $IDAucNew;
+            $novaFiz->Location = $request['lokacijaSlike'];
+            $novaFiz->save();
+        }
+
 
         return redirect()->back();
     }
 
     // dodavanje aukcije fizicke slike
     public function createAuctionPhysical(){
-        return view('bogdan/createAuctionPhysical');
+        $svitagovi = SviTagovi::all();
+
+        return view('bogdan/createAuctionPhysical', ['svitagovi' => $svitagovi]);
     }
 
     // submit dugme za stranicu uklanjanja tagova

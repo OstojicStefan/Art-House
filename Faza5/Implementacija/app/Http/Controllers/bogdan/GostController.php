@@ -57,7 +57,6 @@ class GostController extends Controller
         Session::put('Username',$request['username']);
         Session::put('E_mail',$request['email']);
 
-
         $isModerator = SviModeratori::find($id);
         $isAdministrator = SviAdministratori::find($id);
 
@@ -131,8 +130,8 @@ class GostController extends Controller
 
     }
 
-    public function test1(){
-        Session::flush();
+    public function test1(Request $request){
+        $request->session()->flush();
         return "flushed";
     }   
 

@@ -4,6 +4,6 @@
 
 @section('content')
 @foreach ($slike as $slika)
-{{$slika->Imagee}} <img src = "{{asset('storage/images/'.$slika->Imagee)}}">
+<img src="data:image/jpg;base64,{{ chunk_split($slika->Imagee) }}">
 @endforeach
 @endsection

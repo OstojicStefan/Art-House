@@ -24,7 +24,7 @@ Route::post('/registerSubmit',[App\Http\Controllers\bogdan\GostController::class
 Route::get('/addTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTags'] )->name('addTags');
 Route::get('/removeTags',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'removeTags'] )->name('removeTags');
 Route::get('/createAuctionVirtual',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionVirtual'] )->name('createAuctionVirtual');
-Route::post('/createAuctionVirtualSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionVirtualSubmit'] )->name('createAuctionVirtualSubmit');
+Route::post('/createAuctionSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionSubmit'] )->name('createAuctionSubmit');
 Route::get('/createAuctionPhysical',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'createAuctionPhysical'] )->name('createAuctionPhysical');
 Route::post('/removeTags2',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'removeTags2'] )->name('removeTags2');
 Route::post('/addTagsSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTagsSubmit'] )->name('addTagsSubmit');
