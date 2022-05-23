@@ -15,6 +15,7 @@ use App\Models\bogdan\SviModeratori;
 use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Exception;
 
 
 class RegistrovaniKontroler extends Controller
@@ -26,7 +27,7 @@ class RegistrovaniKontroler extends Controller
 
     // submit dugme za dodavanje taga
     public function addTagsSubmit(Request $request){
-        $regex = '/^\w{3,40}$/';
+        $regex = '/^[a-zA-Z0-9_ ]{3,30}$/';
         $povratna = "<div style = 'color:red'>Tag is not in right format!</div>";
         if(!empty($request['imeTaga'])){
             $svi = SviTagovi::all();
@@ -78,6 +79,42 @@ class RegistrovaniKontroler extends Controller
         $novi->IsPhysical = '1';
         $novi->save();
 */
+        // pokupljanje informacija iz zahteva
+        $vremeTrajanja = $request['vremeTrajanja'];
+        $pocetnaCena = $request['pocetnaCena'];
+        $godinaSlikanja = $request['godinaSlikanja'];
+        $Autor = $request['Autor'];
+        $opisniTekst = $request['opisniTekst'];
+        $imeSlike = $request['imeSlike'];
+        $physicalVirtual = $request['PhysicalVirtual'];
+
+        //definisanje regex-a
+        $vremeTrajanjaRegex = '/^\d+$/';
+        $pocetnaCenaRegex = '/^\d+$/';
+        $locationRegex = '/^[a-zA-Z0-9_ ]{4,50}$/';
+        $godinaSlikanjaRegex = '/^\d+$/';
+        $AutorRegex = '/^[a-zA-Z0-9_ ]{3,30}$/';
+        $opisniTekstRegex = '/^.{10,512}$/';
+        $imeSlikeRegex = '/^[a-zA-Z0-9_ ]{4,30}$/';
+
+        // provera podataka iz zahteva
+        if(preg_match($vremeTrajanjaRegex, $vremeTrajanja) && preg_match($pocetnaCenaRegex, $pocetnaCena) &&
+        preg_match($godinaSlikanjaRegex, $godinaSlikanja) && preg_match($AutorRegex, $Autor) &&
+        preg_match($opisniTekstRegex, $opisniTekst) && preg_match($imeSlikeRegex, $imeSlike) && 
+        $godinaSlikanja >= 0  && $godinaSlikanja <= 2022 && $vremeTrajanja > 0 && $vremeTrajanja <=30 &&
+        $pocetnaCena > 0 && $pocetnaCena < 10000000000.000){
+
+        if(empty($request->file('myfile'))) {
+            return back()->with('status','Server Error: Input file not in right format!');
+        }
+        //return "yoyoyooyoy".$request->file('myfile')->getSize();
+        if(($request->file('myfile')->getClientOriginalExtension()!= 'jpg' &&
+        $request->file('myfile')->getClientOriginalExtension() != 'png') ||
+        $request->file('myfile')->getSize() > 1048576 || empty($request->file('myfile')->getSize()))
+        {
+            return back()->with('status','Server Error: Input file not in right format!');
+        }
+
         //ubacivanje u Image:
         $novi = new SveSlike();
         $path = $request->file('myfile')->getRealPath();
@@ -107,15 +144,12 @@ class RegistrovaniKontroler extends Controller
                    if(++$broj == 5) break;
                 }
             }
+        }else{
+            $novi->delete();
+            return back()->with('status','Server Error: No tags were choosen!');
         }
 
         //ubacivanje u Auction
-        $vremeTrajanja = $request['vremeTrajanja'];
-        $pocetnaCena = $request['pocetnaCena'];
-        $godinaSlikanja = $request['godinaSlikanja'];
-        $Autor = $request['Autor'];
-        $opisniTekst = $request['opisniTekst'];
-        $imeSlike = $request['imeSlike'];
 
         $novaAukcija = new SveAukcije();
         $novaAukcija->Name = $imeSlike;
@@ -144,7 +178,11 @@ class RegistrovaniKontroler extends Controller
         }
 
 
-        return redirect()->back();
+        return back()->with('status', "Success!");
+    }
+    else{
+        return back()->with('status','Server Error: Input data not in right format!');
+    }
     }
 
     // dodavanje aukcije fizicke slike
@@ -164,7 +202,12 @@ class RegistrovaniKontroler extends Controller
         foreach ($tagovi as $tag) {
             $jedan = SviTagovi::find($tag);
             if(!empty($jedan)){
-            $jedan->delete();
+                try {
+                    $jedan->delete();
+                } catch (Exception $e) {
+                    $svitagovi = SviTagovi::all();
+                    return response()->json(['svitagovi' => $svitagovi, 'povratna' => 2, 'status' => 2]);
+                }
             $povratna = 1;
             }
         }
@@ -228,5 +271,11 @@ class RegistrovaniKontroler extends Controller
 
         return response()->json(['status'=>1, 'msg'=>$povr]);
     }
+
+
+    public function logout(Request $request){
+        $request->session()->flush();
+        return redirect()->route('login');
+    }   
 
 }

@@ -130,11 +130,6 @@ class GostController extends Controller
 
     }
 
-    public function test1(Request $request){
-        $request->session()->flush();
-        return "flushed";
-    }   
-
     public function test2(){
         if(empty(Session::get('privilegije'))){
             return "Empty";
@@ -146,6 +141,18 @@ class GostController extends Controller
         $slike = SveSlike::all();
         return view('bogdan/TestView', compact('slike'));
         //return view('bogdan/TestView',['slike' => $slike]);
+    }
+
+    public function test4(){
+        $msg = "First line of text\nSecond line of text";
+
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
+
+        // send email
+        mail("ab190329d@student.etf.bg.ac.rs","My subject",$msg);
+
+        return "Uspeh";
     }
 }
 

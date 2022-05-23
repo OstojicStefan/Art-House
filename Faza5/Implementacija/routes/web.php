@@ -30,6 +30,7 @@ Route::post('/removeTags2',[App\Http\Controllers\bogdan\RegistrovaniKontroler::c
 Route::post('/addTagsSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'addTagsSubmit'] )->name('addTagsSubmit');
 Route::get('/upgradeUserRoles',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'upgradeUserRoles'] )->name('upgradeUserRoles');
 Route::post('/upgradeUserRolesSubmit',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'upgradeUserRolesSubmit'] )->name('upgradeUserRolesSubmit');
-Route::get('/test1',[App\Http\Controllers\bogdan\GostController::class,'test1'] )->name('test1');
+Route::get('/logout',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'logout'] )->name('logout');
 Route::get('/test2',[App\Http\Controllers\bogdan\GostController::class,'test2'] )->name('test2');
 Route::get('/test3',[App\Http\Controllers\bogdan\GostController::class,'test3'] )->name('test3');
+Route::get('/test4',[App\Http\Controllers\bogdan\GostController::class,'test4'] )->name('test4');

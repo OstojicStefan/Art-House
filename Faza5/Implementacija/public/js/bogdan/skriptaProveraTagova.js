@@ -6,7 +6,7 @@ $( document ).ready(function() {
 function proveriTag(){
 
     let tag = document.getElementById("imeTaga").value;
-    if(/^\w{3,39}$/.test(tag) == false){
+    if(/^[a-zA-Z0-9_ ]{3,40}$/.test(tag) == false){
         document.getElementById("imeTagaGreska").innerHTML = "<div style = 'color:red'>Tag has to be in required format!</div>";
         event.preventDefault();
     }
@@ -96,14 +96,99 @@ function registracijaProvera(){
     }
 }
 
+function test(){
+    alert("das");
+}
+
 function createAuctionProvera(){
+
+    document.getElementById("myfileGreska").innerHTML = "";
+    let povratna = 0;
+    //provera ekstenzije file-a
+    var fileInput = document.getElementById('myfile');  
+    if(fileInput.files[0] != null){
+    var filePath = fileInput.value;
+    var allowedExtensions =/(\.jpg|\.png)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        document.getElementById("myfileGreska").innerHTML = "<div style = 'color:red'>Invalid file type(.jpg and .png are supported!</div>";
+        fileInput.value = '';
+        povratna++;
+    }
+    else if(fileInput.files[0].size > 1048576){
+        document.getElementById("myfileGreska").innerHTML = "<div style = 'color:red'>Invalid file size(must be less or equal to 1MB)!</div>";
+        fileInput.value = '';
+        povratna++;
+    }}
+    else{
+        document.getElementById("myfileGreska").innerHTML = "<div style = 'color:red'>Image is required!</div>";
+    }
+
     let imeSlike = document.getElementById('imeSlike').value;
     let opisniTekst = document.getElementById('opisniTekst').value;
     let Autor = document.getElementById('Autor').value;
     let godinaSlikanja = document.getElementById('godinaSlikanja').value;
-    
+    let PhysicalVirtual = document.getElementById('PhysicalVirtual').value;
+    let vremeTrajanja = document.getElementById('vremeTrajanja').value;
+    let pocetnaCena = document.getElementById('pocetnaCena').value;
+    let tagoviCA = document.querySelector("#tagoviCA").options;
+
+    document.getElementById("imeSlikeGreska").innerHTML = " ";
+    document.getElementById("opisniTekstGreska").innerHTML = " ";
+    document.getElementById("AutorGreska").innerHTML = " ";
+    document.getElementById("godinaSlikanjaGreska").innerHTML = " ";
+    if(PhysicalVirtual == 'physical')
+        document.getElementById("lokacijaSlikeGreska").innerHTML = " ";
+    document.getElementById("vremeTrajanjaGreska").innerHTML = " ";
+    document.getElementById("pocetnaCenaGreska").innerHTML = " ";
+    document.getElementById("tagoviCAGreska").innerHTML = " ";
 
     
+    if(/^[a-zA-Z0-9_ ]{4,30}$/.test(imeSlike) == false){
+        document.getElementById("imeSlikeGreska").innerHTML = "<div style = 'color:red'>Image name has to be between 4 and 30 characters long!</div>";
+        povratna++;
+    }
+    if(/^.{10,512}$/.test(opisniTekst) == false){
+        document.getElementById("opisniTekstGreska").innerHTML = "<div style = 'color:red'>Description has to be between 10 and 512 characters long!</div>";
+        povratna++;
+    }
+    if(/^[a-zA-Z0-9_ ]{3,30}$/.test(Autor) == false){
+        document.getElementById("AutorGreska").innerHTML = "<div style = 'color:red'>Author name has to be between 3 and 30 characters long!</div>";
+        povratna++;
+    }
+    if(/^\d+$/.test(godinaSlikanja) == false || godinaSlikanja < 0 || godinaSlikanja > 2022){
+        document.getElementById("godinaSlikanjaGreska").innerHTML = "<div style = 'color:red'>Year of creation has to be between 0 and 2022!</div>";
+        povratna++;
+    }
+    if(PhysicalVirtual == 'physical'){
+        if(/^[a-zA-Z0-9_ ]{4,50}$/.test(document.getElementById('lokacijaSlike').value) == false){
+            document.getElementById("lokacijaSlikeGreska").innerHTML = "<div style = 'color:red'>Location has to be between 4 and 50 characters long!</div>";
+            povratna++;
+        }
+    }
+    if(/^\d+$/.test(vremeTrajanja) == false || vremeTrajanja < 1 || vremeTrajanja >30){
+        document.getElementById("vremeTrajanjaGreska").innerHTML = "<div style = 'color:red'>Auction duration has to be between 1 and 30!</div>";
+        povratna++;
+    }
+    if(/^\d+$/.test(pocetnaCena) == false || pocetnaCena <= 0 || pocetnaCena > 9999999999.999){
+        document.getElementById("pocetnaCenaGreska").innerHTML = "<div style = 'color:red'>Starting price has to be between 0 and 10000000000!</div>";
+        povratna++;
+    }
+
+    brojTagova = 0;
+    for (var option of document.getElementById('tagoviCA').options)
+    {
+        if (option.selected) {
+            brojTagova++;
+        }
+    }
+    if(brojTagova >5 || brojTagova < 1){
+       document.getElementById("tagoviCAGreska").innerHTML = "<div style = 'color:red'>You must choose 1-5 tags!</div>";
+       povratna++;
+    }
+
+    if(povratna>0){
+        event.preventDefault();
+    }
 }
 
 $(function(){
@@ -204,7 +289,10 @@ $(function(){
                 document.getElementById("RemoveTagsGreska").innerHTML = "";
             },
             success:function(data){
-                if(data['status'] == 1){
+                if(data['status'] == 1 || data['status'] == 2){
+                    if(data['status']==2){
+                        document.getElementById("RemoveTagsGreska").innerHTML = "<font color = 'red'>Tags are referenced in another table!</font>";
+                    }
                     let a = data['svitagovi'];
                     select = document.getElementById('tagovi');
                     select.innerHTML = "";
