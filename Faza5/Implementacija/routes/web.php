@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\stefan\CreateExhibitionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,11 @@ Route::get('/logout',[App\Http\Controllers\bogdan\RegistrovaniKontroler::class,'
 Route::get('/test2',[App\Http\Controllers\bogdan\GostController::class,'test2'] )->name('test2');
 Route::get('/test3',[App\Http\Controllers\bogdan\GostController::class,'test3'] )->name('test3');
 Route::get('/test4',[App\Http\Controllers\bogdan\GostController::class,'test4'] )->name('test4');
+
+
+Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibition'])->name('createExhibition');
+
+Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
+
+Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
+
