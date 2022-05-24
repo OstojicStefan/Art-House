@@ -17,7 +17,6 @@ class SviTagovi extends Model
     protected $primaryKey = 'IDTag';
 
     protected $fillable = [
-        'Name',
+        'Name'
     ];
-
 }

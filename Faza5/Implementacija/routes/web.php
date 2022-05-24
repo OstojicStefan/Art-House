@@ -21,6 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/deposit_money', [App\Http\Controllers\nikola\KorisnikController::class, 'depositMoney'])->name('deposit_money');
+Route::post('/deposit_money_submit', [\App\Http\Controllers\nikola\KorisnikController::class, 'depositMoneySubmit'])->name('deposit_money_submit');
+Route::get('/auctions', [App\Http\Controllers\nikola\GostController::class, 'auctions'])->name('auctions');
+Route::get('/founded_auctions', [App\Http\Controllers\nikola\GostController::class, 'foundedAuctions'])->name('founded_auctions');
+Route::get('/auction/{id}', [App\Http\Controllers\nikola\KorisnikController::class, 'auction'])->name('auction');
+Route::get('/exhibitions', [App\Http\Controllers\nikola\GostController::class, 'exhibitions'])->name('exhibitions');
+Route::get('/founded_exhibitions', [App\Http\Controllers\nikola\GostController::class, 'foundedExhibitions'])->name('founded_exhibitions');
+Route::get('/exhibition/{id}', [App\Http\Controllers\nikola\KorisnikController::class, 'exhibition'])->name('exhibition');
+
 Route::get('/login',[GostControllerBogdan::class,'login'] )->name('login');
 Route::post('/loginSubmit',[GostControllerBogdan::class,'loginSubmit'] )->name('loginSubmit');
 Route::get('/register',[GostControllerBogdan::class,'register'] )->name('register');
@@ -42,4 +51,5 @@ Route::get('/test4',[GostControllerBogdan::class,'test4'] )->name('test4');
 Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibition'])->name('createExhibition');
 Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
+
 
