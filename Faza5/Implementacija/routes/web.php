@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\stefan\CreateExhibitionController;
 use App\Http\Controllers\bogdan\GostController as GostControllerBogdan;
 use App\Http\Controllers\bogdan\RegistrovaniKontroler as RegistrovaniKontrolerBogdan;
+use App\Http\Controllers\nikola\GostController as GostControllerNikola;
+use App\Http\Controllers\nikola\KorisnikController as KorisnikControllerNikola;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +23,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/deposit_money', [App\Http\Controllers\nikola\KorisnikController::class, 'depositMoney'])->name('deposit_money');
-Route::post('/deposit_money_submit', [\App\Http\Controllers\nikola\KorisnikController::class, 'depositMoneySubmit'])->name('deposit_money_submit');
-Route::get('/auctions', [App\Http\Controllers\nikola\GostController::class, 'auctions'])->name('auctions');
-Route::get('/founded_auctions', [App\Http\Controllers\nikola\GostController::class, 'foundedAuctions'])->name('founded_auctions');
-Route::get('/auction/{id}', [App\Http\Controllers\nikola\KorisnikController::class, 'auction'])->name('auction');
-Route::get('/exhibitions', [App\Http\Controllers\nikola\GostController::class, 'exhibitions'])->name('exhibitions');
-Route::get('/founded_exhibitions', [App\Http\Controllers\nikola\GostController::class, 'foundedExhibitions'])->name('founded_exhibitions');
-Route::get('/exhibition/{id}', [App\Http\Controllers\nikola\KorisnikController::class, 'exhibition'])->name('exhibition');
+Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
+Route::post('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');
+Route::get('/auctions', [GostControllerNikola::class, 'auctions'])->name('auctions');
+Route::get('/founded_auctions', [GostControllerNikola::class, 'foundedAuctions'])->name('founded_auctions');
+Route::get('/auction/{id}', [KorisnikControllerNikola::class, 'auction'])->name('auction');
+Route::get('/exhibitions', [GostControllerNikola::class, 'exhibitions'])->name('exhibitions');
+Route::get('/founded_exhibitions', [GostControllerNikola::class, 'foundedExhibitions'])->name('founded_exhibitions');
+Route::get('/exhibition/{id}', [KorisnikControllerNikola::class, 'exhibition'])->name('exhibition');
 
 Route::get('/login',[GostControllerBogdan::class,'login'] )->name('login');
 Route::post('/loginSubmit',[GostControllerBogdan::class,'loginSubmit'] )->name('loginSubmit');
