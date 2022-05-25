@@ -65,12 +65,12 @@
                                  <button id="recepti_dugme" class="dropbtn btn-warning">Admin privileges</button>
                                  <div class="dropdown-content">
                                      <a href="unapredjivanjeKorisnickogNalogaGlavno.html">Upgrade roles</a>
-                                     <a href="../dimitrije/ukidanjeModeratora.html">Downgrade roles</a>
-                                     <a href="../dimitrije/banovanjeKorisnika.html">Ban user</a>
-                                     <a href="../dimitrije/unbanovanjeKorisnika.html">Unban user</a>
+                                     <a href="{{ URL::route('downgradeModerator'); }}">Downgrade roles</a>
+                                     <a href="{{ URL::route('banning'); }}">Ban user</a>
+                                     <a href="{{ URL::route('unbanning'); }}">Unban user</a>
                                      <a href="dodavanjeTagovaGlavno.html">Create tags</a>
                                      <a href="brisanjeTagovaGlavno.html">Remove tags</a>
-                                     <a href="../dimitrije/brisanjeKorisnickihNaloga.html">Delete user accounts</a>
+                                     <a href="{{ URL::route('adminDeleteAccount'); }}">Delete user accounts</a>
                                  </div>
                              </div>
                          </a>
