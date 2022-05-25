@@ -28,7 +28,12 @@
                 <input type = "submit" value = "Log in" onclick="proveriPasswordiUsername()">  </input><br>
                         
                 <a href = "registracija.html" > Register </label><br>
-                <a href = "../index.html" > Continue as guest </label>
+                <a href = "../index.html" > Continue as guest </label><br><br>
+                @if(session('status') == 'Account deletion successful!')
+                    <div class="alert alert-success">
+                    {{ session('status') }}
+                    </div>
+                @endif    
         </form>
     </div>
 </div>
