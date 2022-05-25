@@ -1,7 +1,5 @@
 @extends('template')
 
-@section('title', 'Etf vesti') 
-
 @section('header')
 @if((Session::get('privilegije') == 'Administrator') || (Session::get('privilegije') == 'Moderator') || (Session::get('privilegije') == 'Obicni'))
             <div class="row">
@@ -73,11 +71,9 @@
                                      <a href="dodavanjeTagovaGlavno.html">Create tags</a>
                                      <a href="brisanjeTagovaGlavno.html">Remove tags</a>
                                      <a href="{{ URL::route('adminDeleteAccount'); }}">Delete user accounts</a>
-                                     <a href="dodavanjeTagovaGlavno.html">Create tags</a>
-                                     <a href="brisanjeTagovaGlavno.html">Remove tags</a>
-
                                  </div>
-                             </div>
+                                @endif
+                             <!--</div> -->
                          </a>
                          </li>
                          @endif

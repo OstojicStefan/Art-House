@@ -7,6 +7,9 @@ use App\Http\Controllers\bogdan\GostController as GostControllerBogdan;
 use App\Http\Controllers\bogdan\RegistrovaniKontroler as RegistrovaniKontrolerBogdan;
 use App\Http\Controllers\nikola\GostController as GostControllerNikola;
 use App\Http\Controllers\nikola\KorisnikController as KorisnikControllerNikola;
+use App\Http\Controllers\dimitrije\RegistredController as RegistredControllerDimitrije;
+use App\Http\Controllers\dimitrije\ModeratorController as ModeratorControllerDimitrije;
+use App\Http\Controllers\dimitrije\AdminController as AdminControllerDimitrije;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,16 +57,16 @@ Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibi
 Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
 
-Route::get('/myAccount/deleteAccount', [App\Http\Controllers\dimitrije\RegistredController::class, 'deleteAccount'])->name('deleteAccount');
-Route::get('/myAccount/deleteAccountSubmit', [App\Http\Controllers\dimitrije\RegistredController::class, 'deleteAccountSubmit'])->name('deleteAccountSubmit');
-Route::get('/adminDeleteAccount', [App\Http\Controllers\dimitrije\AdminController::class, 'adminDeleteAccount'])->name('adminDeleteAccount');
-Route::post('/adminDeleteAccountSubmit', [App\Http\Controllers\dimitrije\AdminController::class, 'adminDeleteAccountSubmit'])->name('adminDeleteAccountSubmit');
+Route::get('/myAccount/deleteAccount', [RegistredControllerDimitrije::class, 'deleteAccount'])->name('deleteAccount');
+Route::get('/myAccount/deleteAccountSubmit', [RegistredControllerDimitrije::class, 'deleteAccountSubmit'])->name('deleteAccountSubmit');
+Route::get('/adminDeleteAccount', [AdminControllerDimitrije::class, 'adminDeleteAccount'])->name('adminDeleteAccount');
+Route::post('/adminDeleteAccountSubmit', [AdminControllerDimitrije::class, 'adminDeleteAccountSubmit'])->name('adminDeleteAccountSubmit');
 
-Route::get('/banning', [App\Http\Controllers\dimitrije\ModeratorController::class, 'banning'])->name('banning');
-Route::post('/banningSubmit', [App\Http\Controllers\dimitrije\ModeratorController::class, 'banningSubmit'])->name('banningSubmit');
-Route::get('/unbanning', [App\Http\Controllers\dimitrije\ModeratorController::class, 'unbanning'])->name('unbanning');
-Route::post('/unbanningSubmit', [App\Http\Controllers\dimitrije\ModeratorController::class, 'unbanningSubmit'])->name('unbanningSubmit');
-Route::get('/downgradeModerator', [App\Http\Controllers\dimitrije\AdminController::class, 'downgradeModerator'])->name('downgradeModerator');
-Route::post('/downgradeModeratorSubmit', [App\Http\Controllers\dimitrije\AdminController::class, 'downgradeModeratorSubmit'])->name('downgradeModeratorSubmit');
+Route::get('/banning', [ModeratorControllerDimitrije::class, 'banning'])->name('banning');
+Route::post('/banningSubmit', [ModeratorControllerDimitrije::class, 'banningSubmit'])->name('banningSubmit');
+Route::get('/unbanning', [ModeratorControllerDimitrije::class, 'unbanning'])->name('unbanning');
+Route::post('/unbanningSubmit', [ModeratorControllerDimitrije::class, 'unbanningSubmit'])->name('unbanningSubmit');
+Route::get('/downgradeModerator', [AdminControllerDimitrije::class, 'downgradeModerator'])->name('downgradeModerator');
+Route::post('/downgradeModeratorSubmit', [AdminControllerDimitrije::class, 'downgradeModeratorSubmit'])->name('downgradeModeratorSubmit');
 
 
