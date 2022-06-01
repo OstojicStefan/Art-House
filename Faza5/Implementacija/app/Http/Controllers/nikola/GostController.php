@@ -10,6 +10,11 @@ use App\Models\nikola\Registred;
 
 class GostController extends Controller
 {
+    // function __construct() {
+    //     $this->middleware('guest_v2', ['except' => [
+    //         ''
+    //     ]]);
+    // }
     public function auctions()
     {
         $auctions = Auction::all();

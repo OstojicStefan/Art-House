@@ -17,6 +17,9 @@ use App\Models\stefan\AllMessages;
 
 class KorisnikController extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     public function depositMoney()
     {
         if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')

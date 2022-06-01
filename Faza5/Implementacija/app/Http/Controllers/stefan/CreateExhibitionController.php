@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Session;
 
 class CreateExhibitionController extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     public function createExhibition()
     {  
         $id = Session::get('IDUser');
