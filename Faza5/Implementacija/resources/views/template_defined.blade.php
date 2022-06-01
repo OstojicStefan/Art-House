@@ -1,7 +1,5 @@
 @extends('template')
 
-@section('title', 'Etf vesti') 
-
 @section('header')
 @if((Session::get('privilegije') == 'Administrator') || (Session::get('privilegije') == 'Moderator') || (Session::get('privilegije') == 'Obicni'))
             <div class="row">
@@ -67,16 +65,14 @@
                                  <div class="dropdown-content">
                                 @if(Session::get('privilegije') == 'Administrator')
                                      <a href="unapredjivanjeKorisnickogNalogaGlavno.html">Upgrade roles</a>
-                                     <a href="../dimitrije/ukidanjeModeratora.html">Downgrade roles</a>
-                                @endif
-                                     <a href="../dimitrije/banovanjeKorisnika.html">Ban user</a>
-                                     <a href="../dimitrije/unbanovanjeKorisnika.html">Unban user</a>
+                                     <a href="{{ URL::route('downgradeModerator'); }}">Downgrade roles</a>
+                                     <a href="{{ URL::route('banning'); }}">Ban user</a>
+                                     <a href="{{ URL::route('unbanning'); }}">Unban user</a>
                                      <a href="dodavanjeTagovaGlavno.html">Create tags</a>
                                      <a href="brisanjeTagovaGlavno.html">Remove tags</a>
-                                @if(Session::get('privilegije') == 'Administrator')
-                                     <a href="../dimitrije/brisanjeKorisnickihNaloga.html">Delete user accounts</a>
-                                @endif
+                                     <a href="{{ URL::route('adminDeleteAccount'); }}">Delete user accounts</a>
                                  </div>
+                                @endif
                              </div>
                          </a>
                          </li>
@@ -119,5 +115,5 @@
 
 @section('footer')
 <hr>
-<center style = "background-color:#ffc107;">Copyright 2020</center>
+<center style = "background-color:#ffc107;">Copyright 2022</center>
 @endsection

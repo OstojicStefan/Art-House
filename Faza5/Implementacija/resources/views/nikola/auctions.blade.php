@@ -2,7 +2,11 @@
 
 @section('content')
 <br>
-<br>
+@if (session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
 <br>
 <form action="{{ route('founded_auctions') }}"  method="GET">
     <label for="">The painting:</label><input type="text" name="name">

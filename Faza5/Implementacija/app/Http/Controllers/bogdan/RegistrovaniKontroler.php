@@ -16,10 +16,13 @@ use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Exception;
-
+use Illuminate\Support\Facades\Auth;
 
 class RegistrovaniKontroler extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
 
     // dodavanje aukcije virtuelne slike(vraca stranicu)
     public function createAuctionVirtual(){
@@ -141,10 +144,11 @@ class RegistrovaniKontroler extends Controller
         return view('bogdan/createAuctionPhysical', ['svitagovi' => $svitagovi]);
     }
 
-
     //odjavljivanje od sajta(vraca se na login stranicu)
     public function logout(Request $request){
-        $request->session()->flush();
+        $request->session()->flush(); 
+        // auth()->logout();   
+        // Auth::logout();              
         return redirect()->route('login');
     }   
 
