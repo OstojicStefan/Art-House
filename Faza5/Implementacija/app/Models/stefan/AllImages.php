@@ -36,4 +36,9 @@ class AllImages extends Model
         }
         return $imageID;
     }
+
+    public function findImage($imageID)
+    {
+        return AllImages::all()->where('IDIm', $imageID)->first();
+    }
 }

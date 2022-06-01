@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if (session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
+
 <div class="auctions_content">
     <div class="searchbar">
         <form action="{{ route('found_auctions') }}"  method="GET">
@@ -68,6 +74,8 @@
 </div>
 
 <br>
+
+
 
 
 

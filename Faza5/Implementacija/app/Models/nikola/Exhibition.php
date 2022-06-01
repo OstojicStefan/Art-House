@@ -10,7 +10,12 @@ class Exhibition extends Model
     use HasFactory;
 
     protected $table = 'exhibition';
-    protected $primaryKey = 'idexh';
+    protected $primaryKey = 'IDExh';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'Name', 'Date', 'IsActive'
+    ];
 
     public static function findExhibitions($request)
     {

@@ -12,10 +12,38 @@ nizSlika = (nizSlika) ? JSON.parse(nizSlika) : [
 
 $(document).ready(function(){
 
+    var chatbox = document.getElementById('chat_box');
+    if (chatbox)
+    chatbox.scrollTop = chatbox.scrollHeight;
+
     $("img").on("click", function(){
         $(this).toggleClass("img-thumbnail hoveruj");
         var slika = $(this).attr("src");
         
+    });
+
+    //ovaj deo je zaduzen za automatsko osvezavanje kada korisnik posalje novu poruku u chat
+    $("#send_message").on('submit', function(e){
+        e.preventDefault();
+        
+        $.ajax({
+            url:$(this).attr('action'),
+            method:$(this).attr('method'),
+            data: new FormData(this),
+            processData:false,
+            dataType:'text',
+            contentType: false,
+            beforeSend:function(){
+                
+            },
+            success:function(){
+                tekst = document.getElementById("msg_input");
+                $("#chat_box").append("<div class='container darker'><img src='/slike/profile_picture.jpg' class='right'><p>"+tekst.value+"</p></div>");
+                tekst.value='';
+                var chatbox = document.getElementById('chat_box');
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+        });
     });
     
 });
@@ -76,8 +104,15 @@ function dodajSlike(){
 
 function kreirajIzlozbu(){
     let vreme = document.getElementById("vreme_izlozbe");
+    let naziv = document.getElementById("naziv_izlozbe");
     if (vreme.value == ''){
         alert("Please select the time of your exhibition");
+        event.preventDefault();
+        return;
+    }
+    if (!naziv.value){
+        alert("The exhibition must have a name");
+        event.preventDefault();
         return;
     }
 
@@ -91,6 +126,12 @@ function kreirajIzlozbu(){
         nizSlika[i].redniBroj=broj;
 
     }
-
+    
     window.location.href='nikola/nikola/pages/sve-izlozbe.html';
+}
+
+function sendMessage(tekst){
+    alert(tekst);
+    event.preventDefault();
+    $("#chat_box").append("<div class='container darker'><img src='/slike/profile_picture.jpg' class='right'><p>"+tekst+"</p></div>");
 }

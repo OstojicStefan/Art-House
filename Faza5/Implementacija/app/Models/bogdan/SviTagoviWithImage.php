@@ -1,5 +1,6 @@
 <?php
-
+// Bogdan Arsic 0329/19
+// model za rad sa tabelom ImageWithTags
 namespace App\Models\bogdan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

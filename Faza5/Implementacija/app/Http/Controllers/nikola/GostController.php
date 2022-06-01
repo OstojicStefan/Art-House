@@ -11,6 +11,11 @@ use App\Models\bogdan\SviTagovi;
 
 class GostController extends Controller
 {
+    // function __construct() {
+    //     $this->middleware('guest_v2', ['except' => [
+    //         ''
+    //     ]]);
+    // }
     public function auctions()
     {
         $auctions = Auction::all();

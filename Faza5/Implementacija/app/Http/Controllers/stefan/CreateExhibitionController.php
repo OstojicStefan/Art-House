@@ -1,5 +1,7 @@
 <?php
 
+// Autor: Stefan Ostojic, 18/442
+
 namespace App\Http\Controllers\stefan;
 
 use App\Http\Controllers\Controller;
@@ -7,19 +9,18 @@ use App\Models\stefan\AllImages;
 use App\Models\stefan\AllExhibitions;
 use App\Models\stefan\AllImagesOnExhibition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CreateExhibitionController extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     public function createExhibition()
     {  
-        $id = 1;
-       
-        //$images=AllImages::all()->where('IDUser',$id); 
-        //$images=AllImages::all();
-
+        $id = Session::get('IDUser');
         $allImages = new AllImages();
         $images = $allImages->findUsersImages($id);
-        //dd($images);
 
         return view('stefan/createExhibition', ['images' => $images]);
     }
@@ -36,7 +37,7 @@ class CreateExhibitionController extends Controller
     public function createExhibitionSubmit(Request $request)
     {
         //dd($request);
-        $id = 1;
+        $id = Session::get('IDUser');
 
         $newExhibition = new AllExhibitions();
 
@@ -58,7 +59,7 @@ class CreateExhibitionController extends Controller
 
         $allImages = new AllImages();
         $usersImages=$allImages->findUsersImages($id);
-
+        
         for ($i=0;$i<sizeof($request->imageOrder);$i++){
             $newImageOnExhibition = new AllImagesOnExhibition();
             
@@ -78,6 +79,6 @@ class CreateExhibitionController extends Controller
 
             $newImageOnExhibition->save();
         }
-        
+        return redirect()->route('exhibition', ['id' => $exhKey]);
     }
 }

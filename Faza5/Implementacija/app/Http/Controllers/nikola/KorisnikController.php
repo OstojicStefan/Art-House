@@ -13,9 +13,14 @@ use App\Models\nikola\Image;
 use App\Models\nikola\ImageOnExhibition;
 use App\Models\nikola\ImageWithTags;
 use App\Models\nikola\PhysicalAuction;
+use App\Models\stefan\AllMessages;
+
 
 class KorisnikController extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     public function depositMoney()
     {
         if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')
@@ -65,6 +70,7 @@ class KorisnikController extends Controller
             array_push($images, $temp);
             array_push($descriptions, $temp_desc);
         }
+
         $has_privileges = false;
         if (Session::get('privilegije') == 'Administrator' || Session::get('privilegije') == 'Moderator')
             $has_privileges = true;
@@ -73,6 +79,12 @@ class KorisnikController extends Controller
             $author = Registred::find($image->IDUser);
             array_push($authors, $author);
         }
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges]);
+        $id = Session::get('IDUser');
+
+        $allMessages = new AllMessages();
+
+        $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
+        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges,'chatbox' => $chatbox]);
+
     }
 }

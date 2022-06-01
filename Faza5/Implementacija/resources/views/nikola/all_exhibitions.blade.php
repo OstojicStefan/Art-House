@@ -1,6 +1,13 @@
 @extends('template_defined')
 
 @section('content')
+<br>
+@if (session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
+
 
 <div class="searched_exhibtions">
     <div class="searchbar_exhibition">

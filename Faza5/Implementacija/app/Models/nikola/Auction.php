@@ -12,10 +12,11 @@ class Auction extends Model
     use HasFactory;
 
     protected $table = 'auction';
-    protected $primaryKey = 'idauc';
+    protected $primaryKey = 'IDAuc';
+    public $timestamps = false;
 
     protected $fillable = [
-        'name', 'author'
+        'Name', 'Author', 'IsActive'
     ];
 
     public static function findAuctions(Request $request)

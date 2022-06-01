@@ -10,8 +10,14 @@ use App\Models\dimitrije\AdministratorModel;
 use App\Http\Controllers\dimitrije\ModeratorController;
 
 
-class AdminController extends ModeratorController
+class AdminController extends Controller
 {
+    function __construct() {
+        $this->middleware('admin', ['except' => [
+            'testing'
+        ]]);
+    }
+
     public function adminDeleteAccount()
     {
         return view('dimitrije/adminDeleteAccount');
@@ -69,5 +75,9 @@ class AdminController extends ModeratorController
         }
 
         return back()->with('status', $ret);
+    }
+
+    public function testing(){
+        return dd(session()->getDrivers()['file']);
     }
 }
