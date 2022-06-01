@@ -17,8 +17,8 @@ class Registred extends Model
     ];
     public static function updateBalance($iduser, $amount)
     {
-        $user = Registred::where('IDUser', $iduser)->get();
+        $user = Registred::find($iduser);
         $user->Balance = $user->Balance + $amount;
-        $user->save;
+        $user->save();
     }
 }

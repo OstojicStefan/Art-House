@@ -29,32 +29,33 @@ Route::get('/', function () {
 Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
 Route::post('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');
 Route::get('/auctions', [GostControllerNikola::class, 'auctions'])->name('auctions');
-Route::get('/founded_auctions', [GostControllerNikola::class, 'foundedAuctions'])->name('founded_auctions');
+Route::get('/found_auctions', [GostControllerNikola::class, 'foundAuctions'])->name('found_auctions');
 Route::get('/auction/{id}', [KorisnikControllerNikola::class, 'auction'])->name('auction');
 Route::get('/exhibitions', [GostControllerNikola::class, 'exhibitions'])->name('exhibitions');
-Route::get('/founded_exhibitions', [GostControllerNikola::class, 'foundedExhibitions'])->name('founded_exhibitions');
+Route::get('/found_exhibitions', [GostControllerNikola::class, 'foundExhibitions'])->name('found_exhibitions');
 Route::get('/exhibition/{id}', [KorisnikControllerNikola::class, 'exhibition'])->name('exhibition');
+Route::get('/send_test_mail', [nikola\MailController::class, 'sendTestMail'])->name('send_test_mail');
 
-Route::get('/login',[GostControllerBogdan::class,'login'] )->name('login');
-Route::post('/loginSubmit',[GostControllerBogdan::class,'loginSubmit'] )->name('loginSubmit');
-Route::get('/register',[GostControllerBogdan::class,'register'] )->name('register');
-Route::post('/registerSubmit',[bogdan\GostControllerBogdan::class,'registerSubmit'] )->name('registerSubmit');
-Route::get('/addTags',[RegistrovaniKontrolerBogdan::class,'addTags'] )->name('addTags');
-Route::get('/removeTags',[RegistrovaniKontrolerBogdan::class,'removeTags'] )->name('removeTags');
-Route::get('/createAuctionVirtual',[RegistrovaniKontrolerBogdan::class,'createAuctionVirtual'] )->name('createAuctionVirtual');
-Route::post('/createAuctionSubmit',[RegistrovaniKontrolerBogdan::class,'createAuctionSubmit'] )->name('createAuctionSubmit');
-Route::get('/createAuctionPhysical',[RegistrovaniKontrolerBogdan::class,'createAuctionPhysical'] )->name('createAuctionPhysical');
-Route::post('/removeTags2',[RegistrovaniKontrolerBogdan::class,'removeTags2'] )->name('removeTags2');
-Route::post('/addTagsSubmit',[RegistrovaniKontrolerBogdan::class,'addTagsSubmit'] )->name('addTagsSubmit');
-Route::get('/upgradeUserRoles',[RegistrovaniKontrolerBogdan::class,'upgradeUserRoles'] )->name('upgradeUserRoles');
-Route::post('/upgradeUserRolesSubmit',[RegistrovaniKontrolerBogdan::class,'upgradeUserRolesSubmit'] )->name('upgradeUserRolesSubmit');
-Route::get('/logout',[RegistrovaniKontrolerBogdan::class,'logout'] )->name('logout');
-Route::get('/test2',[GostControllerBogdan::class,'test2'] )->name('test2');
-Route::get('/test3',[GostControllerBogdan::class,'test3'] )->name('test3');
-Route::get('/test4',[GostControllerBogdan::class,'test4'] )->name('test4');
+Route::get('/login', [GostControllerBogdan::class, 'login'])->name('login');
+Route::post('/loginSubmit', [GostControllerBogdan::class, 'loginSubmit'])->name('loginSubmit');
+Route::get('/register', [GostControllerBogdan::class, 'register'])->name('register');
+Route::post('/registerSubmit', [bogdan\GostControllerBogdan::class, 'registerSubmit'])->name('registerSubmit');
+Route::get('/addTags', [RegistrovaniKontrolerBogdan::class, 'addTags'])->name('addTags');
+Route::get('/removeTags', [RegistrovaniKontrolerBogdan::class, 'removeTags'])->name('removeTags');
+Route::get('/createAuctionVirtual', [RegistrovaniKontrolerBogdan::class, 'createAuctionVirtual'])->name('createAuctionVirtual');
+Route::post('/createAuctionSubmit', [RegistrovaniKontrolerBogdan::class, 'createAuctionSubmit'])->name('createAuctionSubmit');
+Route::get('/createAuctionPhysical', [RegistrovaniKontrolerBogdan::class, 'createAuctionPhysical'])->name('createAuctionPhysical');
+Route::post('/removeTags2', [RegistrovaniKontrolerBogdan::class, 'removeTags2'])->name('removeTags2');
+Route::post('/addTagsSubmit', [RegistrovaniKontrolerBogdan::class, 'addTagsSubmit'])->name('addTagsSubmit');
+Route::get('/upgradeUserRoles', [RegistrovaniKontrolerBogdan::class, 'upgradeUserRoles'])->name('upgradeUserRoles');
+Route::post('/upgradeUserRolesSubmit', [RegistrovaniKontrolerBogdan::class, 'upgradeUserRolesSubmit'])->name('upgradeUserRolesSubmit');
+Route::get('/logout', [RegistrovaniKontrolerBogdan::class, 'logout'])->name('logout');
+Route::get('/test2', [GostControllerBogdan::class, 'test2'])->name('test2');
+Route::get('/test3', [GostControllerBogdan::class, 'test3'])->name('test3');
+Route::get('/test4', [GostControllerBogdan::class, 'test4'])->name('test4');
 
-Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibition'])->name('createExhibition');
-Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
+Route::get('/createExhibition', [CreateExhibitionController::class, 'createExhibition'])->name('createExhibition');
+Route::get('/myExhibition', [CreateExhibitionController::class, 'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
 
 Route::get('/myAccount/deleteAccount', [RegistredControllerDimitrije::class, 'deleteAccount'])->name('deleteAccount');
@@ -68,5 +69,3 @@ Route::get('/unbanning', [ModeratorControllerDimitrije::class, 'unbanning'])->na
 Route::post('/unbanningSubmit', [ModeratorControllerDimitrije::class, 'unbanningSubmit'])->name('unbanningSubmit');
 Route::get('/downgradeModerator', [AdminControllerDimitrije::class, 'downgradeModerator'])->name('downgradeModerator');
 Route::post('/downgradeModeratorSubmit', [AdminControllerDimitrije::class, 'downgradeModeratorSubmit'])->name('downgradeModeratorSubmit');
-
-
