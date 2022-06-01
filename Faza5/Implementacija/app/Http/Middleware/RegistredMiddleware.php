@@ -19,7 +19,7 @@ class RegistredMiddleware
     {
         $userId = $request->session()->get('IDUser');
         if (($user = RegistredModel::find($userId)) == null) {
-            return redirect('auctions');
+            return redirect('/');
         } else if ($user['IsBanned'] == 1){
             //auth()->logout();
             $request->session()->flush();

@@ -22,7 +22,7 @@ class ModeratorMiddleware
     {
         $userId = $request->session()->get('IDUser');
         if ((Session::get('privilegije') != 'Administrator') && (Session::get('privilegije') != 'Moderator')) {
-            return redirect('auctions');
+            return redirect('/');
         }
         if(RegistredModel::find($userId)['IsBanned'] == 1){
             //auth()->logout();

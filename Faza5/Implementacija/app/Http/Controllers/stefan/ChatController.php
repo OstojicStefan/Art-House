@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Session;
 
 class ChatController extends Controller
 {   
+    function __construct() {
+        $this->middleware('registred');
+    }
+
     //trenutno se ne koristi funkcija
     public function chatBoxInit($exhID)
     {
@@ -22,7 +26,7 @@ class ChatController extends Controller
     }
 
     public function sendMessageSubmit(Request $request)
-    {
+    {   
         $newMessage = new AllMessages();
 
         $newMessage->IDUser = $request->userID;

@@ -10,7 +10,11 @@ use App\Models\bogdan\SviAdministratori;
 use App\Models\bogdan\SviModeratori;
 
 class AdministratorController extends Controller
-{
+{   
+    function __construct() {
+        $this->middleware('admin');
+    }
+
     // upgradovanje uloga korsinika(vraca stranicu)
     public function upgradeUserRoles(){
         return view('bogdan/upgradeUserRoles');

@@ -19,7 +19,7 @@ class AdministratorMiddleware
     {
         $userId = $request->session()->get('IDUser');
         if (AdministratorModel::find($userId) == null) {
-            return redirect('exhibitions');
+            return redirect('/');
         }
         return $next($request);
     }

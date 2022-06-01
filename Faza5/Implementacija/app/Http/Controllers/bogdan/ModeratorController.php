@@ -9,7 +9,11 @@ use App\Models\bogdan\SviTagovi;
 use Exception;
 
 class ModeratorController extends Controller
-{
+{   
+    function __construct() {
+        $this->middleware('mod');
+    }
+    
     // dodavanje taga(vraca stranicu)
     public function addTags(){
         return view('bogdan/addTags');

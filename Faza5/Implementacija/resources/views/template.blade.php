@@ -17,8 +17,10 @@
     
 <body id="{{$body_id ?? ''}}">
     <div id="page-container" class="container-fluid">
-    @yield('header')
-    @yield('content')
+        <div id="content-wrap">
+            @yield('header')
+            @yield('content')
+        </div>
     @yield('footer')
     </div>
 </body>

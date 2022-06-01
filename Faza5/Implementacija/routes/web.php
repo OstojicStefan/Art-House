@@ -33,7 +33,7 @@ use App\Http\Controllers\dimitrije\AdminController as AdminControllerDimitrije;
     return view('stefan/index', ['body_id' => 'index_body'], [AccountController::class, 'indexInit']);
 });*/
 
-Route::get('/', [AccountController::class, 'indexInit']);
+Route::get('/', [AccountController::class, 'indexInit'])->name('indexInit');
 
 Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
 Route::post('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');

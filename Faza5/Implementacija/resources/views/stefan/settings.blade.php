@@ -20,7 +20,7 @@
 
     
     <div class="col-sm-6 personal-info">
-        <a href=""><p class="link-deactivate">Deactivate account</p></a>
+        <a href="settings/deleteAccount"><p class="link-deactivate">Deactivate account</p></a>
         <hr>
         PERSONAL INFORMATION <br>
         <form action="{{route('settingsSubmit')}}" method="post" name="settingsSubmit">

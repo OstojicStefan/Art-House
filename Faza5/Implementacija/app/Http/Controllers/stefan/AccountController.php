@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
-{
+{   
+    function __construct() {
+        $this->middleware('registred', ['except' => [
+            'indexInit'
+        ]]);
+    }
+
     public function myAccount()
     {   
         $id = Session::get('IDUser');
