@@ -96,10 +96,10 @@ class GostController extends Controller
                 $svi = SviKorisnici::all();
 
                 foreach ($svi as $jedan) {
-                    if($jedan->Username == $request['username']){
+                    if(strtolower($jedan->Username) == strtolower($request['username'])){
                         return response()->json(['status'=>1, 'msg'=>'Username is already taken!']);
                     }
-                    if($jedan->E_mail == $request['email']){
+                    if(strtolower($jedan->E_mail) == strtolower($request['email'])){
                         return response()->json(['status'=>2, 'msg'=>'Email is already taken!']);
                     }
                 }
