@@ -1,63 +1,64 @@
-.heder{
+.heder {
 
- text-align: center;
- align-items: center;
- 
- background-color: #ffc107;
- height: 80px;
+    text-align: center;
+    align-items: center;
+
+    background-color: #ffc107;
+    height: 80px;
 
 }
 
-.nav-link{
+.nav-link {
 
     color: #ffede6;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #ff781f;
 }
 
-.nav-item{
+.nav-item {
 
     margin-left: 10px;
 }
-.nav-item{
+
+.nav-item {
 
     font-size: 20px;
-    font-family:sans-serif;
+    font-family: sans-serif;
     font-weight: bold;
 
 }
 
-.dropdown{
+.dropdown {
     color: #ffede6 !important;
 }
 
-.centriraj{
+.centriraj {
     text-align: center;
     align-items: center;
 
 }
 
-.nav-link .dropbtn{
-    color:#ffede6;
+.nav-link .dropbtn {
+    color: #ffede6;
     font-weight: bold;
     font-family: sans-serif;
 }
 
-.dropdown{
+.dropdown {
 
     padding-bottom: 15px;
 }
 
-.dropdown .btn{
+.dropdown .btn {
 
     font-size: 20px;
-    font-family:sans-serif;
+    font-family: sans-serif;
     font-weight: bold;
 }
 
-.navbar-brand img{
+.navbar-brand img {
 
     width: 55px;
     height: 55px;
@@ -71,22 +72,22 @@
     margin-top: 14px;
 }
 
-.dropdown{
+.dropdown {
     position: relative;
     display: inline-block;
-    color:#ffede6;
+    color: #ffede6;
 }
 
-.dropdown-content{
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #ffc107;
     width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
-.dropdown-content a{
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -99,28 +100,32 @@
     text-decoration: none;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #ffc107}
-
-#recepti_dugme:hover{
-        color: #ff781f;
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-#dugme_registruj{
+.dropdown:hover .dropbtn {
+    background-color: #ffc107
+}
+
+#recepti_dugme:hover {
+    color: #ff781f;
+}
+
+#dugme_registruj {
     background-color: #D3D3D3;
 }
 
-#dugme_prijavise{
-    background-color: #D3D3D3; 
+#dugme_prijavise {
+    background-color: #D3D3D3;
 }
 
-.tabela_registracija{
+.tabela_registracija {
     margin-top: 150px;
     border-radius: 50px;
 }
 
-.registracija{
+.registracija {
     background-image: url("dodatno/registracija_background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -128,35 +133,35 @@
     height: 100%;
 }
 
-.table{
+.table {
     opacity: 0.85;
 }
 
-.greska{
+.greska {
     color: red;
 }
 
-#dugme_mojnalog{
+#dugme_mojnalog {
     background-color: #ff781f;
 }
 
-#mojnalog{
+#mojnalog {
     position: absolute;
     left: 85%;
     margin-top: 12px;
 }
 
-#dugme_dodajRecept{
+#dugme_dodajRecept {
     background-color: white;
 }
 
-.tabela-dodajRecept{
+.tabela-dodajRecept {
     margin: auto;
     margin-top: 150px;
     border-radius: 50px;
-  }
+}
 
-.centriraj_tabelu{
+.centriraj_tabelu {
     margin: auto;
 }
 
@@ -164,20 +169,20 @@
     display: none;
 }*/
 
-.izabrani-recept-link{
+.izabrani-recept-link {
     color: #ff781f;
 }
 
-.izabrani-recept-link:hover{
+.izabrani-recept-link:hover {
     color: #ffc107;
     text-decoration: none;
 }
 
-.top-3-izabrani-recept-link{
+.top-3-izabrani-recept-link {
     color: white;
 }
 
-.top-3-izabrani-recept-link:hover{
+.top-3-izabrani-recept-link:hover {
     color: #ffc107;
     text-decoration: none;
 }
@@ -188,26 +193,26 @@
 
 .rating {
     unicode-bidi: bidi-override;
-    direction: rtl; 
-  } 
+    direction: rtl;
+}
 
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-     color: red; 
-  }
+.rating>span:hover:before,
+.rating>span:hover~span:before {
+    color: red;
+}
 
-.statistika{
+.statistika {
     color: #ff781f;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
 }
 
-#mapa{
+#mapa {
     text-align: center;
 }
 
-.background{
+.background {
     background-image: url("dodatno/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -215,7 +220,7 @@
     height: 100%;
 }
 
-.o-nama-slike img{
+.o-nama-slike img {
     width: 100%;
     height: 300px;
     border: 3px solid #ffc107;
@@ -225,15 +230,15 @@
     margin-bottom: 10px;
 }
 
-.o-nama-slike img:hover{
+.o-nama-slike img:hover {
     border: 3px solid #ff781f;
 }
 
-.o-nama-slike{
+.o-nama-slike {
     text-align: center;
 }
 
-#o-nama-cilj{
+#o-nama-cilj {
     color: white;
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -241,46 +246,46 @@
     text-align: justify;
 }
 
-#kontakt{
+#kontakt {
     color: white;
     text-align: center;
 }
 
-.footer-recepta{
+.footer-recepta {
     display: flex;
     justify-content: space-between;
 }
 
-.sort{
+.sort {
     margin-top: 30px;
-    margin-bottom: 30px;                               
+    margin-bottom: 30px;
 }
 
-.form-select{
+.form-select {
     border: 3px solid #ffc107;
 }
 
-.footer1{
+.footer1 {
     font-size: 20px;
     background-color: #ffc107;
     color: white;
-    text-align: center; 
+    text-align: center;
     padding-top: 33px;
     margin-top: 25px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 5.5rem;  
-    
+    height: 5.5rem;
+
     position: fixed;
     left: 0;
     bottom: 0;
 }
 
-.footer{
+.footer {
     font-size: 20px;
-    
-    
+
+
     width: 100%;
     height: 100px;
     padding-top: 31px;
@@ -289,17 +294,18 @@
     text-align: center;
 }
 
-.btn-delete{
+.btn-delete {
     float: right;
 }
 
-.btn-delete:hover{
+.btn-delete:hover {
     color: red;
 }
 
-.container-fluid{
+.container-fluid {
     height: 100%;
 }
+
 
 .najnoviji-recepti{
     background-color: #88B0D7;
@@ -307,7 +313,6 @@
     font-size: 25px;
     color: white;
 }
-
 .najnovije-izlozbe-header{
     background-color: #88B0D7;
     height: 75px;
@@ -317,59 +322,59 @@
     margin-top: 350px;
 }
 
-.pocetna-slika{
+.pocetna-slika {
     color: #ff781f;
     font-size: 25px;
     font-weight: bold;
 }
 
-.pocetna-slika img{
+.pocetna-slika img {
     width: 100%;
 }
 
-.pocetna-slika a{
+.pocetna-slika a {
     color: #ff781f;
 }
 
-.pocetna-slika a:hover{
+.pocetna-slika a:hover {
     color: #ffc107;
     text-decoration: none;
 }
 
-.pocetna-selekcija{
+.pocetna-selekcija {
     margin-bottom: 30px;
     margin-top: 17px;
 }
 
-.banner-donji img{
+.banner-donji img {
     max-width: 100%;
     margin-top: 30px;
 }
 
-.najpopularniji-recepti{
+.najpopularniji-recepti {
     margin-top: 30px;
 }
 
-.pocetna-header{
+.pocetna-header {
     margin-top: 30px;
 }
 
-.pocetna-header img{
+.pocetna-header img {
     width: 100%;
 }
 
-.welcome{
+.welcome {
     color: #ff781f;
     font-size: 45px;
     font-weight: bold;
     text-align: center;
 }
 
-.hr-pocetna{
+.hr-pocetna {
     border-top: 3px solid #ff781f;
 }
 
-#banner-left{
+#banner-left {
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: #ff781f;
@@ -378,17 +383,17 @@
     font-size: 25px;
     border: 10px solid #ffc107;
 }
-    
-#banner-left a{
+
+#banner-left a {
     color: white;
 }
 
-#banner-left a:hover{
+#banner-left a:hover {
     text-decoration: none;
     color: #ffc107;
 }
 
-#banner-right{
+#banner-right {
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: #ff781f;
@@ -398,19 +403,19 @@
     border: 10px solid #ffc107;
 }
 
-.grupa-header{
+.grupa-header {
     text-align: center;
     font-size: 35px;
     font-weight: bold;
     color: #ff781f;
 }
 
-.jezik{
+.jezik {
     width: 50px;
     position: absolute;
     left: 95%;
     margin-top: -19px;
-    
+
 }
 
 .zoom {
@@ -479,7 +484,252 @@
 
 
 
+.auctions_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.searchbar {
+    margin: 10px;
+    padding: 10px;
+    background-color: #ffc107;
+    border-radius: 5px;
+}
 
+.searchbar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
- 
+.searchbar div {
+    padding: 2px;
+}
+
+.tittle {
+    margin: 10px 0;
+}
+
+.auctions td {
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.auction_content {
+    padding-left: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.image_on_auction img {
+    height: 500px;
+}
+
+.auction_info {
+    background-color: #ffc107;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: 500px;
+    width: 10%;
+    padding: 0 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-weight: bolder;
+    margin-top: 5%;
+}
+
+.image_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 90%;
+}
+
+.info_head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info_body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image_description {
+    padding: 0 10px;
+}
+
+.auction_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bid_menu_item a {
+    margin: 0 10px;
+    background-color: #ffc107;
+    padding: 2px 20px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: aliceblue;
+    border: 2px solid black;
+}
+
+.bid_menu_item a:hover {
+    background-color: #ff781f;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.bid_menu_item img {
+    width: 25px;
+    height: 25px;
+}
+
+.watermark {
+    position: relative;
+}
+
+.watermark::after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "Art House Copyright";
+    opacity: 0.5;
+    font-size: 1.5em;
+    color: gray;
+}
+
+.searched_exhibtions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchbar_exhibition {
+    margin: 10px;
+    padding: 10px;
+    background-color: #ffc107;
+    border-radius: 5px;
+    width: 600px;
+}
+
+.searchbar_exhibition form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.exhibitions_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.exhibitions td {
+    padding: 5px;
+    border: 2px solid black;
+}
+
+.images_on_exhibitions {
+    margin-top: 10px;
+}
+
+.images_on_exhibitions img {
+    width: 300px;
+}
+
+.image_on_exh {
+    margin-top: 100px;
+}
+
+.exhibition_header {
+    text-align: center;
+}
+
+.exhibition_content {
+    padding-left: 10%;
+    width: 50%;
+}
+
+.image_on_exh {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.image_desc {
+    padding-left: 10px;
+}
+
+.exhibition_menu {
+    right: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.exhibition_menu div {
+    margin: 5px 0;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    background-color: #ffc107;
+    border-radius: 5px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ff781f;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #ff781f;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #ff781f;
+}

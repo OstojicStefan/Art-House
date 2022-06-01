@@ -20,18 +20,12 @@ class Exhibition extends Model
     public static function findExhibitions($request)
     {
         $exhibitions = "";
-        $organizers = Registred::where('Username', 'like', "%$request->organizer%")->get('IDUser');
-        //all
         if ($request->type == 'All') {
-            $exhibitions = Exhibition::where('Name', 'Like', "%$request->name%")->where('IDUser', 'in', "$organizers")->get();
-        }
-        //active
-        else if ($request->type == 'Active') {
-            $exhibitions = Exhibition::where('Name', 'Like', "%$request->name%")->where('IDUser', 'in', "$organizers")->where('IsActive', '=', 't')->get();
-        }
-        //expired
-        else if ($request->type == 'Expired') {
-            $exhibitions = Exhibition::where('Name', 'Like', "%$request->name%")->where('IDUser', 'in', "$organizers")->where('IsActive', '=', 'f')->get();
+            $exhibitions = Exhibition::where('Name', 'like', "%$request->name%")->get();
+        } else if ($request->type == 'Active') {
+            $exhibitions = Exhibition::where('Name', 'like', "%$request->name%")->where('IsActive', '=', '1')->get();
+        } else {
+            $exhibitions = Exhibition::where('Name', 'like', "%$request->name%")->where('IsActive', '=', '0')->get();
         }
         return $exhibitions;
     }

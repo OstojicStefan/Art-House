@@ -21,87 +21,76 @@ class Auction extends Model
 
     public static function findAuctions(Request $request)
     {
-        $auctions = "";
-        $phy_auctions = PhysicalAuction::all();
-        $vir_auctions = VirtualAuction::all();
-        //name,author,tag,type,status
-        $tag = SviTagovi::where('Name', '=', "$request->tag")->get();
-        //status,type
-        //all all
-        if ($request->status == 'All' && $request->type == 'All') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->get();
+        $author_name = $request->author;
+        $auction_name = $request->name;
+        $tag = $request->tag;
+        $auction_type = $request->type;
+        $auction_status = $request->status;
+
+        //first check author and name, then check tags, then check type, then check status
+        $auctions = Auction::where('Name', 'like', "%$request->name%")
+            ->where('Author', 'like', "%$request->author%")
+            ->get();
+
+        $auctions_checked_tags = array();
+        if ($tag != 'All') {
+            $tags = SviTagovi::all();
+            $tag_id = '';
+            foreach ($tags as $founded_tag) {
+                if ($founded_tag->Name == $tag) {
+                    $tag_id = $founded_tag->IDTag;
+                }
+            }
+            $images_with_tags = ImageWithTags::all();
+            foreach ($auctions as $auction) {
+                $img_id = $auction->IDIm;
+                foreach ($images_with_tags as $image) {
+                    if ($img_id == $image->IDIm && $tag_id == $image->IDTag)
+                        array_push($auctions_checked_tags, $auction);
+                }
+            }
+        } else {
+            $auctions_checked_tags = $auctions;
         }
-        //all phy
-        else if ($request->status == 'All' && $request->type == 'Physical') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IDAuc', '=', $phy_auctions)
-                ->get();
+        $auctions_checked_type = array();
+        if ($auction_type !=  'All') {
+            if ($auction_type == 'Physical') {
+                foreach ($auctions_checked_tags as $act) {
+                    $is_physical = PhysicalAuction::find($act->IDAuc);
+                    if ($is_physical != null) {
+                        array_push($auctions_checked_type, $act);
+                    }
+                }
+            } else {
+                foreach ($auctions_checked_tags as $act) {
+                    $is_virtual = VirtualAuction::find($act->IDAuc);
+                    if ($is_virtual != null) {
+                        array_push($auctions_checked_type, $act);
+                    }
+                }
+            }
+        } else {
+            $auctions_checked_type = $auctions_checked_tags;
         }
-        //all vir
-        else if ($request->status == 'All' && $request->type == 'Virtual') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IDAuc', 'in', $vir_auctions)
-                ->get();
+
+        $auctions_checked_status = array();
+        if ($auction_status != 'All') {
+            if ($auction_status == 'Active') {
+                foreach ($auctions_checked_type as $act) {
+                    if ($act->IsActive == '1') {
+                        array_push($auctions_checked_status, $act);
+                    }
+                }
+            } else {
+                foreach ($auctions_checked_type as $act) {
+                    if ($act->IsActive == '0') {
+                        array_push($auctions_checked_status, $act);
+                    }
+                }
+            }
+        } else {
+            $auctions_checked_status = $auctions_checked_type;
         }
-        //act all
-        else if ($request->status == 'Active' && $request->type == 'All') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', "t")
-                ->get();
-        }
-        //act phy
-        else if ($request->status == 'Active' && $request->type == 'Physical') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', 't')
-                ->where('IDAuc', 'in', $phy_auctions)
-                ->get();
-        }
-        //act vir
-        else if ($request->status == 'Active' && $request->type == 'Virtual') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', 't')
-                ->where('IDAuc', 'in', $vir_auctions)
-                ->get();
-        }
-        //ex all
-        else if ($request->status == 'Expired' && $request->type == 'All') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', 'f')
-                ->get();
-        }
-        //ex phy
-        else if ($request->status == 'Expired' && $request->type == 'Physical') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', 'f')
-                ->where('IDAuc', 'in', $phy_auctions)
-                ->get();
-        }
-        //ex vir
-        else if ($request->status == 'Expired' && $request->type == 'Virtual') {
-            $auctions = Auction::where('Name', 'like', "%$request->name%")
-                ->where('Author', 'like', "%$request->author%")
-                //->where('IdTag', '=', "$tag->IDTag")
-                ->where('IsActive', '=', 'f')
-                ->where('IDAuc', 'in', $vir_auctions)
-                ->get();
-        }
-        return $auctions;
+        return $auctions_checked_status;
     }
 }

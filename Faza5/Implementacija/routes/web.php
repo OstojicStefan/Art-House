@@ -38,11 +38,13 @@ Route::get('/', [AccountController::class, 'indexInit'])->name('indexInit');
 Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
 Route::post('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');
 Route::get('/auctions', [GostControllerNikola::class, 'auctions'])->name('auctions');
-Route::get('/founded_auctions', [GostControllerNikola::class, 'foundedAuctions'])->name('founded_auctions');
+Route::get('/found_auctions', [GostControllerNikola::class, 'foundAuctions'])->name('found_auctions');
 Route::get('/auction/{id}', [KorisnikControllerNikola::class, 'auction'])->name('auction');
 Route::get('/exhibitions', [GostControllerNikola::class, 'exhibitions'])->name('exhibitions');
-Route::get('/founded_exhibitions', [GostControllerNikola::class, 'foundedExhibitions'])->name('founded_exhibitions');
+Route::get('/found_exhibitions', [GostControllerNikola::class, 'foundExhibitions'])->name('found_exhibitions');
 Route::get('/exhibition/{id}', [KorisnikControllerNikola::class, 'exhibition'])->name('exhibition');
+Route::get('/send_test_mail', [nikola\MailController::class, 'sendTestMail'])->name('send_test_mail');
+
 
 Route::get('/login',[GostControllerBogdan::class,'login'] )->name('login');
 Route::post('/loginSubmit',[GostControllerBogdan::class,'loginSubmit'] )->name('loginSubmit');
@@ -62,8 +64,8 @@ Route::get('/test2',[GostControllerBogdan::class,'test2'] )->name('test2');
 Route::get('/test3',[GostControllerBogdan::class,'test3'] )->name('test3');
 Route::get('/test4',[GostControllerBogdan::class,'test4'] )->name('test4');
 
-Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibition'])->name('createExhibition');
-Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
+Route::get('/createExhibition', [CreateExhibitionController::class, 'createExhibition'])->name('createExhibition');
+Route::get('/myExhibition', [CreateExhibitionController::class, 'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
 Route::get('/myAccount', [AccountController::class, 'myAccount'])->name('myAccount');
 Route::post('/sendMessageSubmit', [ChatController::class, 'sendMessageSubmit'])->name('sendMessageSubmit');
@@ -84,13 +86,12 @@ Route::post('/unbanningSubmit', [ModeratorControllerDimitrije::class, 'unbanning
 Route::get('/downgradeModerator', [AdminControllerDimitrije::class, 'downgradeModerator'])->name('downgradeModerator');
 Route::post('/downgradeModeratorSubmit', [AdminControllerDimitrije::class, 'downgradeModeratorSubmit'])->name('downgradeModeratorSubmit');
 
+
 Route::get('/auction/{id}/bidding', [RegistredControllerDimitrije::class, 'bidding'])->name('bidding');
 Route::get('/auction/{id}/biddingBot', [RegistredControllerDimitrije::class, 'biddingBot'])->name('biddingBot');
 Route::get('/auction/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelAuction'])->name('cancelAuction');
 Route::get('/exhibition/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelExhibition'])->name('cancelExhibition');
 
 Route::get('/testing', [AdminControllerDimitrije::class, 'testing'])->name('testing');
-
-
 
 

@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\nikola\Registred;
 use App\Models\nikola\Exhibition;
-use Illuminate\Auth\Events\Registered;
 use App\Models\nikola\Image;
 use App\Models\nikola\ImageOnExhibition;
 use App\Models\nikola\ImageWithTags;
+use App\Models\nikola\PhysicalAuction;
 use App\Models\stefan\AllMessages;
+
 
 class KorisnikController extends Controller
 {
@@ -34,56 +35,56 @@ class KorisnikController extends Controller
             'amount' => 'required|gt:0|numeric'
         ]);
         Registred::updateBalance(Session::get('IDUser'), $request->amount);
-        return redirect()->route('index');
+        return redirect()->route('auctions');
     }
 
     public function auction($idauc)
     {
-        // if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')
-        //   return view('bogdan/login');
-        //else {
         $auction = Auction::find($idauc);
         $auction_owner = Registred::find($auction->Owner);
         $image = Image::find($auction->IDIm);
         $images_with_tag = ImageWithTags::all();
-        $temp = '';
+        $temp = 0;
         foreach ($images_with_tag as $image_with_tag) {
             if ($image_with_tag->IDIm == $image->IDIm) {
                 $temp = $image_with_tag->IDTag;
-                break;
             }
         }
         $tag = SviTagovi::find($temp);
-        //$image_with_tag = ImageWithTags::where('IDIm', '=', "$image->IDIm");
-        //$tag = SviTagovi::where('idtag', '=', $image_with_tag->IDTag);
-        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag]);
-        //}
+        $tag_name = $tag->Name;
+        $is_physical = PhysicalAuction::find($idauc);
+        $highest_bidder = Registred::find($auction->HighestBidder);
+        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical]);
     }
 
     public function exhibition($idexh)
     {
-        // if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')
-        //   return view('bogdan/login');
-        //else {
         $exhibition = Exhibition::find($idexh);
         $organizer = Registred::find($exhibition->IDUser);
         $images_on_exhibiton = ImageOnExhibition::where('IDExh', '=', $exhibition->IDExh)->get();
         $images = array();
+        $descriptions = array();
         foreach ($images_on_exhibiton as $image) {
-            array_push($images, $image);
+            $temp = Image::find($image->IDIm);
+            $temp_desc = $image->Description;
+            array_push($images, $temp);
+            array_push($descriptions, $temp_desc);
         }
 
-        ////////////////////////////////////////////////////
+        $has_privileges = false;
+        if (Session::get('privilegije') == 'Administrator' || Session::get('privilegije') == 'Moderator')
+            $has_privileges = true;
+        $authors = array();
+        foreach ($images as $image) {
+            $author = Registred::find($image->IDUser);
+            array_push($authors, $author);
+        }
         $id = Session::get('IDUser');
 
         $allMessages = new AllMessages();
 
         $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
-        /////////////////////////////////////////////////////
+        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges,'chatbox' => $chatbox]);
 
-
-
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'chatbox' => $chatbox]);
-        //}
     }
 }
