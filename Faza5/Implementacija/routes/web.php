@@ -57,8 +57,10 @@ Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibi
 Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
 
-Route::get('/myAccount/deleteAccount', [RegistredControllerDimitrije::class, 'deleteAccount'])->name('deleteAccount');
-Route::get('/myAccount/deleteAccountSubmit', [RegistredControllerDimitrije::class, 'deleteAccountSubmit'])->name('deleteAccountSubmit');
+
+
+Route::get('/myAccount/settings/deleteAccount', [RegistredControllerDimitrije::class, 'deleteAccount'])->name('deleteAccount');
+Route::get('/myAccount/settings/deleteAccountSubmit', [RegistredControllerDimitrije::class, 'deleteAccountSubmit'])->name('deleteAccountSubmit');
 Route::get('/adminDeleteAccount', [AdminControllerDimitrije::class, 'adminDeleteAccount'])->name('adminDeleteAccount');
 Route::post('/adminDeleteAccountSubmit', [AdminControllerDimitrije::class, 'adminDeleteAccountSubmit'])->name('adminDeleteAccountSubmit');
 
@@ -68,5 +70,14 @@ Route::get('/unbanning', [ModeratorControllerDimitrije::class, 'unbanning'])->na
 Route::post('/unbanningSubmit', [ModeratorControllerDimitrije::class, 'unbanningSubmit'])->name('unbanningSubmit');
 Route::get('/downgradeModerator', [AdminControllerDimitrije::class, 'downgradeModerator'])->name('downgradeModerator');
 Route::post('/downgradeModeratorSubmit', [AdminControllerDimitrije::class, 'downgradeModeratorSubmit'])->name('downgradeModeratorSubmit');
+
+Route::get('/auction/{id}/bidding', [RegistredControllerDimitrije::class, 'bidding'])->name('bidding');
+Route::get('/auction/{id}/biddingBot', [RegistredControllerDimitrije::class, 'biddingBot'])->name('biddingBot');
+Route::get('/auction/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelAuction'])->name('cancelAuction');
+Route::get('/exhibition/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelExhibition'])->name('cancelExhibition');
+
+Route::get('/testing', [AdminControllerDimitrije::class, 'testing'])->name('testing');
+
+
 
 

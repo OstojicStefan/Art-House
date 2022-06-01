@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class CreateExhibitionController extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     public function createExhibition()
     {  
         $id = 1;

@@ -11,6 +11,11 @@
             @if(session('status'))
                 <font color = 'red'> {{session('status')}}</font><br>
             @endif
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
             <label for="username">Username: </label><br>
                 <input type="text" maxlength="40" id="username" name="username" value = "{{old('username')}}"><br>
                 @error('username')
