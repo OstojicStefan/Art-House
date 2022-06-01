@@ -49,7 +49,7 @@ img:focus{
 #myAccHeader{
     height: 400px;
     width: 100%;
-    background-image: url("img/header_yellow.jpg");
+    background-image: url('/slike/header_yellow.jpg');
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -81,7 +81,7 @@ img:focus{
 }
 
 #index_body{
-    background-image: url("img/background.jpg");
+    background-image: url('/slike/background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;

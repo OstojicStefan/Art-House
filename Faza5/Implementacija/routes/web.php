@@ -7,6 +7,8 @@ use App\Http\Controllers\bogdan\GostController as GostControllerBogdan;
 use App\Http\Controllers\bogdan\RegistrovaniKontroler as RegistrovaniKontrolerBogdan;
 use App\Http\Controllers\nikola\GostController as GostControllerNikola;
 use App\Http\Controllers\nikola\KorisnikController as KorisnikControllerNikola;
+use App\Http\Controllers\stefan\AccountController;
+use App\Http\Controllers\stefan\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,11 @@ use App\Http\Controllers\nikola\KorisnikController as KorisnikControllerNikola;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('stefan/index', ['body_id' => 'index_body'], [AccountController::class, 'indexInit']);
+});*/
+
+Route::get('/', [AccountController::class, 'indexInit']);
 
 Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
 Route::post('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');
@@ -53,5 +57,9 @@ Route::get('/test4',[GostControllerBogdan::class,'test4'] )->name('test4');
 Route::get('/createExhibition', [CreateExhibitionController::class,'createExhibition'])->name('createExhibition');
 Route::get('/myExhibition', [CreateExhibitionController::class,'myExhibition']);
 Route::post('/createExhibitionSubmit', [CreateExhibitionController::class, 'createExhibitionSubmit'])->name('createExhibitionSubmit');
+Route::get('/myAccount', [AccountController::class, 'myAccount'])->name('myAccount');
+Route::post('/sendMessageSubmit', [ChatController::class, 'sendMessageSubmit'])->name('sendMessageSubmit');
+Route::get('myAccount/settings', [AccountController::class, 'myAccountSettings'])->name('settings');
+Route::post('/settingsSubmit', [AccountController::class, 'settingsSubmit'])->name('settingsSubmit');
 
 

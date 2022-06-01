@@ -15,8 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
     </head>
     
-<body>
-    <div class="container-fluid">
+<body id="{{$body_id ?? ''}}">
+    <div id="page-container" class="container-fluid">
     @yield('header')
     @yield('content')
     @yield('footer')
