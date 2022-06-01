@@ -4,10 +4,12 @@ namespace App\Models\dimitrije;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class RegistredModel extends Model
+class RegistredModel extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
     public $timestamps = false;
 
     protected $table = 'registred';
@@ -24,4 +26,8 @@ class RegistredModel extends Model
         'FlagHotAuctions',
         'FlagNotifyEnding'
     ];
+    public function getAuthPassword()
+    {
+        return $this->Password;
+    }
 }

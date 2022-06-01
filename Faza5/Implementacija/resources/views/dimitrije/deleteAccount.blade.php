@@ -15,7 +15,7 @@
             <form>
                 <label> Are you sure you want to delete your account? This action cannot be undone!</label><br><br>
                 <a href="{{ URL::route('deleteAccountSubmit'); }}" class="button"> Yes </a> &nbsp; &nbsp;
-                <a href="{{ URL::route('auction'); }}" class="button"> No </a><br>                                  <!--ovo promeni u myAccount kada stef doda-->
+                <a href="{{ URL::route('auctions'); }}" class="button"> No </a><br>                                  <!--ovo promeni u myAccount kada stef doda-->
             </form>
         </div>   	
    </div>

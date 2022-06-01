@@ -73,7 +73,7 @@
                                      <a href="{{ URL::route('adminDeleteAccount'); }}">Delete user accounts</a>
                                  </div>
                                 @endif
-                             <!--</div> -->
+                             </div>
                          </a>
                          </li>
                          @endif
@@ -115,5 +115,5 @@
 
 @section('footer')
 <hr>
-<center style = "background-color:#ffc107;">Copyright 2020</center>
+<center style = "background-color:#ffc107;">Copyright 2022</center>
 @endsection

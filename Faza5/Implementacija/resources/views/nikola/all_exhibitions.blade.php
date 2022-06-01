@@ -2,7 +2,11 @@
 
 @section('content')
 <br>
-<br>
+@if (session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
 <br>
 <form action="{{ route('founded_exhibitions') }}" method="GET">
         <label for="name">Exhibition:</label><input type="text" name="name">

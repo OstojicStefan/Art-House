@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Auth::provider('eloquent',function(){
-            return new AutorModelProvider();
+            return new RegistredModelProvider();
         });
     }
 }

@@ -16,10 +16,13 @@ use App\Models\bogdan\SveSlike;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Exception;
-
+use Illuminate\Support\Facades\Auth;
 
 class RegistrovaniKontroler extends Controller
 {
+    function __construct() {
+        $this->middleware('registred');
+    }
     // dodavanje taga
     public function addTags(){
         return view('bogdan/addTags');
@@ -195,24 +198,24 @@ class RegistrovaniKontroler extends Controller
     // submit dugme za stranicu uklanjanja tagova
     public function removeTags2(Request $request){
         $povratna = 0;
-    if(!empty($request->input('tagovi'))){
-        $tagovi = $request->input('tagovi');
+        if(!empty($request->input('tagovi'))){
+            $tagovi = $request->input('tagovi');
 
-        if(!empty($tagovi)){
-        foreach ($tagovi as $tag) {
-            $jedan = SviTagovi::find($tag);
-            if(!empty($jedan)){
-                try {
-                    $jedan->delete();
-                } catch (Exception $e) {
-                    $svitagovi = SviTagovi::all();
-                    return response()->json(['svitagovi' => $svitagovi, 'povratna' => 2, 'status' => 2]);
+            if(!empty($tagovi)){
+            foreach ($tagovi as $tag) {
+                $jedan = SviTagovi::find($tag);
+                if(!empty($jedan)){
+                    try {
+                        $jedan->delete();
+                    } catch (Exception $e) {
+                        $svitagovi = SviTagovi::all();
+                        return response()->json(['svitagovi' => $svitagovi, 'povratna' => 2, 'status' => 2]);
+                    }
+                $povratna = 1;
                 }
-            $povratna = 1;
+            }
             }
         }
-        }
-    }
         $svitagovi = SviTagovi::all();
 
         return response()->json(['svitagovi' => $svitagovi, 'povratna' => $povratna, 'status' => 1]);
@@ -274,7 +277,9 @@ class RegistrovaniKontroler extends Controller
 
 
     public function logout(Request $request){
-        $request->session()->flush();
+        $request->session()->flush(); 
+        // auth()->logout();   
+        // Auth::logout();              
         return redirect()->route('login');
     }   
 

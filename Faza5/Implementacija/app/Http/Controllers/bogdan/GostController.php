@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Auth;
 
 class GostController extends Controller
 {
+    function __construct() {
+        $this->middleware('guest_v2');
+    }
     // kontroler za login
     public function login(){
         return view('bogdan/login');
@@ -31,11 +34,9 @@ class GostController extends Controller
             'min' => 'Field :attribute has to be at least :min characters'
         ]);
 
-        // if(!auth()->attempt($request->only('username','password'))){
-           // return back()->with('status','Bad credentials!');
-        //}
-
-
+        // if(!auth()->attempt($request->only('Username','Password'))){
+        //    return back()->with('status','Bad credentials!');
+        // }
 
         $id = -1;
         $svi = SviKorisnici::all();
