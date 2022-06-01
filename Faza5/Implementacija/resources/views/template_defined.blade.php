@@ -47,7 +47,7 @@
                         <div id="mojnalog" class="dropdown">
                             <button id="dugme_mojnalog" type="button" class="btn btn-primary
                            dropdown-toggle" data-bs-toggle="dropdown">
-                            account
+                            {{Session::get('Username')}}
                             </button>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" href="../myAccount.html">Profile</a>
@@ -114,6 +114,10 @@
 @endsection
 
 @section('footer')
-<hr>
-<center style = "background-color:#ffc107;">Copyright 2022</center>
+
+<footer id="footer">
+    <hr>
+    <center style = "background-color:#ffc107;">Copyright 2022</center>
+</footer>
+
 @endsection

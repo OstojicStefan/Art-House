@@ -19,4 +19,10 @@ class AllImagesOnExhibition extends Model
     ];
 
     public $timestamps = false;
+
+    //Ova funkcija vraca prvu sliku na koju naidje na zadatoj izlozbi
+    public function findImageOnExhibition($idExh)
+    {
+        return AllImagesOnExhibition::all()->where('IDExh', $idExh)->first();
+    }
 }

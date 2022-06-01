@@ -13,6 +13,7 @@ use Illuminate\Auth\Events\Registered;
 use App\Models\nikola\Image;
 use App\Models\nikola\ImageOnExhibition;
 use App\Models\nikola\ImageWithTags;
+use App\Models\stefan\AllMessages;
 
 class KorisnikController extends Controller
 {
@@ -71,7 +72,18 @@ class KorisnikController extends Controller
         foreach ($images_on_exhibiton as $image) {
             array_push($images, $image);
         }
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images]);
+
+        ////////////////////////////////////////////////////
+        $id = Session::get('IDUser');
+
+        $allMessages = new AllMessages();
+
+        $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
+        /////////////////////////////////////////////////////
+
+
+
+        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'chatbox' => $chatbox]);
         //}
     }
 }
