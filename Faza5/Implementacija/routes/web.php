@@ -9,7 +9,7 @@ use App\Http\Controllers\bogdan\AdministratorController as AdministratorKontrole
 use App\Http\Controllers\bogdan\ModeratorController as ModeratorControllerBogdan;
 use App\Http\Controllers\nikola\GostController as GostControllerNikola;
 use App\Http\Controllers\nikola\KorisnikController as KorisnikControllerNikola;
-use App\Http\Controllers\nikola\MailController as MailControllerNikola;
+use App\Http\Controllers\nikola\EmailController as EmailControllerNikola;
 
 use App\Http\Controllers\stefan\AccountController;
 use App\Http\Controllers\stefan\ChatController;
@@ -17,7 +17,8 @@ use App\Http\Controllers\stefan\ChatController;
 use App\Http\Controllers\dimitrije\RegistredController as RegistredControllerDimitrije;
 use App\Http\Controllers\dimitrije\ModeratorController as ModeratorControllerDimitrije;
 use App\Http\Controllers\dimitrije\AdminController as AdminControllerDimitrije;
-
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,16 @@ Route::get('/auction/{id}', [KorisnikControllerNikola::class, 'auction'])->name(
 Route::get('/exhibitions', [GostControllerNikola::class, 'exhibitions'])->name('exhibitions');
 Route::get('/found_exhibitions', [GostControllerNikola::class, 'foundExhibitions'])->name('found_exhibitions');
 Route::get('/exhibition/{id}', [KorisnikControllerNikola::class, 'exhibition'])->name('exhibition');
+//route for mailing
+Route::get('/email_for_testing', function () {
+    Mail::to('arthousemailer@gmail.com')->send(new TestMail());
+
+    return new TestMail();
+});
+
+Route::get('/email_newsletter/{userid}', [EmailControllerNikola::class, 'sendNewsletter']);
+Route::get('/email_my_exhibition/{exhid}', [EmailControllerNikola::class, 'sendExhibitionInfo']);
+Route::get('/email_my_auction/{aucid}', [EmailControllerNikola::class, 'sendAuctionInfo']);
 Route::get('/send_test_mail', [MailControllerNikola::class, 'sendTestMail'])->name('send_test_mail');
 Route::get('/rate_exhibition', [KorisnikControllerNikola::class, 'rateExhibition'])->name('rate_exhibition');
 
