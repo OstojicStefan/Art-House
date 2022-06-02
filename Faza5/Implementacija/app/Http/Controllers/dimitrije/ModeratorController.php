@@ -23,7 +23,7 @@ class ModeratorController extends Controller
     //metoda koja izbacuje view za banovanja naloga od strane moderatora
     public function banning()
     {
-        return view('dimitrije/banning');
+        return view('dimitrije/banning', ['body_id' => 'aboutus_body']);
     }
     //submit unetog korisnika kojeg mod zeli banovati
     public function banningSubmit(Request $request)
@@ -32,32 +32,33 @@ class ModeratorController extends Controller
         $users = RegistredModel::all();
         $f = true;
         foreach ($users as $user) {
-            if($user['Username'] == $username)
-            {
+            if ($user['Username'] == $username) {
                 if (AdministratorModel::find($user['IDUser']) != null) {
                     $ret = "An Administrator cannot be banned!";
-                } else if ($user['IsBanned'] == 0){
-                    $user->IsBanned = 1;                              
+                } else if ($user['IsBanned'] == 0) {
+                    $user->IsBanned = 1;
                     $user->save();
                     $ret = "Account successfully banned!";
                 } else {
                     $ret = "Account was already banned.";
                 }
                 $f = false;
-                break;             
+                break;
             }
         }
-        if($f){
+        if ($f) {
             $ret = "User with provided username does not exist.";
         }      
 
-        return back()->with('status', $ret);               
-    }    
+
+
+        return back()->with('status', $ret);
+    }
 
     //metoda koja izbacuje view za unbanovanje naloga od strane moderatora
     public function unbanning()
     {
-        return view('dimitrije/unbanning');
+        return view('dimitrije/unbanning', ['body_id' => 'aboutus_body']);
     }
     //submit unetog korisnika kojeg mod zeli unbanovati
     public function unbanningSubmit(Request $request)
@@ -65,21 +66,20 @@ class ModeratorController extends Controller
         $username = $request['usernameInput'];
         $users = RegistredModel::all();
         foreach ($users as $user) {
-            if($user['Username'] == $username)
-            {
-                if ($user['IsBanned'] == 1){
-                    $user->IsBanned = 0;                              
+            if ($user['Username'] == $username) {
+                if ($user['IsBanned'] == 1) {
+                    $user->IsBanned = 0;
                     $user->save();
                     $ret = "Account successfully unbanned!";
                 } else {
                     $ret = "Account was not banned in the first place.";
                 }
-                return back()->with('status', $ret);              
+                return back()->with('status', $ret);
             }
         }
         $ret = "User with provided username does not exist.";
-        return back()->with('status', $ret);               
-    } 
+        return back()->with('status', $ret);
+    }
 
     //metoda kojom moderator brise aukciju
     public function cancelAuction($idauc) {
@@ -104,7 +104,6 @@ class ModeratorController extends Controller
             } else {
                 $ret = "Exhibition doesn't exist!";
             }
-
         return redirect()->route('exhibitions')->with('status', $ret);
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+// Stefan Ostojic, 18/442
+// Ovaj kontroler se bavi funkcionalnostima vezano za sam nalog korisnika
+
 namespace App\Http\Controllers\stefan;
 
 use App\Http\Controllers\Controller;
@@ -20,6 +23,7 @@ class AccountController extends Controller
         ]]);
     }
 
+    //Funkcija koja vraca korisnikovu stranicu sa svim njegovim podacima
     public function myAccount()
     {   
         $id = Session::get('IDUser');
@@ -29,18 +33,20 @@ class AccountController extends Controller
         $allAuctions = new AllAuctions();
         $myAuctions = $allAuctions->where('Owner', $id)->orWhere([['HighestBidder', $id], ['IsActive', 0]])->get();
     
-        return view('stefan/myAccount', ['images' => $images, 'auctions' => $myAuctions]);
+        return view('stefan/myAccount', ['body_id' => 'aboutus_body'], ['images' => $images, 'auctions' => $myAuctions]);
     }
 
+    //Funkcija koja korisniku ucitava settings stranicu gde moze da kontrolise i podesava stvari vezano za svoj nalog
     public function myAccountSettings()
     {
         $id = Session::get('IDUser');
         $users = new SviKorisnici();
         $user = $users->where('IDUser', $id)->get();
 
-        return view('stefan/settings', ['user' => $user]);
+        return view('stefan/settings', ['body_id' => 'aboutus_body'], ['user' => $user]);
     }
 
+    //Funkcija koja sluzi da korisnik menja opcije oko primanja odredjenih tipova mejlova
     public function settingsSubmit(Request $request)
     {
         $users = new sviKorisnici();
@@ -54,6 +60,7 @@ class AccountController extends Controller
         return redirect()->route('settings');
     }
 
+    //Funkcija koja korisniku ucitava index stranicu koja oslikava aktuelna desavanja na sajtu
     public function indexInit()
     {
         $allExhibitions = new AllExhibitions();
@@ -74,5 +81,11 @@ class AccountController extends Controller
         $mostRecentAuctions = AllAuctions::orderBy('IDAuc', 'desc')->take(4)->get();
 
         return view('stefan/index', ['body_id' => 'index_body'], ['mostRecent' => $mostRecent, 'mostRecentImages' => $mostRecentImages, 'mostRecentAuctions' => $mostRecentAuctions, 'images' => $allImages]);
+    }
+
+    //Vraca About Us stranicu
+    public function aboutUs()
+    {
+        return view('stefan/aboutUs', ['body_id' => 'aboutus_body']);
     }
 }

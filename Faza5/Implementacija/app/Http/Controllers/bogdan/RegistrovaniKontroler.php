@@ -29,7 +29,7 @@ class RegistrovaniKontroler extends Controller
 
         $svitagovi = SviTagovi::all();
 
-        return view('bogdan/createAuctionVirtual', ['svitagovi' => $svitagovi]);
+        return view('bogdan/createAuctionVirtual', ['body_id' => 'aboutus_body'], ['svitagovi' => $svitagovi]);
     }
 
     // submit dugme na stranici dodavanja aukcije fizicke ili virtuelne slike
@@ -141,7 +141,7 @@ class RegistrovaniKontroler extends Controller
     public function createAuctionPhysical(){
         $svitagovi = SviTagovi::all();
 
-        return view('bogdan/createAuctionPhysical', ['svitagovi' => $svitagovi]);
+        return view('bogdan/createAuctionPhysical', ['body_id' => 'aboutus_body'], ['svitagovi' => $svitagovi]);
     }
 
     //odjavljivanje od sajta(vraca se na login stranicu)

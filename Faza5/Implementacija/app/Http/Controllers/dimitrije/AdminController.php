@@ -25,7 +25,7 @@ class AdminController extends Controller
     //metoda koja izbacuje view za brisanje naloga od strane admina
     public function adminDeleteAccount()
     {
-        return view('dimitrije/adminDeleteAccount');
+        return view('dimitrije/adminDeleteAccount', ['body_id' => 'aboutus_body']);
     }
 
     //submit unetog korisnika kojeg admin zeli obrisati

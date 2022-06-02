@@ -26,22 +26,18 @@
                         
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::route('auctions'); }}">Auctions</a>
-                        </li>
-                        
+                        </li>                        
                         <li class="nav-item">
                          <a class="nav-link" href="{{ URL::route('createExhibition'); }}">Create Exhibition</a>
-                        </li>
-     
+                        </li>     
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::route('exhibitions'); }}">Exhibitions</a>
-                        </li>
-     
+                        </li>     
                         <li class="nav-item">
                             <a class="nav-link" href="{{ URL::route('myAccount'); }}">My account</a>
-                        </li>
-     
+                        </li>     
                         <li class="nav-item">
-                            <a class="nav-link" href="">About us</a>
+                            <a class="nav-link" href="{{ URL::route('aboutUs'); }}">About us</a>
                         </li>
                         
                         <div id="mojnalog" class="dropdown">
@@ -53,6 +49,7 @@
                             <a class="dropdown-item" href="{{ URL::route('myAccount'); }}">Profile</a>
                             <a class="dropdown-item" href="{{ URL::route('settings'); }}">Settings</a>
                             <a class="dropdown-item" href="{{ URL::route('myAccount'); }}">My auctions</a>
+
                             <div class="dropdown-divider"></div>
                             <a onclick="odjaviKorisnika()" class="dropdown-item" href="{{ URL::route('logout'); }}">Log out</a>
                             </div>
@@ -116,8 +113,11 @@
 @section('footer')
 
 <footer id="footer">
-    <hr>
-    <center style = "background-color:#ffc107;">Copyright 2022</center>
+    <div class="row">
+        <div class="col-sm-12 footer">
+            <i>Copyright 2022, Nikola Gušić, Bogdan Arsić, Dimitrije Plavšić i Stefan Ostojić, Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u Beogradu</i>
+        </div>
+    </div>
 </footer>
 
 @endsection

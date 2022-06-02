@@ -23,6 +23,7 @@ class SveIzlozbe extends Model
         'Date',
         'IsActive',
         'IDUser',
-        'Rating'
+        'Rating',
+        'RatingCount'
     ];
 }

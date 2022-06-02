@@ -1,5 +1,8 @@
 <?php
 
+//Stefan Ostojic, 18/442
+//Ovaj kontroler se bavi funkcionalnostima cetovanja tokom same izlozbe
+
 namespace App\Http\Controllers\stefan;
 
 use App\Http\Controllers\Controller;
@@ -25,6 +28,8 @@ class ChatController extends Controller
         return view('nikola/exhibition', ['chatbox', $chatbox]);
     }
 
+
+    //Funkcija koja regulise slanje poruke serveru
     public function sendMessageSubmit(Request $request)
     {   
         $newMessage = new AllMessages();

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\nikola;
 
 use App\Http\Controllers\Controller;
+use App\Models\bogdan\SveIzlozbe;
+use App\Models\bogdan\SveSlike;
 use App\Models\bogdan\SviTagovi;
 use App\Models\nikola\Auction;
 use Illuminate\Http\Request;
@@ -18,12 +20,13 @@ use App\Models\stefan\AllMessages;
 
 class KorisnikController extends Controller
 {
-    function __construct() {
+    function __construct()
+    {
         $this->middleware('registred');
     }
     public function depositMoney()
     {
-        return view('nikola/deposit_money');
+        return view('nikola/deposit_money', ['body_id' => 'aboutus_body']);
     }
 
     public function depositMoneySubmit(Request $request)
@@ -51,7 +54,11 @@ class KorisnikController extends Controller
         $tag_name = ($tag) ? $tag->Name: null;
         $is_physical = PhysicalAuction::find($idauc);
         $highest_bidder = Registred::find($auction->HighestBidder);
-        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical]);
+        Auction::updateViewCount($idauc);
+        $has_privileges = false;
+        if (Session::get('privilegije') == 'Administrator' || Session::get('privilegije') == 'Moderator')
+            $has_privileges = true;
+        return view('nikola/auction', ['body_id' => 'aboutus_body'], ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical, 'has_privileges' => $has_privileges]);
     }
 
     public function exhibition($idexh)
@@ -81,7 +88,28 @@ class KorisnikController extends Controller
         $allMessages = new AllMessages();
 
         $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges,'chatbox' => $chatbox]);
+        ////////////////////////////////////////////
+        Session::put('trenutnaIzlozba',$idexh);
+        ////////////////////////////////////////////////
+        return view('nikola/exhibition', ['body_id' => 'aboutus_body'], ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
+    }
 
+    public function rateExhibition(Request $request)
+    {
+        if(empty(Session::get('trenutnaIzlozba'))){
+            return response()->json(['status'=>2]);
+        }
+        $izlozba = SveIzlozbe::find(Session::get('trenutnaIzlozba'));
+        if(empty($izlozba)){
+            return response()->json(['status'=>2]);
+        }
+        if($izlozba->IsActive == 0){
+            return response()->json(['status'=>3]);
+        }
+        
+        $izlozba->RatingCount = $izlozba->RatingCount + 1;
+        $izlozba->Rating = ($izlozba->Rating * ($izlozba->RatingCount-1) + $request->rate)/$izlozba->RatingCount;
+        $izlozba->save();
+        return response()->json(['status'=>1, 'msg'=>$izlozba->Rating, 'trenutnaIzlozba'=>Session::get('trenutnaIzlozba')]);
     }
 }

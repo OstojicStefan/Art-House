@@ -24,7 +24,7 @@ class RegistredController extends Controller
 
     //metoda koja izbacuje view za brisanje svog naloga
     public function deleteAccount(){
-        return view('dimitrije/deleteAccount');
+        return view('dimitrije/deleteAccount', ['body_id' => 'aboutus_body']);
     }
 
     //submit za brisanje svog naloga korisnika

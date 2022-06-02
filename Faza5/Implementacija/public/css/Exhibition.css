@@ -107,3 +107,11 @@ img:focus{
     padding-top: 3px;
     font-weight: bold;
 }
+
+#aboutus_body{
+    background-image: url('/slike/aboutus_background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    height: 100%;
+}

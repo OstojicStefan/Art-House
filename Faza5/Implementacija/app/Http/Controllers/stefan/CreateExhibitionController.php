@@ -1,6 +1,7 @@
 <?php
 
 // Autor: Stefan Ostojic, 18/442
+// Ovaj kontroler se bavi funkcionalnostima pravljenja izlozbe
 
 namespace App\Http\Controllers\stefan;
 
@@ -16,24 +17,29 @@ class CreateExhibitionController extends Controller
     function __construct() {
         $this->middleware('registred');
     }
+
+    // Funkcija koja korisniku dovlaci sve njegove slike pruzajuci mu izbor za svoju izlozbu
     public function createExhibition()
     {  
         $id = Session::get('IDUser');
         $allImages = new AllImages();
         $images = $allImages->findUsersImages($id);
 
-        return view('stefan/createExhibition', ['images' => $images]);
+        return view('stefan/createExhibition', ['body_id' => 'aboutus_body'], ['images' => $images]);
     }
 
+    // Funkcija koja obradjuje slike koje je korisnik izabrao za tekucu izlozbu
     public function myExhibition()
     {
         $images=AllImages::all();
         $exhibitions=AllExhibitions::all();
         $imagesOnExhibitions=AllImagesOnExhibition::all();
 
-        return view('stefan/myExhibition', ['images' => $images]);
+        return view('stefan/myExhibition', ['body_id' => 'aboutus_body'], ['images' => $images]);
     }
 
+
+    // Funkcija koja regulise samo slanje zahteva serveru
     public function createExhibitionSubmit(Request $request)
     {
         //dd($request);
