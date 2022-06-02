@@ -16,7 +16,7 @@ class RegistredController extends Controller
         $this->middleware('registred');
     }
     public function deleteAccount(){
-        return view('dimitrije/deleteAccount');
+        return view('dimitrije/deleteAccount', ['body_id' => 'aboutus_body']);
     }
     public function deleteAccountSubmit(Request $request){
         $idU = $request->session()->get('IDUser');

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
         <link rel = "stylesheet" type = "text/css" href = "{{url('css/opste.css')}}">
+        <link rel = "stylesheet" type = "text/css" href = "{{url('css/background.css')}}">
+        
         <title>
             Login
         </title>

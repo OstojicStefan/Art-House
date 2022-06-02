@@ -26,7 +26,7 @@ class KorisnikController extends Controller
     }
     public function depositMoney()
     {
-        return view('nikola/deposit_money');
+        return view('nikola/deposit_money', ['body_id' => 'aboutus_body']);
     }
 
     public function depositMoneySubmit(Request $request)
@@ -58,7 +58,7 @@ class KorisnikController extends Controller
         $has_privileges = false;
         if (Session::get('privilegije') == 'Administrator' || Session::get('privilegije') == 'Moderator')
             $has_privileges = true;
-        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical, 'has_privileges' => $has_privileges]);
+        return view('nikola/auction', ['body_id' => 'aboutus_body'], ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical, 'has_privileges' => $has_privileges]);
     }
 
     public function exhibition($idexh)
@@ -91,7 +91,7 @@ class KorisnikController extends Controller
         ////////////////////////////////////////////
         Session::put('trenutnaIzlozba',$idexh);
         ////////////////////////////////////////////////
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
+        return view('nikola/exhibition', ['body_id' => 'aboutus_body'], ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
     }
 
     public function rateExhibition(Request $request)

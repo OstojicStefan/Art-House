@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- About us stranica sa informacijama o samom projektu -->
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Exhibition.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>
