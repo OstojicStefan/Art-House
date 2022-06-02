@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\nikola;
 
 use App\Http\Controllers\Controller;
+use App\Models\bogdan\SveIzlozbe;
+use App\Models\bogdan\SveSlike;
 use App\Models\bogdan\SviTagovi;
 use App\Models\nikola\Auction;
 use Illuminate\Http\Request;
@@ -86,11 +88,28 @@ class KorisnikController extends Controller
         $allMessages = new AllMessages();
 
         $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
+        ////////////////////////////////////////////
+        Session::put('trenutnaIzlozba',$idexh);
+        ////////////////////////////////////////////////
         return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
     }
 
     public function rateExhibition(Request $request)
     {
-        echo json_encode(array('vrednost' => $request->data));
+        if(empty(Session::get('trenutnaIzlozba'))){
+            return response()->json(['status'=>2]);
+        }
+        $izlozba = SveIzlozbe::find(Session::get('trenutnaIzlozba'));
+        if(empty($izlozba)){
+            return response()->json(['status'=>2]);
+        }
+        if($izlozba->IsActive == 0){
+            return response()->json(['status'=>3]);
+        }
+        
+        $izlozba->RatingCount = $izlozba->RatingCount + 1;
+        $izlozba->Rating = ($izlozba->Rating * ($izlozba->RatingCount-1) + $request->rate)/$izlozba->RatingCount;
+        $izlozba->save();
+        return response()->json(['status'=>1, 'msg'=>$izlozba->Rating, 'trenutnaIzlozba'=>Session::get('trenutnaIzlozba')]);
     }
 }
