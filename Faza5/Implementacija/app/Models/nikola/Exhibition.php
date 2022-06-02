@@ -14,7 +14,7 @@ class Exhibition extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'Name', 'Date', 'IsActive', 'IDUser'
+        'Name', 'Date', 'IsActive', 'IDUser', 'AccumulatedDonations'
     ];
 
     public static function findExhibitions($request)
@@ -30,9 +30,23 @@ class Exhibition extends Model
         return $exhibitions;
     }
 
-     //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj egzibiciji
-     public static function isUserOwner($idU)
-     {
-         return Exhibition::where('IDUser', $idU)->first();
-     }
+    //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj egzibiciji
+    public static function isUserOwner($idU)
+    {
+        return Exhibition::where('IDUser', $idU)->first();
+    }
+
+    public static function donateMoney($idUsr, $idExh, $amount)
+    {
+
+        $user = Registred::find($idUsr);
+        if ($user->Balance > $amount) {
+            $amount = -$amount;
+            Registred::updateBalance($idUsr, $amount);
+            $exhibition = Exhibition::find($idExh);
+            $amount = -$amount;
+            $exhibition->AccumulatedDonations = $exhibition->AccumulatedDonations + $amount;
+            $exhibition->save();
+        }
+    }
 }

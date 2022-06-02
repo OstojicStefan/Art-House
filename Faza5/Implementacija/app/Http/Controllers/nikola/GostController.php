@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\nikola;
+// Nikola Glusc 648/19
 
+// kontroler koji pokriva funkcionalnost gosta
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\nikola\Auction;

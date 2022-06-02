@@ -50,8 +50,8 @@ class KorisnikController extends Controller
                 $temp = $image_with_tag->IDTag;
             }
         }
-        $tag = SviTagovi::find($temp);       
-        $tag_name = ($tag) ? $tag->Name: null;
+        $tag = SviTagovi::find($temp);
+        $tag_name = ($tag) ? $tag->Name : null;
         $is_physical = PhysicalAuction::find($idauc);
         $highest_bidder = Registred::find($auction->HighestBidder);
         Auction::updateViewCount($idauc);
@@ -89,27 +89,40 @@ class KorisnikController extends Controller
 
         $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
         ////////////////////////////////////////////
-        Session::put('trenutnaIzlozba',$idexh);
+        Session::put('trenutnaIzlozba', $idexh);
         ////////////////////////////////////////////////
         return view('nikola/exhibition', ['body_id' => 'aboutus_body'], ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
     }
 
     public function rateExhibition(Request $request)
     {
-        if(empty(Session::get('trenutnaIzlozba'))){
-            return response()->json(['status'=>2]);
+        if (empty(Session::get('trenutnaIzlozba'))) {
+            return response()->json(['status' => 2]);
         }
         $izlozba = SveIzlozbe::find(Session::get('trenutnaIzlozba'));
-        if(empty($izlozba)){
-            return response()->json(['status'=>2]);
+        if (empty($izlozba)) {
+            return response()->json(['status' => 2]);
         }
-        if($izlozba->IsActive == 0){
-            return response()->json(['status'=>3]);
+        if ($izlozba->IsActive == 0) {
+            return response()->json(['status' => 3]);
         }
-        
+
         $izlozba->RatingCount = $izlozba->RatingCount + 1;
-        $izlozba->Rating = ($izlozba->Rating * ($izlozba->RatingCount-1) + $request->rate)/$izlozba->RatingCount;
+        $izlozba->Rating = ($izlozba->Rating * ($izlozba->RatingCount - 1) + $request->rate) / $izlozba->RatingCount;
         $izlozba->save();
-        return response()->json(['status'=>1, 'msg'=>$izlozba->Rating, 'trenutnaIzlozba'=>Session::get('trenutnaIzlozba')]);
+        return response()->json(['status' => 1, 'msg' => $izlozba->Rating, 'trenutnaIzlozba' => Session::get('trenutnaIzlozba')]);
+    }
+    public function donateMoney($idexh)
+    {
+        return view('nikola/donate_money', ['body_id' => 'aboutus_body'], ['idexh' => $idexh]);
+    }
+
+    public function donateMoneySubmit($idexh, Request $request)
+    {
+        $this->validate($request, [
+            'amount' => 'required|gt:0|numeric'
+        ]);
+        Exhibition::donateMoney(Session::get('IDUser'), $idexh, $request->amount);
+        return redirect()->route("auctions");
     }
 }

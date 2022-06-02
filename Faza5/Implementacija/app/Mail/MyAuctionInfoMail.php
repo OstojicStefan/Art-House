@@ -32,7 +32,11 @@ class MyAuctionInfoMail extends Mailable
     public function build()
     {
         $buyer = Registred::find($this->auction->HighestBidder);
+        if (empty($buyer)) {
+            return $this->markdown('emails.my_auction_info', ['auction' => $this->auction])
+                ->subject('Your auction was successfully held!');
+        }
         return $this->markdown('emails.my_auction_info', ['auction' => $this->auction, 'buyer' => $buyer])
-            ->subject('Your auction was successfully held!');;
+            ->subject('Your auction was successfully held!');
     }
 }

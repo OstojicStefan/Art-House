@@ -39,6 +39,8 @@ Route::get('/', [AccountController::class, 'indexInit'])->name('indexInit');
 
 Route::get('/deposit_money', [KorisnikControllerNikola::class, 'depositMoney'])->name('deposit_money');
 Route::get('/deposit_money_submit', [KorisnikControllerNikola::class, 'depositMoneySubmit'])->name('deposit_money_submit');
+Route::get('/donate_money/{idexh}', [KorisnikControllerNikola::class, 'donateMoney'])->name('donate_money');
+Route::get('/donate_money_submit/{idexh}', [KorisnikControllerNikola::class, 'donateMoneySubmit'])->name('donate_money_submit');
 Route::get('/auctions', [GostControllerNikola::class, 'auctions'])->name('auctions');
 Route::get('/found_auctions', [GostControllerNikola::class, 'foundAuctions'])->name('found_auctions');
 Route::get('/auction/{id}', [KorisnikControllerNikola::class, 'auction'])->name('auction');

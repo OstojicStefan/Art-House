@@ -126,7 +126,7 @@
                 @if($exhibition->FlagDonations == '1')
               <div class="donatebox">
                   <div class="bid_menu_item">
-                      <a href="">
+                      <a href="{{ route('donate_money', ['idexh' => $exhibition->IDExh ]) }}">
                           <img src="{{url('slike/doniraj.png')}}" alt="donation">
                           <p>Donate</p>
                       </a>

@@ -30,7 +30,7 @@ class NewsletterMail extends Mailable
     public function build()
     {
         $auctions = new Auction();
-        $auctions = $auctions->orderBy('ViewCount', 'desc')->take(3)->get();
+        $auctions = $auctions->where('IsActive', '=', '1')->orderBy('ViewCount', 'desc')->take(3)->get();
 
 
         return $this->markdown('emails.newsletter', ['auctions' => $auctions])

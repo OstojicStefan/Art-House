@@ -3,8 +3,10 @@
 // Komanda koja ce update-ovati aktivnost aukcija na svaka 24h
 namespace App\Console\Commands;
 
+use App\Http\Controllers\nikola\EmailController;
 use Illuminate\Console\Command;
 use App\Models\bogdan\SveAukcije;
+use App\Models\bogdan\SviKorisnici;
 
 class AutoDatabaseUpdateAuctions extends Command
 {
@@ -41,15 +43,26 @@ class AutoDatabaseUpdateAuctions extends Command
     {
         $sveAukcije = SveAukcije::all();
         date_default_timezone_set("Europe/Belgrade");
+        $ec = new EmailController();
         foreach ($sveAukcije as $aukcija) {
-            if($aukcija->Duration == 0){
-                $aukcija->isActive = 0;
+            if ($aukcija->Duration == 0) {
+                if ($aukcija->IsActive == 1) {
+                    $ec->sendAuctionInfo($aukcija->IDAuc);
+                }
+                $aukcija->IsActive = 0;
             }
-            if($aukcija->Duration > 0){
+            if ($aukcija->Duration > 0) {
                 $aukcija->Duration--;
             }
             $aukcija->save();
         }
-        echo 'Successfull Auction Table Update|'.date("Y-m-d H:i:s", time()).'||';
+
+        $sviKorisnici = SviKorisnici::all();
+        foreach ($sviKorisnici as $korisnik) {
+            if ($korisnik->FlagHotAuctions == '1' && $korisnik->IsBanned == '0') {
+                $ec->sendNewsletter($korisnik->IDUser);
+            }
+        }
+        echo 'Successfull Auction Table Update|' . date("Y-m-d H:i:s", time()) . '||';
     }
 }

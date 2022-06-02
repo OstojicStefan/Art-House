@@ -23,7 +23,8 @@ class AllExhibitions extends Model
         'Date',
         'IsActive',
         'IDUser',
-        'Rating'
+        'Rating',
+        'RatingCount'
     ];
 
     public $timestamps = false;
