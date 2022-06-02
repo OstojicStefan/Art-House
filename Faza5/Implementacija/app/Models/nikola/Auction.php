@@ -6,6 +6,7 @@ use App\Models\bogdan\SviTagovi;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Auction extends Model
 {
@@ -16,7 +17,7 @@ class Auction extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'Name', 'Author', 'IsActive'
+        'Name', 'Author', 'IsActive', 'ViewCount'
     ];
 
     public static function findAuctions(Request $request)
@@ -92,5 +93,11 @@ class Auction extends Model
             $auctions_checked_status = $auctions_checked_type;
         }
         return $auctions_checked_status;
+    }
+    public static function updateViewCount($idAuc)
+    {
+        $auction = Auction::find($idAuc);
+        $auction->ViewCount = $auction->ViewCount + 1;
+        $auction->save();
     }
 }

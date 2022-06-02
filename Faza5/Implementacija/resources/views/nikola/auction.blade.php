@@ -89,5 +89,13 @@
             <p>Exit</p>
         </a>
     </div> 
+    @if($has_privileges == true)
+                <div class="bid_menu_item">
+                    <a href="">
+                        <img src="{{url('slike/doniraj.png')}}" alt="donation">
+                        <p>Delete</p>
+                    </a>
+                </div> 
+           @endif
 </div>
 @endsection

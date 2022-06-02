@@ -11,6 +11,7 @@ class Registred extends Model
 
     protected $table = 'Registred';
     protected $primaryKey = 'IDUser';
+    public $timestamps = false;
 
     protected $fillable = [
         'Balance'
