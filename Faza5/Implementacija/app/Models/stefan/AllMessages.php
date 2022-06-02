@@ -21,6 +21,7 @@ class AllMessages extends Model
 
     public $timestamps = false;
 
+    // Funkcija koja trazi username korisnika sa prosledjenim ID-ijem
     public function findUsername($userID)
     {
         $users = new SviKorisnici();

@@ -31,6 +31,7 @@ class AllAuctions extends Model
 
     public $timestamps = false;
 
+    // Funkcija trazi izlozbu na osnovu ID-ija slike na njoj
     public static function findAuction($imageID)
     {
         return AllAuctions::all()->where('IDIm', $imageID)->first();

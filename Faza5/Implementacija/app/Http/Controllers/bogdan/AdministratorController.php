@@ -17,7 +17,7 @@ class AdministratorController extends Controller
 
     // upgradovanje uloga korsinika(vraca stranicu)
     public function upgradeUserRoles(){
-        return view('bogdan/upgradeUserRoles');
+        return view('bogdan/upgradeUserRoles', ['body_id' => 'aboutus_body']);
     }
 
     // submit dugme za stranicu unapredjivanja korisnika

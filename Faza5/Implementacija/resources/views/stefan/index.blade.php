@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- Glavna, tj. pocetna stranica. U zavisnosti od toga da li je korisnik ulogovan ili nije, imace drugaciji prikaz -->
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Exhibition.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>

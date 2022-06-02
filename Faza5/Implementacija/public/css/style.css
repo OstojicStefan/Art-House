@@ -484,6 +484,7 @@
 
 .personal-info a:hover {
     color: #ff781f;
+    text-decoration: none;
 }
 
 

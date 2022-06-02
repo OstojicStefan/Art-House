@@ -20,7 +20,7 @@ class GostController extends Controller
     {
         $auctions = Auction::all();
         $tags = SviTagovi::all('Name');
-        return view('nikola/auctions', ['auctions' => $auctions, 'tags' => $tags]);
+        return view('nikola/auctions', ['body_id' => 'aboutus_body'], ['auctions' => $auctions, 'tags' => $tags]);
     }
 
     public function foundAuctions(Request $request)
@@ -29,13 +29,13 @@ class GostController extends Controller
 
         $tags = SviTagovi::all();
         $auctions = Auction::findAuctions($request);
-        return view('nikola/auctions', ['auctions' => $auctions, 'searched' => true, 'tags' => $tags]);
+        return view('nikola/auctions', ['body_id' => 'aboutus_body'], ['auctions' => $auctions, 'searched' => true, 'tags' => $tags]);
     }
 
     public function exhibitions()
     {
         $exhibitions = Exhibition::all();
-        return view('nikola/all_exhibitions', ['exhibitions' => $exhibitions]);
+        return view('nikola/all_exhibitions', ['body_id' => 'aboutus_body'], ['exhibitions' => $exhibitions]);
     }
 
     public static function findOrganizer($iduser)
@@ -46,6 +46,6 @@ class GostController extends Controller
     public function foundExhibitions(Request $request)
     {
         $exhibitions = Exhibition::findExhibitions($request);
-        return view('nikola/all_exhibitions', ['exhibitions' => $exhibitions, 'searched' => $request->name]);
+        return view('nikola/all_exhibitions', ['body_id' => 'aboutus_body'], ['exhibitions' => $exhibitions, 'searched' => $request->name]);
     }
 }

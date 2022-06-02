@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- Stranica personalizovana sa korisnikovim podacima i najbitnijim informacijama -->
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Exhibition.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>
@@ -17,6 +19,9 @@
 
     </div>
     <div class="col-sm-6">
+        <div class="personal-info">
+        <a href="deposit_money" class="link-deactivate">Deposit money</a></div> <hr>
+        
         <table id="myAuctions" class="table table-striped table-warning">
             <tr>
                 <th>My Auctions</th>
@@ -25,7 +30,7 @@
             @foreach ($auctions as $auction)
             <tr>
                 <td>
-                    <a href="/auction/{{$auction->IDAuc}}">{{$auction->Name}}</a>
+                    <a href="../auction/{{$auction->IDAuc}}">{{$auction->Name}}</a>
                 </td>
                 <td>
                     @if (Session::get('IDUser')==$auction->Owner)

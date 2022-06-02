@@ -19,7 +19,7 @@ class ModeratorController extends Controller
 
     public function banning()
     {
-        return view('dimitrije/banning');
+        return view('dimitrije/banning', ['body_id' => 'aboutus_body']);
     }
     public function banningSubmit(Request $request)
     {
@@ -52,7 +52,7 @@ class ModeratorController extends Controller
 
     public function unbanning()
     {
-        return view('dimitrije/unbanning');
+        return view('dimitrije/unbanning', ['body_id' => 'aboutus_body']);
     }
     public function unbanningSubmit(Request $request)
     {

@@ -16,7 +16,7 @@ class ModeratorController extends Controller
     
     // dodavanje taga(vraca stranicu)
     public function addTags(){
-        return view('bogdan/addTags');
+        return view('bogdan/addTags', ['body_id' => 'aboutus_body']);
     }
 
     // submit dugme za stranicu dodavanja taga
@@ -47,7 +47,7 @@ class ModeratorController extends Controller
     public function removeTags(){
         $svitagovi = SviTagovi::all();
 
-        return view('bogdan/removeTags', ['svitagovi' => $svitagovi]);
+        return view('bogdan/removeTags', ['body_id' => 'aboutus_body'], ['svitagovi' => $svitagovi]);
     }
 
      // submit dugme za stranicu uklanjanja tagova

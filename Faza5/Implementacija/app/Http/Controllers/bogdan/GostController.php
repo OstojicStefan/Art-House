@@ -21,7 +21,7 @@ class GostController extends Controller
     }
     // kontroler za login
     public function login(){
-        return view('bogdan/login');
+        return view('bogdan/login', ['body_id' => 'aboutus_body']);
     }
 
     // funkcija koja se poziva klikom na dugme 
@@ -74,7 +74,7 @@ class GostController extends Controller
 
     // kontroler za register
     public function register(){
-        return view('bogdan/register');
+        return view('bogdan/register', ['body_id' => 'aboutus_body']);
     }
 
     // kontroler za register

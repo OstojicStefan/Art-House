@@ -2,6 +2,8 @@
 
 @section('content')
 
+<!-- Stranica sa osnovnim podacima o korisniku i odredjenim podesavanjima koje korisnik moze da sprovede -->
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Exhibition.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>

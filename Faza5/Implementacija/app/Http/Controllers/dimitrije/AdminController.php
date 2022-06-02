@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function adminDeleteAccount()
     {
-        return view('dimitrije/adminDeleteAccount');
+        return view('dimitrije/adminDeleteAccount', ['body_id' => 'aboutus_body']);
     }
     public function adminDeleteAccountSubmit(Request $request)
     {

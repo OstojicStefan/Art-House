@@ -2,6 +2,8 @@
 
 @section('content')  
 
+<!-- Stranica za odabir slika koje ce biti na izlozbi -->
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/opste.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/Exhibition.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>
