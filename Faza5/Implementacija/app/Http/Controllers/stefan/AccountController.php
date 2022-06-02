@@ -65,21 +65,28 @@ class AccountController extends Controller
     {
         $allExhibitions = new AllExhibitions();
 
-        $mostRecent = AllExhibitions::orderBy('IDExh', 'desc')->take(4)->get();
+        if($allExhibitions->count() > 3){
+          
+            $mostRecent = AllExhibitions::orderBy('IDExh', 'desc')->take(4)->get();
 
-        $allImagesOnExhibition = new AllImagesOnExhibition();
+            $allImagesOnExhibition = new AllImagesOnExhibition();
 
-        $allImages = new AllImages();
+            $allImages = new AllImages();
 
-        //ovaj deo regulise slanje slika 4 najskorije izlozbe
-        for($i=0;$i<4;$i++){
-            $mostRecentImages[$i]=$allImages->findImage($allImagesOnExhibition->findImageOnExhibition($mostRecent[$i]->IDExh)->IDIm);
+            //ovaj deo regulise slanje slika 4 najskorije izlozbe
+            for($i=0;$i<4;$i++){
+                $mostRecentImages[$i]=$allImages->findImage($allImagesOnExhibition->findImageOnExhibition($mostRecent[$i]->IDExh)->IDIm);
+            }
+            
+            $allAuctions = new AllAuctions();
+
+            $mostRecentAuctions = AllAuctions::orderBy('IDAuc', 'desc')->take(4)->get();
+        } else {
+            $mostRecent = AllExhibitions::orderBy('IDExh', 'desc')->get();
+            $mostRecentImages = [];
+            $mostRecentAuctions = [];
+            $allImages = [];
         }
-        
-        $allAuctions = new AllAuctions();
-
-        $mostRecentAuctions = AllAuctions::orderBy('IDAuc', 'desc')->take(4)->get();
-
         return view('stefan/index', ['body_id' => 'index_body'], ['mostRecent' => $mostRecent, 'mostRecentImages' => $mostRecentImages, 'mostRecentAuctions' => $mostRecentAuctions, 'images' => $allImages]);
     }
 

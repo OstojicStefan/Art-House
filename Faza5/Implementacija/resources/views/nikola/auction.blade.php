@@ -91,7 +91,7 @@
     </div> 
     @if($has_privileges == true)
                 <div class="bid_menu_item">
-                    <a href="">
+                    <a href="{{ route('cancelAuction', ['id' => $auction->IDAuc ]) }}">
                         <img src="{{url('slike/doniraj.png')}}" alt="donation">
                         <p>Delete</p>
                     </a>

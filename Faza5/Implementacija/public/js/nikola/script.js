@@ -7,11 +7,10 @@ function rateExhibition() {
         dataType: 'json',
         contentType: false,
         beforeSend: function () {
-            alert("saljem");
+          
         },
         success: function (data) {
-            if(data['status'] == 1){
-                alert(data['msg']);
+            if(data['status'] == 1){                
                 var x = document.getElementsByName("rate");
                 var i;
                 if(data['msg']<1.5){
@@ -28,10 +27,7 @@ function rateExhibition() {
                 for (i = 0; i < x.length; i++) {
                     x[i].disabled = true;
                 }
-            }else if(data['status'] == 3){
-                alert('WTF');
-            }
-            else{
+            } else {
                 alert('Illegal operation!');
             }
         }

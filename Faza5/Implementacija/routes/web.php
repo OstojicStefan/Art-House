@@ -62,9 +62,9 @@ Route::post('/addTagsSubmit', [ModeratorControllerBogdan::class, 'addTagsSubmit'
 Route::get('/upgradeUserRoles', [AdministratorKontrolerBogdan::class, 'upgradeUserRoles'])->name('upgradeUserRoles');
 Route::post('/upgradeUserRolesSubmit', [AdministratorKontrolerBogdan::class, 'upgradeUserRolesSubmit'])->name('upgradeUserRolesSubmit');
 Route::get('/logout', [RegistrovaniKontrolerBogdan::class, 'logout'])->name('logout');
-Route::get('/test2', [GostControllerBogdan::class, 'test2'])->name('test2');
-Route::get('/test3', [GostControllerBogdan::class, 'test3'])->name('test3');
-Route::get('/test4', [GostControllerBogdan::class, 'test4'])->name('test4');
+// Route::get('/test2', [GostControllerBogdan::class, 'test2'])->name('test2');
+// Route::get('/test3', [GostControllerBogdan::class, 'test3'])->name('test3');
+// Route::get('/test4', [GostControllerBogdan::class, 'test4'])->name('test4');
 
 Route::get('/createExhibition', [CreateExhibitionController::class, 'createExhibition'])->name('createExhibition');
 Route::get('/myExhibition', [CreateExhibitionController::class, 'myExhibition']);
@@ -97,4 +97,4 @@ Route::post('/auction/{id}/biddingBotSetup', [RegistredControllerDimitrije::clas
 Route::get('/auction/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelAuction'])->name('cancelAuction');
 Route::get('/exhibition/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelExhibition'])->name('cancelExhibition');
 
-Route::get('/testing', [AdminControllerDimitrije::class, 'testing'])->name('testing');
+// Route::get('/testing', [AdminControllerDimitrije::class, 'testing'])->name('testing');

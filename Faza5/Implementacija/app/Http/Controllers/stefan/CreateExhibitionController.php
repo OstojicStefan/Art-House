@@ -56,7 +56,7 @@ class CreateExhibitionController extends Controller
             $newExhibition->FlagDonations = 0;
         }
         $newExhibition->Date = $request->exhibitionTime;
-        $newExhibition->IsActive = 1;
+        $newExhibition->IsActive = 0;
         $newExhibition->IDUser = $id;
         $newExhibition->Rating = 0;
         $newExhibition->save();
