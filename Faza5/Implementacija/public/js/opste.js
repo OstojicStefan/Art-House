@@ -1,3 +1,4 @@
+//Dimitrije Plavsic 18/220
 function cancelBid(){
     
     let bid_div = document.getElementById("bid_div");

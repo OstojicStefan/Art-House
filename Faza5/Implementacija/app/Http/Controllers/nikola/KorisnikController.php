@@ -23,10 +23,7 @@ class KorisnikController extends Controller
     }
     public function depositMoney()
     {
-        if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')
-            return view('bogdan/login');
-        else
-            return view('nikola/deposit_money');
+        return view('nikola/deposit_money');
     }
 
     public function depositMoneySubmit(Request $request)
@@ -50,8 +47,8 @@ class KorisnikController extends Controller
                 $temp = $image_with_tag->IDTag;
             }
         }
-        $tag = SviTagovi::find($temp);
-        $tag_name = $tag->Name;
+        $tag = SviTagovi::find($temp);       
+        $tag_name = ($tag) ? $tag->Name: null;
         $is_physical = PhysicalAuction::find($idauc);
         $highest_bidder = Registred::find($auction->HighestBidder);
         return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical]);

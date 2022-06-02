@@ -1,4 +1,5 @@
-<!-- Dimitrije Plavsic-->
+<!-- Dimitrije Plavsic 18/0220-->
+<!-- Stranica za ukidanje uloga moderatora od strane admina-->
 @extends('template_defined')
 <head>
     <title> Downgrading moderator </title>

@@ -88,7 +88,9 @@ Route::post('/downgradeModeratorSubmit', [AdminControllerDimitrije::class, 'down
 
 
 Route::get('/auction/{id}/bidding', [RegistredControllerDimitrije::class, 'bidding'])->name('bidding');
+Route::post('/auction/{id}/biddingSubmit', [RegistredControllerDimitrije::class, 'biddingSubmit'])->name('biddingSubmit');
 Route::get('/auction/{id}/biddingBot', [RegistredControllerDimitrije::class, 'biddingBot'])->name('biddingBot');
+Route::post('/auction/{id}/biddingBotSetup', [RegistredControllerDimitrije::class, 'biddingBotSetup'])->name('biddingBotSetup');
 Route::get('/auction/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelAuction'])->name('cancelAuction');
 Route::get('/exhibition/{id}/cancel', [ModeratorControllerDimitrije::class, 'cancelExhibition'])->name('cancelExhibition');
 

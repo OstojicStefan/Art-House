@@ -1,5 +1,5 @@
 <?php
-
+//Dimitrije Plavsic 18/220
 namespace App\Models\dimitrije;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+//model za tabelu registrovanih korisnika
 class RegistredModel extends Authenticatable
 {
     use HasFactory, Notifiable;

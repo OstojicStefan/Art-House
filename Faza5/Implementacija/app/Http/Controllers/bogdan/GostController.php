@@ -69,7 +69,7 @@ class GostController extends Controller
             Session::put('privilegije','Obicni');
         }
         
-       return redirect()->route('addTags');
+       return redirect()->route('indexInit');
     }
 
     // kontroler za register

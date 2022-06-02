@@ -14,7 +14,7 @@ class Exhibition extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'Name', 'Date', 'IsActive'
+        'Name', 'Date', 'IsActive', 'IDUser'
     ];
 
     public static function findExhibitions($request)
@@ -29,4 +29,10 @@ class Exhibition extends Model
         }
         return $exhibitions;
     }
+
+     //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj egzibiciji
+     public static function isUserOwner($idU)
+     {
+         return Exhibition::where('IDUser', $idU)->first();
+     }
 }

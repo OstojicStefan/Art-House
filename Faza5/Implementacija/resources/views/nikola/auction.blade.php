@@ -42,7 +42,7 @@
             @endif
         </div>
         <div class="highest_bidder">
-            Highest bidder: {{ $highest_bidder->Username}}
+            Highest bidder: {{ $highest_bidder? $highest_bidder->Username:" "}}
         </div>
         <div class="time_left">
             @if($auction->IsActive == '1')
@@ -71,13 +71,13 @@
 <div class='auction_menu'>
         @if( $auction->IsActive =='1')
             <div class="bid_menu_item">
-                <a href="">
+                <a href="{{ $auction->IDAuc }}/bidding">
                     <img src="{{url('slike/licitiraj3.png')}}" alt="bid">
                     <p>Bid</p>
                 </a>
             </div> 
             <div class="bid_menu_item">
-                <a href="">
+                <a href="{{ $auction->IDAuc }}/biddingBot">
                     <img src="{{url('slike/bot.png')}}" alt="bot">
                     <p>Bot</p>
                 </a>

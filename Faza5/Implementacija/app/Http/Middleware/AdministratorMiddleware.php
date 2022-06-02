@@ -1,11 +1,12 @@
 <?php
-
+//Dimitrije Plavsic 18/220
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\dimitrije\AdministratorModel;
 
+//middleware za stranice kojima samo admin moze pristupiti
 class AdministratorMiddleware
 {
     /**

@@ -1,11 +1,12 @@
 <?php
-
+//Dimitrije Plavsic 18/220
 namespace App\Providers;
 
 use App\Models\dimitrije\RegistredModel;
 use Illuminate\Contracts\Auth\UserProvider;
 use \Illuminate\Contracts\Auth\Authenticatable;
 
+//provider koji nismo koristili jer smo odlucili da drugacije radimo autentifikaciju korisnika
 class RegistredModelProvider implements UserProvider { 
 
     public function retrieveById($identifier){

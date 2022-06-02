@@ -1,4 +1,5 @@
-<!-- Dimitrije Plavsic-->
+<!-- Dimitrije Plavsic 18/0220-->
+<!-- Stranica za brisanje naloga od strane admina-->
 @extends('template_defined')
 <head>
     <title> Deleting user accounts </title>
