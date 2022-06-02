@@ -73,6 +73,7 @@ Route::get('/myAccount', [AccountController::class, 'myAccount'])->name('myAccou
 Route::post('/sendMessageSubmit', [ChatController::class, 'sendMessageSubmit'])->name('sendMessageSubmit');
 Route::get('myAccount/settings', [AccountController::class, 'myAccountSettings'])->name('settings');
 Route::post('/settingsSubmit', [AccountController::class, 'settingsSubmit'])->name('settingsSubmit');
+Route::get('/aboutUs', [AccountController::class, 'aboutUs'])->name('aboutUs');
 
 
 

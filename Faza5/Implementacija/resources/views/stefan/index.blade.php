@@ -29,24 +29,33 @@
 </div>
 
 <div class="row">
+
+    @if ($mostRecent->count()>0)
     <div id="exhibition-1" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/exhibition/{{$mostRecent[0]->IDExh}}">
     {{$mostRecent[0]->Name}} <br><img src="data:image/jpg;base64,{{ chunk_split($mostRecentImages[0]->Imagee) }}" class="noHover img-fluid image-index"></a> 
     </div>
+    @endif
 
+    @if ($mostRecent->count()>1)
     <div id="exhibition-2" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/exhibition/{{$mostRecent[1]->IDExh}}">
     {{$mostRecent[1]->Name}} <br><img src="data:image/jpg;base64,{{ chunk_split($mostRecentImages[1]->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 
+    @if ($mostRecent->count()>2)
     <div id="exhibition-3" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/exhibition/{{$mostRecent[2]->IDExh}}">{{$mostRecent[2]->Name}} <br><img src="data:image/jpg;base64,{{ chunk_split($mostRecentImages[2]->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 
+    @if ($mostRecent->count()>3)
     <div id="exhibition-4" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/exhibition/{{$mostRecent[3]->IDExh}}">
     {{$mostRecent[3]->Name}} <br><img src="data:image/jpg;base64,{{ chunk_split($mostRecentImages[3]->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 </div>
 
 
@@ -61,24 +70,32 @@
 </div>
 
 <div class="row">
+    @if ($mostRecentAuctions->count()>0)
     <div id="auction-1" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/auction/{{$mostRecentAuctions[0]->IDAuc}}">
     {{$mostRecentAuctions[0]->Name}} &nbsp;&nbsp;&nbsp; Price:  {{$mostRecentAuctions[0]->Price}}<br><img src="data:image/jpg;base64,{{ chunk_split($images->findImage($mostRecentAuctions[0]->IDIm)->Imagee) }}" class="noHover img-fluid image-index"></a><br> 
     </div>
+    @endif
 
+    @if ($mostRecentAuctions->count()>1)
     <div id="auction-2" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/auction/{{$mostRecentAuctions[1]->IDAuc}}">
     {{$mostRecentAuctions[1]->Name}} &nbsp;&nbsp;&nbsp; Price:  {{$mostRecentAuctions[1]->Price}}<br><img src="data:image/jpg;base64,{{ chunk_split($images->findImage($mostRecentAuctions[1]->IDIm)->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 
+    @if ($mostRecentAuctions->count()>2)
     <div id="auction-3" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/auction/{{$mostRecentAuctions[2]->IDAuc}}">{{$mostRecentAuctions[2]->Name}} &nbsp;&nbsp;&nbsp; Price:  {{$mostRecentAuctions[2]->Price}}<br><img src="data:image/jpg;base64,{{ chunk_split($images->findImage($mostRecentAuctions[2]->IDIm)->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 
+    @if ($mostRecentAuctions->count()>3)
     <div id="auction-4" class="col-12 col-lg-3 najnoviji-recepti index-banner zoom">
     <a href="/auction/{{$mostRecentAuctions[3]->IDAuc}}">
     {{$mostRecentAuctions[3]->Name}} &nbsp;&nbsp;&nbsp; Price:  {{$mostRecentAuctions[3]->Price}}<br><img src="data:image/jpg;base64,{{ chunk_split($images->findImage($mostRecentAuctions[3]->IDIm)->Imagee) }}" class="noHover img-fluid image-index"></a>
     </div>
+    @endif
 </div>
 
 @endif
