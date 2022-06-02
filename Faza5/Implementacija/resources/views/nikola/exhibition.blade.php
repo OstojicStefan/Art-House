@@ -3,6 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/chat.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
 <script src="{{asset('js/stefan/Exhibition.js')}}"></script>
 <script src="{{asset('js/nikola/script.js')}}"></script>
 
@@ -108,7 +109,7 @@
             <div class="left_menu">
               <iframe width="180" height="100" src="{{ $exhibition->Song }}" title="YouTube video player" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" class="video_player"></iframe>
               <div class="ratebox">
-                  <div class="rate">
+                  <div class="rate rating">
                       <input type="radio" id="star5" name="rate" value="5" onclick="rateExhibition()" />
                       <label for="star5" title="text">5 stars</label>
                       <input type="radio" id="star4" name="rate" value="4" onclick="rateExhibition()"/>

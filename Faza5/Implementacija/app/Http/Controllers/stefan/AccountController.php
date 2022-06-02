@@ -75,4 +75,9 @@ class AccountController extends Controller
 
         return view('stefan/index', ['body_id' => 'index_body'], ['mostRecent' => $mostRecent, 'mostRecentImages' => $mostRecentImages, 'mostRecentAuctions' => $mostRecentAuctions, 'images' => $allImages]);
     }
+
+    public function aboutUs()
+    {
+        return view('stefan/aboutUs', ['body_id' => 'aboutus_body']);
+    }
 }

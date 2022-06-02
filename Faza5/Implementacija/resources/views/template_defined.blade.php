@@ -33,11 +33,11 @@
                         </li>
      
                         <li class="nav-item">
-                            <a class="nav-link" href="exhibitions">Exhibitions</a>
+                            <a class="nav-link" href="../exhibitions">Exhibitions</a>
                         </li>
      
                         <li class="nav-item">
-                            <a class="nav-link" href="myAccount">My account</a>
+                            <a class="nav-link" href="../myAccount">My account</a>
                         </li>
      
                         <li class="nav-item">
@@ -51,7 +51,7 @@
                             </button>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" href="../myAccount">Profile</a>
-                            <a class="dropdown-item" href="myAccount/settings">Settings</a>
+                            <a class="dropdown-item" href="../myAccount/settings">Settings</a>
                             <a class="dropdown-item" href="../myAccount">My auctions</a>
                             <div class="dropdown-divider"></div>
                             <a onclick="odjaviKorisnika()" class="dropdown-item" href="../logout">Log out</a>
@@ -116,8 +116,11 @@
 @section('footer')
 
 <footer id="footer">
-    <hr>
-    <center style = "background-color:#ffc107;">Copyright 2022</center>
+    <div class="row">
+        <div class="col-sm-12 footer">
+            <i>Copyright 2022, Nikola Gušić, Bogdan Arsić, Dimitrije Plavšić i Stefan Ostojić, Odsek za softversko inženjerstvo Elektrotehničkog fakulteta Univerziteta u Beogradu</i>
+        </div>
+    </div>
 </footer>
 
 @endsection
