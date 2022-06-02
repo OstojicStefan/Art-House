@@ -18,15 +18,13 @@ use App\Models\stefan\AllMessages;
 
 class KorisnikController extends Controller
 {
-    function __construct() {
+    function __construct()
+    {
         $this->middleware('registred');
     }
     public function depositMoney()
     {
-        if (empty(Session::get('privilegije')) || Session::get('privilegije') == 'gost')
-            return view('bogdan/login');
-        else
-            return view('nikola/deposit_money');
+        return view('nikola/deposit_money');
     }
 
     public function depositMoneySubmit(Request $request)
@@ -54,7 +52,11 @@ class KorisnikController extends Controller
         $tag_name = $tag->Name;
         $is_physical = PhysicalAuction::find($idauc);
         $highest_bidder = Registred::find($auction->HighestBidder);
-        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical]);
+        Auction::updateViewCount($idauc);
+        $has_privileges = false;
+        if (Session::get('privilegije') == 'Administrator' || Session::get('privilegije') == 'Moderator')
+            $has_privileges = true;
+        return view('nikola/auction', ['auction' => $auction, 'owner' => $auction_owner, 'image' => $image, 'tag' => $tag_name, 'highest_bidder' => $highest_bidder, 'isPhysical' => $is_physical, 'has_privileges' => $has_privileges]);
     }
 
     public function exhibition($idexh)
@@ -84,7 +86,11 @@ class KorisnikController extends Controller
         $allMessages = new AllMessages();
 
         $chatbox = $allMessages->where('IDExh', $idexh)->orderBy('IDMes', 'asc')->get();
-        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges,'chatbox' => $chatbox]);
+        return view('nikola/exhibition', ['exhibition' => $exhibition, 'organizer' => $organizer, 'images' => $images, 'authors' => $authors, 'descriptions' => $descriptions, 'has_privileges' => $has_privileges, 'chatbox' => $chatbox]);
+    }
 
+    public function rateExhibition(Request $request)
+    {
+        echo json_encode(array('vrednost' => $request->data));
     }
 }

@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 
 class ModeratorController extends Controller
 {
-    function __construct() {
+    function __construct()
+    {
         $this->middleware('mod');
     }
 
@@ -26,29 +27,28 @@ class ModeratorController extends Controller
         $users = RegistredModel::all();
         $f = true;
         foreach ($users as $user) {
-            if($user['Username'] == $username)
-            {
+            if ($user['Username'] == $username) {
                 if (AdministratorModel::find($user['IDUser']) != null) {
                     $ret = "An Administrator cannot be banned!";
-                } else if ($user['IsBanned'] == 0){
-                    $user->IsBanned = 1;                              
+                } else if ($user['IsBanned'] == 0) {
+                    $user->IsBanned = 1;
                     $user->save();
                     $ret = "Account successfully banned!";
                 } else {
                     $ret = "Account was already banned.";
                 }
                 $f = false;
-                break;             
+                break;
             }
         }
-        if($f){
+        if ($f) {
             $ret = "User with provided username does not exist.";
         }
 
-        
 
-        return back()->with('status', $ret);               
-    }    
+
+        return back()->with('status', $ret);
+    }
 
     public function unbanning()
     {
@@ -59,43 +59,44 @@ class ModeratorController extends Controller
         $username = $request['usernameInput'];
         $users = RegistredModel::all();
         foreach ($users as $user) {
-            if($user['Username'] == $username)
-            {
-                if ($user['IsBanned'] == 1){
-                    $user->IsBanned = 0;                              
+            if ($user['Username'] == $username) {
+                if ($user['IsBanned'] == 1) {
+                    $user->IsBanned = 0;
                     $user->save();
                     $ret = "Account successfully unbanned!";
                 } else {
                     $ret = "Account was not banned in the first place.";
                 }
-                return back()->with('status', $ret);              
+                return back()->with('status', $ret);
             }
         }
         $ret = "User with provided username does not exist.";
-        return back()->with('status', $ret);               
-    } 
+        return back()->with('status', $ret);
+    }
 
-    public function cancelAuction($idauc) {
+    public function cancelAuction($idauc)
+    {
         $auc = Auction::find($idauc);
-            if(!empty($auc)){
-                $auc['IsActive'] = 0;
-                $auc->save();
-                $ret = "Auction " . $auc['Name'] . " was successfully cancelled!";                
-            } else {
-                $ret = "Auction doesn't exist!";
-            }
+        if (!empty($auc)) {
+            $auc['IsActive'] = 0;
+            $auc->save();
+            $ret = "Auction " . $auc['Name'] . " was successfully cancelled!";
+        } else {
+            $ret = "Auction doesn't exist!";
+        }
 
         return redirect()->route('auctions')->with('status', $ret);
     }
-    public function cancelExhibition($idexh) {
+    public function cancelExhibition($idexh)
+    {
         $exh = Exhibition::find($idexh);
-            if(!empty($exh)){
-                $exh->IsActive = 0;
-                $exh->save();
-                $ret = "Exhibition " . $exh['Name'] . " was successfully cancelled!";        
-            } else {
-                $ret = "Exhibition doesn't exist!";
-            }
+        if (!empty($exh)) {
+            $exh->IsActive = 0;
+            $exh->save();
+            $ret = "Exhibition " . $exh['Name'] . " was successfully cancelled!";
+        } else {
+            $ret = "Exhibition doesn't exist!";
+        }
 
         return redirect()->route('exhibitions')->with('status', $ret);
     }

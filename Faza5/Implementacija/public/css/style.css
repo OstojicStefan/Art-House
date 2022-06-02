@@ -307,13 +307,14 @@
 }
 
 
-.najnoviji-recepti{
+.najnoviji-recepti {
     background-color: #88B0D7;
     height: 300px;
     font-size: 25px;
     color: white;
 }
-.najnovije-izlozbe-header{
+
+.najnovije-izlozbe-header {
     background-color: #88B0D7;
     height: 75px;
     color: white;
@@ -420,65 +421,67 @@
 
 .zoom {
     transition: transform .2s;
-  }
-  
+}
+
 .zoom:hover {
     transform: scale(1.5);
     z-index: 100
-  }
+}
 
 #page-container {
     position: relative;
     min-height: 100vh;
-  }
-  
+}
+
 #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
-  }
-  
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /* Footer height */
+    height: 2.5rem;
+    /* Footer height */
     padding-top: 100px;
     z-index: -1;
-  }
-
-.image-index{
-    max-width:80%;
-    max-height:80%;
 }
 
-.index-banner{
+.image-index {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.index-banner {
     text-align: center;
 }
 
-.index-banner a{
+.index-banner a {
     color: white;
 }
 
-.index-banner a:hover{
+.index-banner a:hover {
     color: #ff781f;
     text-decoration: none;
 }
 
-#settings-table{
+#settings-table {
     border-spacing: 10px;
     border-collapse: separate;
 }
 
-.link-deactivate{
+.link-deactivate {
     float: right;
     position: relative;
-    top: -10px; 
+    top: -10px;
 }
 
-.personal-info a{
+.personal-info a {
     color: black;
 }
 
-.personal-info a:hover{
+.personal-info a:hover {
     color: #ff781f;
 }
 
@@ -664,8 +667,10 @@
 }
 
 .exhibition_content {
-    padding-left: 10%;
-    width: 50%;
+    direction: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .image_on_exh {
@@ -681,8 +686,7 @@
     right: 0;
     padding: 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -732,4 +736,31 @@
 .rate>input:checked~label:hover~label,
 .rate>label:hover~input:checked~label {
     color: #ff781f;
+}
+
+.exh_menu_buttons {
+    display: flex;
+
+}
+
+.left_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_menu div {
+    margin: 0 10px;
+}
+
+.images_slides img {
+    height: 500px;
+}
+
+#dugme1 {
+    background-color: #f6b605;
+}
+
+#dugme2 {
+    background-color: #f6b605;
 }
