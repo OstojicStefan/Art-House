@@ -50,8 +50,8 @@ class KorisnikController extends Controller
                 $temp = $image_with_tag->IDTag;
             }
         }
-        $tag = SviTagovi::find($temp);
-        $tag_name = $tag->Name;
+        $tag = SviTagovi::find($temp);       
+        $tag_name = ($tag) ? $tag->Name: null;
         $is_physical = PhysicalAuction::find($idauc);
         $highest_bidder = Registred::find($auction->HighestBidder);
         Auction::updateViewCount($idauc);

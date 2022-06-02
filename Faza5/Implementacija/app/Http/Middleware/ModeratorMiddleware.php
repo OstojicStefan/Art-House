@@ -1,5 +1,5 @@
 <?php
-
+//Dimitrije Plavsic 18/220
 namespace App\Http\Middleware;
 
 use App\Models\dimitrije\ModeratorModel;
@@ -9,6 +9,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
+//middleware za stranice kojima samo moderator moze pristupiti
 class ModeratorMiddleware
 {
     /**

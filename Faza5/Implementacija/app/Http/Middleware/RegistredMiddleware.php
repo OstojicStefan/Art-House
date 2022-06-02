@@ -1,11 +1,12 @@
 <?php
-
+//Dimitrije Plavsic 18/220
 namespace App\Http\Middleware;
 
 use App\Models\dimitrije\RegistredModel;
 use Closure;
 use Illuminate\Http\Request;
 
+//middleware za stranice kojima samo registrovani korisnik moze pristupiti
 class RegistredMiddleware
 {
     /**

@@ -79,36 +79,22 @@ INSERT INTO `auction` (`IDAuc`, `Name`, `Description`, `Author`, `Year`, `IDIm`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bid`
+-- Table structure for table `bot`
 --
 
-DROP TABLE IF EXISTS `bid`;
-CREATE TABLE IF NOT EXISTS `bid` (
+DROP TABLE IF EXISTS `bot`;
+CREATE TABLE IF NOT EXISTS `bot` (
   `IDUser` int(11) NOT NULL,
   `IDAuc` int(11) NOT NULL,
-  `IDBid` int(11) NOT NULL AUTO_INCREMENT,
-  `Price` decimal(10,3) NOT NULL,
-  PRIMARY KEY (`IDBid`),
+  `IDBot` int(11) NOT NULL AUTO_INCREMENT,
+  `MaxPrice` decimal(10,3) NOT NULL,
+  PRIMARY KEY (`IDBot`),
   KEY `R_14` (`IDUser`),
   KEY `R_15` (`IDAuc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `bot`
---
-
-DROP TABLE IF EXISTS `bot`;
-CREATE TABLE IF NOT EXISTS `bot` (
-  `MaxPrice` decimal(10,3) NOT NULL,
-  `IDUser` int(11) NOT NULL,
-  `IDAuc` int(11) NOT NULL,
-  PRIMARY KEY (`IDUser`,`IDAuc`),
-  KEY `R_23` (`IDAuc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `exhibition`
@@ -334,18 +320,12 @@ ALTER TABLE `auction`
   ADD CONSTRAINT `R_7` FOREIGN KEY (`IDIm`) REFERENCES `image` (`IDIm`);
 
 --
--- Constraints for table `bid`
---
-ALTER TABLE `bid`
-  ADD CONSTRAINT `R_14` FOREIGN KEY (`IDUser`) REFERENCES `registred` (`IDUser`) ON DELETE CASCADE,
-  ADD CONSTRAINT `R_15` FOREIGN KEY (`IDAuc`) REFERENCES `auction` (`IDAuc`) ON DELETE CASCADE;
-
---
 -- Constraints for table `bot`
 --
 ALTER TABLE `bot`
-  ADD CONSTRAINT `R_22` FOREIGN KEY (`IDUser`) REFERENCES `registred` (`IDUser`) ON DELETE CASCADE,
-  ADD CONSTRAINT `R_23` FOREIGN KEY (`IDAuc`) REFERENCES `auction` (`IDAuc`) ON DELETE CASCADE;
+  ADD CONSTRAINT `R_14` FOREIGN KEY (`IDUser`) REFERENCES `registred` (`IDUser`) ON DELETE CASCADE,
+  ADD CONSTRAINT `R_15` FOREIGN KEY (`IDAuc`) REFERENCES `auction` (`IDAuc`) ON DELETE CASCADE;
+
 
 --
 -- Constraints for table `exhibition`

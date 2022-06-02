@@ -17,31 +17,27 @@
                             <div class="dropdown btn-warning">
                                 <button id="recepti_dugme" class="dropbtn btn-warning">Add Auction</button>
                                 <div class="dropdown-content">
-                                    <a href="createAuctionPhysical">Physical</a>
-                                    <a href="createAuctionVirtual">Virtual</a>
+                                    <a href="{{ URL::route('createAuctionPhysical'); }}">Physical</a>
+                                    <a href="{{ URL::route('createAuctionVirtual'); }}">Virtual</a>
                                 </div>
                             </div>
                         </a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="auctions">Auctions</a>
-                        </li>
-                        
+                            <a class="nav-link" href="{{ URL::route('auctions'); }}">Auctions</a>
+                        </li>                        
                         <li class="nav-item">
-                         <a class="nav-link" href="createExhibition">Create Exhibition</a>
-                        </li>
-     
+                         <a class="nav-link" href="{{ URL::route('createExhibition'); }}">Create Exhibition</a>
+                        </li>     
                         <li class="nav-item">
-                            <a class="nav-link" href="../exhibitions">Exhibitions</a>
-                        </li>
-     
+                            <a class="nav-link" href="{{ URL::route('exhibitions'); }}">Exhibitions</a>
+                        </li>     
                         <li class="nav-item">
-                            <a class="nav-link" href="../myAccount">My account</a>
-                        </li>
-     
+                            <a class="nav-link" href="{{ URL::route('myAccount'); }}">My account</a>
+                        </li>     
                         <li class="nav-item">
-                            <a class="nav-link" href="">About us</a>
+                            <a class="nav-link" href="{{ URL::route('aboutUs'); }}">About us</a>
                         </li>
                         
                         <div id="mojnalog" class="dropdown">
@@ -50,11 +46,12 @@
                             {{Session::get('Username')}}
                             </button>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="../myAccount">Profile</a>
-                            <a class="dropdown-item" href="../myAccount/settings">Settings</a>
-                            <a class="dropdown-item" href="../myAccount">My auctions</a>
+                            <a class="dropdown-item" href="{{ URL::route('myAccount'); }}">Profile</a>
+                            <a class="dropdown-item" href="{{ URL::route('settings'); }}">Settings</a>
+                            <a class="dropdown-item" href="{{ URL::route('myAccount'); }}">My auctions</a>
+
                             <div class="dropdown-divider"></div>
-                            <a onclick="odjaviKorisnika()" class="dropdown-item" href="../logout">Log out</a>
+                            <a onclick="odjaviKorisnika()" class="dropdown-item" href="{{ URL::route('logout'); }}">Log out</a>
                             </div>
                         </div>
                         @if((Session::get('privilegije') == 'Administrator') || (Session::get('privilegije') == 'Moderator'))
@@ -63,13 +60,13 @@
                              <div class="dropdown btn-warning">
                                  <button id="recepti_dugme" class="dropbtn btn-warning">Admin privileges</button>
                                  <div class="dropdown-content">
+                                 <a href="{{ URL::route('banning'); }}">Ban user</a>
+                                 <a href="{{ URL::route('unbanning'); }}">Unban user</a>
+                                 <a href="{{ URL::route('addTags'); }}">Create tags</a>
+                                 <a href="{{ URL::route('removeTags'); }}">Remove tags</a> 
+                                 <a href="{{ URL::route('upgradeUserRoles'); }}">Upgrade roles</a>
                                 @if(Session::get('privilegije') == 'Administrator')
-                                     <a href="upgradeUserRoles">Upgrade roles</a>
-                                     <a href="{{ URL::route('downgradeModerator'); }}">Downgrade roles</a>
-                                     <a href="{{ URL::route('banning'); }}">Ban user</a>
-                                     <a href="{{ URL::route('unbanning'); }}">Unban user</a>
-                                     <a href="addTags">Create tags</a>
-                                     <a href="removeTags">Remove tags</a>
+                                     <a href="{{ URL::route('downgradeModerator'); }}">Downgrade roles</a>                                     
                                      <a href="{{ URL::route('adminDeleteAccount'); }}">Delete user accounts</a>
                                  </div>
                                 @endif
@@ -96,11 +93,11 @@
                         <a class="nav-link" href="/">Home</a>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="auctions">Auctions</a>
+                            <a class="nav-link" href="{{ URL::route('auctions'); }}">Auctions</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="exhibitions">Exhibitions</a>
+                            <a class="nav-link" href="{{ URL::route('exhibitions'); }}">Exhibitions</a>
                         </li>
      
                         <li class="nav-item">

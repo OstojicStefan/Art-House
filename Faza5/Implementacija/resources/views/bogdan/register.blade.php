@@ -25,7 +25,7 @@
                         <input type="text" maxlength="40" id="email" name="email"><br>
                         <label id="emailGreskaRegistracija"></label><br>
             
-                        <label for="brojKartice">Card numeber: </label> <br>
+                        <label for="brojKartice">Card number: </label> <br>
                         <input type="number" maxlength="9" id="brojKartice" name="brojKartice"><br>
                         <label id="brojKarticeGreskaRegistracija"></label><br>
             

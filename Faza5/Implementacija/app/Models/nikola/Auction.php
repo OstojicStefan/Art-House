@@ -17,7 +17,7 @@ class Auction extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'Name', 'Author', 'IsActive', 'ViewCount'
+        'Name', 'Author', 'IsActive', 'Price', 'HighestBidder', 'ViewCount'
     ];
 
     public static function findAuctions(Request $request)
@@ -94,6 +94,18 @@ class Auction extends Model
         }
         return $auctions_checked_status;
     }
+
+    //proverava da li je prosledjeni korisnik vodeci bider na bilo kojoj aukciji
+    public static function isUserBidder($idU)
+    {
+        return Auction::where('HighestBidder', $idU)->first();
+    }
+
+     //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj aukciji
+     public static function isUserOwner($idU)
+     {
+         return Auction::where('Owner', $idU)->first();
+     }
     public static function updateViewCount($idAuc)
     {
         $auction = Auction::find($idAuc);

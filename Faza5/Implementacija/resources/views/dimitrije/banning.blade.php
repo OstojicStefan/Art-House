@@ -1,4 +1,5 @@
-<!-- Dimitrije Plavsic-->
+<!-- Dimitrije Plavsic 18/0220-->
+<!-- Stranica za banovanje naloga od strane moderatora-->
 @extends('template_defined')
 <head>
     <title> Banning user accounts </title>
