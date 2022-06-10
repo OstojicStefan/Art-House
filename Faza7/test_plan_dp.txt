@@ -1,0 +1,46 @@
+TP1: uspesno uplacivanje novca
+preduslov: registrovani korisnik koji je ulogovan u sistem
+	1. korisnik unosi iznos zeljene uplate na racun
+	2. korisnik klikce na dugme "Deposit"
+VT	3. korisnik biva prebacen na stranicu za aukcije
+
+TP2: neuspesno uplacivanje novca
+preduslov: registrovani korisnik koji je ulogovan u sistem
+	1. korisnik unosi iznos zeljene uplate na racun u losem formatu
+	2. korisnik klikce na dugme "Deposit"
+VT	3. korisnika sistem obavestava da iznos mora biti veci od 0
+
+TP3: uspesno doniranje novca
+preduslov: registrovani korisnik koji je ulogovan u sistem ulazi u aktivnu izlozbu
+	1. korisnik unosi iznos zeljene donacije
+	2. korisnik klikce na dugme "Donate"
+VT	3. korisnik biva prebacen na stranicu za aukcije
+
+TP4: neuspesno doniranje novca
+preduslov: registrovani korisnik koji je ulogovan u sistem ulazi u aktivnu izlozbu
+	1. korisnik unosi iznos zeljene donacije i mepravilnom formatu
+	2. korisnik klikce na dugme "Donate"
+VT	3. korisnika sistem obavestava da iznos mora biti veci od 0
+
+TP5: pregled svih aukcija
+VT	1. sistem ispisuje sve aukcije i dugme za pretragu specificnih aukcija
+
+TP6: pregled svih izlozbi
+VT	1. sistem ispisuje sve izlozbe i dugme za pretragu specificnih izlozbi
+
+TP7: pregled aukcije
+preduslov: registrovani korisnik koji je ulogovan u sistem
+VT	1. sistem ispisuje detalje o aukciji a korisnik ima opciju da licitira licno ili koristeci bota
+
+TP8: pregled aukcije gosta
+preduslov: neulogovan korisnik
+VT	1. sistem salje korisnika na pocetnu stranicu
+
+TP9: pregled izlozbe
+preduslov: registrovani korisnik koji je ulogovan u sistem
+VT	1. sistem ispisuje detalje o izlozbi a korisnik ima opciju da donira i napusti izlozbu  
+
+TP10: pregled izlozbe gosta
+preduslov: neulogovan korisnik
+VT	1. sistem salje korisnika na pocetnu stranicu
+

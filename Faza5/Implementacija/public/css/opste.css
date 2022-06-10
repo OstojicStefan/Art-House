@@ -437,6 +437,14 @@
      margin-top: -19px;
      
  }
+
+ #moj_id a {
+    color: rgb(13, 174, 202);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
  
  
  

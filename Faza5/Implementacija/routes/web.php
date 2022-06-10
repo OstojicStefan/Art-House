@@ -50,7 +50,6 @@ Route::get('/exhibition/{id}', [KorisnikControllerNikola::class, 'exhibition'])-
 //route for mailing
 Route::get('/email_for_testing', function () {
     Mail::to('arthousemailer@gmail.com')->send(new TestMail());
-
     return new TestMail();
 });
 
