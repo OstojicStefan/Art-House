@@ -4,6 +4,7 @@
 
 namespace App\Models\stefan;
 
+use Database\Factories\AllImagesOnExibitionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,10 @@ class AllImagesOnExhibition extends Model
     public function findImageOnExhibition($idExh)
     {
         return AllImagesOnExhibition::all()->where('IDExh', $idExh)->first();
+    }
+
+    protected static function newFactory()
+    {
+        return AllImagesOnExibitionFactory::new();
     }
 }
