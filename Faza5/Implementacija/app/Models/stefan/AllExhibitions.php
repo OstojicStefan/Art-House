@@ -4,6 +4,7 @@
 
 namespace App\Models\stefan;
 
+use Database\Factories\AllExibitionsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,4 +29,9 @@ class AllExhibitions extends Model
     ];
 
     public $timestamps = false;
+
+    protected static function newFactory()
+    {
+        return AllExibitionsFactory::new();
+    }
 }

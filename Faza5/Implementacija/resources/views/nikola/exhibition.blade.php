@@ -111,15 +111,15 @@
               <div class="ratebox">
                   <div class="rate rating">
                       <input type="radio" id="star5" name="rate" value="5" onclick="rateExhibition()" />
-                      <label id="zvezda5" for="star5" title="text">5 stars</label>
+                      <label for="star5" title="text">5 stars</label>
                       <input type="radio" id="star4" name="rate" value="4" onclick="rateExhibition()"/>
-                      <label id="zvezda4" for="star4" title="text">4 stars</label>
+                      <label for="star4" title="text">4 stars</label>
                       <input type="radio" id="star3" name="rate" value="3" onclick="rateExhibition()"/>
-                      <label id="zvezda3" for="star3" title="text">3 stars</label>
+                      <label for="star3" title="text">3 stars</label>
                       <input type="radio" id="star2" name="rate" value="2" onclick="rateExhibition()"/>
-                      <label id="zvezda2" for="star2" title="text">2 stars</label>
+                      <label for="star2" title="text">2 stars</label>
                       <input type="radio" id="star1" name="rate" value="1" onclick="rateExhibition()"/>
-                      <label id="zvezda1" for="star1" title="text">1 star</label>
+                      <label for="star1" title="text">1 star</label>
                     </div>
               </div>
               <div class="exh_menu_buttons">
@@ -158,22 +158,6 @@
           
         </div>
 </div>
-
-<!-- Ovaj deo regulise ucitavanje trenutne ocene izlozbe kada je korisnik poseti -->
-<script>
-$(document).ready(function(){
-
- let ocena = {{$exhibition->Rating}} 
- ocena = Math.round(ocena);
- 
- for (let i=1;i<=ocena;i++){
-  $("#zvezda"+i).css({"color" : "#ff781f"});
- }
-
-});
-</script>
-
-
 @else
     <div class="scheduled_date">
         This exhibition is scheduled for: {{ $exhibition->Date }}
@@ -181,4 +165,3 @@ $(document).ready(function(){
     @endif
 
 @endsection
-

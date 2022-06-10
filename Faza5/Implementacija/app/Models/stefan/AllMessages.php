@@ -5,6 +5,7 @@ namespace App\Models\stefan;
 use App\Models\bogdan\SviKorisnici;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\AllMessagesFactory;
 
 class AllMessages extends Model
 {
@@ -27,5 +28,10 @@ class AllMessages extends Model
         $users = new SviKorisnici();
         $user = $users->where('IDUser', $userID)->get();
         return $user[0]->Username;
+    }
+
+    protected static function newFactory()
+    {
+        return AllMessagesFactory::new();
     }
 }
