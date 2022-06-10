@@ -14,7 +14,7 @@
         <form name = "modDowngrade" action = "{{route('downgradeModeratorSubmit')}}" method = "post" id ="modDowngrade">
             @csrf
             <label id="usernameError"></label><br>
-            <label for="username">Moderator you wish to downgrade to a regular user: </label><br>
+            <label for="username">Moderator you wish do downgrade to a regular user: </label><br>
             <input type="text" maxlength="40" id="usernameInput" name="usernameInput"><br><br>
 
             <input type = "submit" value =" Downgrade " onclick="checkUsername()" class="button"></input><br><br>

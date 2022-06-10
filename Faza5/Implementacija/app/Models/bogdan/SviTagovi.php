@@ -5,7 +5,8 @@ namespace App\Models\bogdan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\SviTagoviFactory;
+
+use function GuzzleHttp\Promise\all;
 
 class SviTagovi extends Model
 {
@@ -18,9 +19,4 @@ class SviTagovi extends Model
     protected $fillable = [
         'Name'
     ];
-
-    protected static function newFactory()
-    {
-        return SviTagoviFactory::new();
-    }
 }

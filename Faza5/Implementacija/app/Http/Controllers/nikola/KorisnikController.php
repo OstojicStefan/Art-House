@@ -123,6 +123,7 @@ class KorisnikController extends Controller
             'amount' => 'required|gt:0|numeric'
         ]);
         Exhibition::donateMoney(Session::get('IDUser'), $idexh, $request->amount);
-        return redirect()->route("exhibitions");
+        return redirect()->route("auctions");
     }
+
 }

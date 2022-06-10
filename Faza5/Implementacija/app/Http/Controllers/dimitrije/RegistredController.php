@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dimitrije;
 
 use App\Http\Controllers\Controller;
 use App\Models\dimitrije\AdministratorModel;
+use App\Models\dimitrije\BidModel;
 use App\Models\dimitrije\BotModel;
 use App\Models\dimitrije\ModeratorModel;
 use App\Models\dimitrije\RegistredModel;
@@ -68,16 +69,13 @@ class RegistredController extends Controller
             } else {
                 //provera ispravnosti unetog bida i da li ima toliko novca na racunu;                
                 $max = $auction['Price'];
-                $maxBidderId = $auction['HighestBidder'];
-                $temp = 0;
-                if($idU == $maxBidderId) $temp = $max;
-                if($user['Balance'] + $temp < $bid){
+                if($user['Balance'] < $bid){
                     return back()->with('status', "Your account has insufficient funds for proposed bid.");
                 }
                 if($bid <= $max){
                     $ret = "Your bid isn't high enough. The highest bidder bid " . $max . "din";
                 } else {
-                    if ($maxBidderId != null){
+                    if (($maxBidderId = $auction['HighestBidder']) != null){
                         $maxUser = RegistredModel::find($maxBidderId);
                         $maxUser->Balance += $max;
                         $maxUser->save();
@@ -98,10 +96,7 @@ class RegistredController extends Controller
                     $user->save();
                     $auction->save();                  
                     $ret = "Successfully placed bid.";
-
-                    if (($highestBot = BotModel::findMaxBid($idauc)) != null) {
-                        if ($highestBot['IDUser'] == $maxBidderId) BotModel::biddingBots($idauc, $auction, $user, $max);
-                    }
+                    BotModel::biddingBots($idauc, $auction, $user, $max);
                 }
                 
                 return back()->with('status', $ret);
@@ -130,34 +125,26 @@ class RegistredController extends Controller
             if($auction['IsActive'] == 0){
                 return back()->with('status', "The auction has finished! You cannot bid anymore.");
             } else {
-                //provera ispravnosti unetog bida i da li ima toliko novca na racunu;  
-                $temp = 0;                                                                      //ako je korisnik max. bidder i hoce da pojaca svoj bid, temp sluzi da
-                                                                                                //proveri da li ce imati dovoljno novca kada mu se vrati trenutni max bid
-                if (($maxBot = BotModel::findMaxBid($idauc)) != null){
-                    if($maxBot['IDUser'] == $idU) $temp = $maxBot['MaxPrice'];
-                }
-                $max = $auction['Price'];
-                $maxBidderId = $auction['HighestBidder'];
-                if ($maxBidderId != null) $maxUser = RegistredModel::find($maxBidderId);                
-                if($idU == $maxBidderId && $max > $temp) $temp = $max;
-                if($user['Balance'] + $temp < $mybot){
+                //provera ispravnosti unetog bida i da li ima toliko novca na racunu;                
+                
+                if($user['Balance'] < $mybot){
                     return back()->with('status', "Your account has insufficient funds for proposed maximum bid.");
                 }
 
-               
+                $max = $auction['Price'];
                 if($mybot <= $max){
                     return back()->with('status', "Your maximum bid isn't high enough. The current bid is " . $max . "din");
                 }
-                $temp = 0;
-                if ($maxBot != null){
-                    $temp = $maxBot['MaxPrice'];
-                }
-                $moneyToReturn =  ($temp > $max) ? $temp : $max;            //novac koji treba da se vrati trenutnom korisniku sa najvecim bidom/botom
-
-                if ($maxBot != null){                    
+                if (($maxBot = BotModel::findMaxBid($idauc)) != null){                    
                     if($mybot <= $maxBot['MaxPrice']){
                         return back()->with('status', "Your maximum bid isn't high enough. The highest maximum bid is " . $maxBot['MaxPrice'] . "din");
-                    } else {    //korisnikov bot moze da ide dalje od trenutnog maksimalnog bota                                                                       
+                    } else {    //korisnikov bot moze da ide dalje od trenutnog maksimalnog bota
+                        $newMaxBid = ($mybot < $maxBot['MaxPrice']+10) ? $mybot : $maxBot['MaxPrice']+10;
+
+                        $maxBidderId=$maxBot['IDUser'];
+                        $prevMaxUser = RegistredModel::find($maxBot->IDUser);
+                        $prevMaxUser->Balance += $maxBot->MaxPrice;
+                        $prevMaxUser->save();                       
                         $maxBot->IDUser = $user['IDUser'];
                         $maxBot->MaxPrice = $mybot;
                         $maxBot->save();
@@ -168,21 +155,22 @@ class RegistredController extends Controller
                     $newBot->IDAuc = $idauc;
                     $newBot->MaxPrice = $mybot;
                     $newBot->save();
-                }           //tabela bot je gotova, sad je na redu auction
-                $newMaxBid = ($mybot < $moneyToReturn + 10) ? $mybot : $moneyToReturn + 10;
-                $auction->HighestBidder = $idU;
-                $a = $mybot;
-                $user->save();
-                if($maxBidderId != null){
-                    if ($maxBidderId == $idU) {
-                        $a -= $moneyToReturn;
-                    } else {
-                        $maxUser->Balance+=$moneyToReturn;
+                    $newMaxBid = ($mybot < $max+10) ? $mybot : $max+10;
+
+                    if (($maxBidderId = $auction['HighestBidder']) != null){
+                        $maxUser = RegistredModel::find($maxBidderId);
+                        $maxUser->Balance += $max;
                         $maxUser->save();
                     }
-                }
-                $user->Balance -= $a;
+
+                }           //tabela bot je gotova, sad su na redu bid i auction
+                
+                $auction->HighestBidder = $idU;
+                $user->Balance -= $mybot;
                 $user->save();
+                if($idU == $maxBidderId){
+                    $user->Balance+=$max;
+                }
                 $auction->Price = $newMaxBid;
                 $auction->save();
                 return back()->with('status', "Successfully set up bot on auction.");

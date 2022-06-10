@@ -4,7 +4,6 @@
 
 namespace App\Models\stefan;
 
-use Database\Factories\AllImagesFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,10 +40,5 @@ class AllImages extends Model
     public function findImage($imageID)
     {
         return AllImages::all()->where('IDIm', $imageID)->first();
-    }
-
-    protected static function newFactory()
-    {
-        return AllImagesFactory::new();
     }
 }

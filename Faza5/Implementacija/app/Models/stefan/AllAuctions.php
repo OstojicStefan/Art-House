@@ -6,7 +6,6 @@ namespace App\Models\stefan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\AllAuctionsFactory;
 
 class AllAuctions extends Model
 {
@@ -21,6 +20,7 @@ class AllAuctions extends Model
         'Author',
         'Year',
         'IDIm',
+        'IDTag',
         'Price',
         'Duration',
         'IsActive',
@@ -35,10 +35,5 @@ class AllAuctions extends Model
     public static function findAuction($imageID)
     {
         return AllAuctions::all()->where('IDIm', $imageID)->first();
-    }
-
-    protected static function newFactory()
-    {
-        return AllAuctionsFactory::new();
     }
 }
