@@ -10,11 +10,11 @@
     <script src="{{url('js/opste.js')}}"></script> 
 </head>
 <div class="row">
-    <div class="col-sm-12 center">
+    <div class="col-sm-12 center" id = "moj_id">
         <form name = "biddingBotForm" action = "biddingBotSetup" method = "post" id ="biddingBotForm">
             @csrf
             <!--<label id="bidError"></label><br> -->
-            <label>What is the maximum amout you want your bot to bid on auction: {{ $auction->Name }} </label><br>
+            <label>What is the maximum amout you want your bot to bid on auction: </label> <a href="{{ route('auction', ['id' => $auction->IDAuc ])  }}">  {{ $auction->Name }} </a><br>
             <input type="number"  min="1" max="9999999999" id="bidBotInput" name="bidBotInput"><br><br>
 
             <input type = "submit" value =" Bid Bot " class = "button"></input><br><br>
