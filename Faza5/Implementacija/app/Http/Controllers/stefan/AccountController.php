@@ -2,6 +2,7 @@
 
 // Stefan Ostojic, 18/442
 // Ovaj kontroler se bavi funkcionalnostima vezano za sam nalog korisnika
+// komentar
 
 namespace App\Http\Controllers\stefan;
 
