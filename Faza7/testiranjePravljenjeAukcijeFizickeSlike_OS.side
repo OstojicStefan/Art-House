@@ -1,0 +1,868 @@
+{
+  "id": "ba2879af-b0e3-4ba7-93f1-af6898e5506f",
+  "version": "2.0",
+  "name": "testiranjePravljenjeAukcijeFizickeSlike",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "94c7b934-394b-4f01-9d14-9559d6e5c722",
+    "name": "NeuspesnoKreiranjeSlikaNijeSelektovana",
+    "commands": [{
+      "id": "1b2fedfd-07fa-4eb0-953d-18a9276c8546",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d9f89a0-7771-46c2-8e2e-62b745043abb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26ee4a7a-cbd7-4ce3-853e-c73c14ecbdb6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Physical",
+      "targets": [
+        ["linkText=Physical", "linkText"],
+        ["css=.nav-item:nth-child(2) a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Physical')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[2]/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/createAuctionPhysical']", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Physical')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c421314-64e0-4c1c-8864-575c05f3be5a",
+      "comment": "",
+      "command": "click",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e47e3d2-efc0-42de-a775-47a1f504427e",
+      "comment": "",
+      "command": "type",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Starry Night"
+    }, {
+      "id": "5a10f210-54ee-4834-afd7-6141a0e31299",
+      "comment": "",
+      "command": "click",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05ad4ce6-f6b1-4408-a1ad-edaeb67cbe76",
+      "comment": "",
+      "command": "type",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Very beautiful picture"
+    }, {
+      "id": "3ab1f88f-dd28-45d3-bbfd-deb3c38594bf",
+      "comment": "",
+      "command": "click",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c745aa6f-6937-45e7-8d7a-e3f26911b4ab",
+      "comment": "",
+      "command": "type",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Van Gogh"
+    }, {
+      "id": "38bb29ed-a607-4662-83c1-2044d063f121",
+      "comment": "",
+      "command": "click",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df5d9785-6696-49ca-9871-0e177d3482a4",
+      "comment": "",
+      "command": "type",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "1776"
+    }, {
+      "id": "bc18c590-2ba1-47bc-a35d-048244062745",
+      "comment": "",
+      "command": "click",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cea07822-baa9-4eb5-ab81-1892cff90f9b",
+      "comment": "",
+      "command": "type",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "Amsterdam"
+    }, {
+      "id": "e8d05688-03c3-4a63-b596-6ad5a0784aae",
+      "comment": "",
+      "command": "addSelection",
+      "target": "id=tagoviCA",
+      "targets": [
+        ["id=tagoviCA", "id"],
+        ["name=tagoviCA[]", "name"],
+        ["css=#tagoviCA", "css:finder"],
+        ["xpath=//select[@id='tagoviCA']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Nature"
+    }, {
+      "id": "0312cbb1-0ed9-4c84-a776-961904e342a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c0fd433-9a5c-4066-9a4b-666ba27540d1",
+      "comment": "",
+      "command": "type",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "15000"
+    }, {
+      "id": "9b590019-e29a-4bb3-82a6-43f945415f12",
+      "comment": "",
+      "command": "click",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14ae5fdb-beea-40fb-a4e2-7407d379391e",
+      "comment": "",
+      "command": "type",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "15"
+    }, {
+      "id": "ee27749b-f7a2-4d39-ac9c-1ca7a44dc222",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(58)",
+      "targets": [
+        ["css=input:nth-child(58)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[10]", "xpath:idRelative"],
+        ["xpath=//input[10]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89f3ff07-76be-4ac8-a34c-ccd330414618",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=input:nth-child(58)",
+      "targets": [
+        ["css=input:nth-child(58)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[10]", "xpath:idRelative"],
+        ["xpath=//input[10]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6b46eb9-8ab4-406e-bed1-e5d6872a96a9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=font",
+      "targets": [
+        ["css=font", "css:finder"],
+        ["xpath=//form[@id='addphysicalauction']/font", "xpath:idRelative"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'Server Error: Input file not in right format!')]", "xpath:innerText"]
+      ],
+      "value": "Server Error: Input file not in right format!"
+    }]
+  }, {
+    "id": "7db02076-8f26-45cd-a4e9-f7d70e16a97c",
+    "name": "NeuspesnoKreiranjePraznaPolja",
+    "commands": [{
+      "id": "7bcf88d1-b70f-4144-b4f4-e707d2b8abb5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98fb02fc-1bcc-492d-b827-0941318861ed",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "665ebaf4-b8a7-4132-ae30-80fcc3b368cf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Physical",
+      "targets": [
+        ["linkText=Physical", "linkText"],
+        ["css=.nav-item:nth-child(2) a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Physical')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[2]/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/createAuctionPhysical']", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Physical')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edd9c94f-5d29-4f20-a62e-5e98b5a69592",
+      "comment": "",
+      "command": "click",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2d261e5-f597-4e10-a1c4-61960fdf3dc4",
+      "comment": "",
+      "command": "type",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Starry Night"
+    }, {
+      "id": "2f9bc2dc-f3ba-45eb-8c7d-239b41e7d6a0",
+      "comment": "",
+      "command": "click",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21356031-a814-45ed-8e2f-c299f9dd5f31",
+      "comment": "",
+      "command": "type",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Very beautiful picture"
+    }, {
+      "id": "ac9ccb81-c0ef-40e0-b02d-93c627797320",
+      "comment": "",
+      "command": "click",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c76c1dbd-e244-465c-a4e3-bbfff7abf02b",
+      "comment": "",
+      "command": "type",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Van Gogh"
+    }, {
+      "id": "eeb32888-1aaf-41c7-aecf-bb9185b8e4be",
+      "comment": "",
+      "command": "click",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "06a1bd08-8ee2-49b4-baf7-316ada6bacad",
+      "comment": "",
+      "command": "type",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "1776"
+    }, {
+      "id": "55b25459-36e0-4b12-a0e6-7c0083d50c60",
+      "comment": "",
+      "command": "click",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4afbddae-592a-4f36-a03a-81780c95db9e",
+      "comment": "",
+      "command": "type",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "Amsterdam"
+    }, {
+      "id": "f733273d-ff16-466d-812f-e37dc4724b12",
+      "comment": "",
+      "command": "click",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cc2032b-e3d9-422a-92de-00bdd3c7fc64",
+      "comment": "",
+      "command": "type",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\starry_night.jpg"
+    }, {
+      "id": "947a2745-5444-4386-b417-6a364669b5c8",
+      "comment": "",
+      "command": "addSelection",
+      "target": "id=tagoviCA",
+      "targets": [
+        ["id=tagoviCA", "id"],
+        ["name=tagoviCA[]", "name"],
+        ["css=#tagoviCA", "css:finder"],
+        ["xpath=//select[@id='tagoviCA']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Nature"
+    }, {
+      "id": "10896ca7-3781-4453-ab65-3b8e9fbef3e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5af6b48-c724-4dbb-baf3-18b7260b0f0d",
+      "comment": "",
+      "command": "click",
+      "target": "id=addphysicalauction",
+      "targets": [
+        ["id=addphysicalauction", "id"],
+        ["name=addphysicalauction", "name"],
+        ["css=#addphysicalauction", "css:finder"],
+        ["xpath=//form[@id='addphysicalauction']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c551bfc9-65c9-4111-aaf2-39598d54ba09",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(58)",
+      "targets": [
+        ["css=input:nth-child(58)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[10]", "xpath:idRelative"],
+        ["xpath=//input[10]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14aacde0-8797-4b60-b15f-df371afbe82d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#pocetnaCenaGreska > div",
+      "targets": [
+        ["css=#pocetnaCenaGreska > div", "css:finder"],
+        ["xpath=//label[@id='pocetnaCenaGreska']/div", "xpath:idRelative"],
+        ["xpath=//label[16]/div", "xpath:position"]
+      ],
+      "value": "Starting price has to be between 0 and 10000000000!"
+    }, {
+      "id": "52c9f6db-3283-42e5-a615-572247586754",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#vremeTrajanjaGreska > div",
+      "targets": [
+        ["css=#vremeTrajanjaGreska > div", "css:finder"],
+        ["xpath=//label[@id='vremeTrajanjaGreska']/div", "xpath:idRelative"],
+        ["xpath=//label[18]/div", "xpath:position"]
+      ],
+      "value": "Auction duration has to be between 1 and 30!"
+    }]
+  }, {
+    "id": "51179a68-f866-4334-aba9-690eec373ba3",
+    "name": "UspesnoKreiranje",
+    "commands": [{
+      "id": "0136aa5a-fbdb-4313-9e72-fba153a890fb",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "774c4727-7486-44f0-a1cd-b50e0fce8fb8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3dd60701-567c-4aed-b22b-6b0a4a1864f6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Physical",
+      "targets": [
+        ["linkText=Physical", "linkText"],
+        ["css=.nav-item:nth-child(2) a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Physical')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[2]/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/createAuctionPhysical']", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Physical')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "18f33823-d8d8-43a6-a1f5-3391e4080cd0",
+      "comment": "",
+      "command": "click",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e550cdc-495b-4d70-befb-a4b47c68e82c",
+      "comment": "",
+      "command": "type",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Starry Night"
+    }, {
+      "id": "92c84f8a-cf41-4ce9-9e19-6165667b9730",
+      "comment": "",
+      "command": "click",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79e22cc2-55c4-4bd0-85c6-a8542a818697",
+      "comment": "",
+      "command": "type",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Very beautiful picture"
+    }, {
+      "id": "6323d318-80dd-436b-acea-9e74d8108638",
+      "comment": "",
+      "command": "click",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa8bdd86-2cbf-44d5-8075-0c8ff6741f15",
+      "comment": "",
+      "command": "type",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Van Gogh"
+    }, {
+      "id": "009b6c59-1196-4523-9256-afc0fc3cb468",
+      "comment": "",
+      "command": "click",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b4aa62d-a24b-44ea-8a6b-92dc3ae7cc15",
+      "comment": "",
+      "command": "type",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "1776"
+    }, {
+      "id": "cd25ca27-bebd-4254-97b0-1a839d9db82b",
+      "comment": "",
+      "command": "click",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f13f4cde-8a65-4449-9b76-1c3d81d9e145",
+      "comment": "",
+      "command": "type",
+      "target": "id=lokacijaSlike",
+      "targets": [
+        ["id=lokacijaSlike", "id"],
+        ["name=lokacijaSlike", "name"],
+        ["css=#lokacijaSlike", "css:finder"],
+        ["xpath=//input[@id='lokacijaSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "Amsterdam"
+    }, {
+      "id": "02ca82c7-b336-4bbd-aa4d-3845cd9dad88",
+      "comment": "",
+      "command": "click",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb04dd8c-10f5-4a68-855b-e50ff224fff6",
+      "comment": "",
+      "command": "type",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\starry_night.jpg"
+    }, {
+      "id": "ed8bdd9a-fcd7-4de6-90ac-a3ad63a75647",
+      "comment": "",
+      "command": "addSelection",
+      "target": "id=tagoviCA",
+      "targets": [
+        ["id=tagoviCA", "id"],
+        ["name=tagoviCA[]", "name"],
+        ["css=#tagoviCA", "css:finder"],
+        ["xpath=//select[@id='tagoviCA']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Nature"
+    }, {
+      "id": "70109c80-dc3c-4e95-8bdb-78f574423134",
+      "comment": "",
+      "command": "click",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a622f693-3ca3-4415-b94a-e6f2ea86e4dd",
+      "comment": "",
+      "command": "type",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "15000"
+    }, {
+      "id": "8e85432b-96c8-4cc0-a132-20beeb4f4146",
+      "comment": "",
+      "command": "click",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3596e43a-01d2-431e-9c78-1c88351ad0a1",
+      "comment": "",
+      "command": "type",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": "15"
+    }, {
+      "id": "66a9bdf1-94d0-48c1-8df9-d45af768d624",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(58)",
+      "targets": [
+        ["css=input:nth-child(58)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addphysicalauction']/input[10]", "xpath:idRelative"],
+        ["xpath=//input[10]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd309f23-fc19-49a1-9d04-4de059848109",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=font",
+      "targets": [
+        ["css=font", "css:finder"],
+        ["xpath=//form[@id='addphysicalauction']/font", "xpath:idRelative"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'Success!')]", "xpath:innerText"]
+      ],
+      "value": "Success!"
+    }]
+  }],
+  "suites": [{
+    "id": "e11c05ed-3b13-4574-9d4b-d6003991133d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

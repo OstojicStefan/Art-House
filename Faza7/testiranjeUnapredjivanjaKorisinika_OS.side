@@ -1,0 +1,453 @@
+{
+  "id": "03ed22a2-327c-4260-aae1-28043babed16",
+  "version": "2.0",
+  "name": "testiranjeUnapredjivanjaKorisinika",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "b6d6a74d-7478-48aa-af57-1e0b63d43dc6",
+    "name": "NeuspesnoUnapredjivanjeAdminUModSebe",
+    "commands": [{
+      "id": "a4ad730b-b8b5-4cc6-b9be-cb12084b8046",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5e8b9d3-48d9-4ea5-a413-eb65ee8e1d6d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "070243ea-3e1d-4eb7-b0ab-6405fc81d0eb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Upgrade roles",
+      "targets": [
+        ["linkText=Upgrade roles", "linkText"],
+        ["css=a:nth-child(6)", "css:finder"],
+        ["xpath=//a[contains(text(),'Upgrade roles')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[8]/div/div/a[6]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/upgradeUserRoles']", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"],
+        ["xpath=//a[contains(.,'Upgrade roles')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfeb2663-723b-4009-9f56-88d90d6321b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "537562c0-3b8f-4739-a14a-c83383242265",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "bogdan321"
+    }, {
+      "id": "a84ce250-43ae-46c0-8d24-54057b49d829",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(18)",
+      "targets": [
+        ["css=input:nth-child(18)", "css:finder"],
+        ["xpath=//input[@value='Upgrade']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae63d96b-5917-4383-a50c-33e25542c78f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#usernameUKGreska > div",
+      "targets": [
+        ["css=#usernameUKGreska > div", "css:finder"],
+        ["xpath=//label[@id='usernameUKGreska']/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": "User is already an administrator!"
+    }]
+  }, {
+    "id": "b370ef52-e904-42c5-b351-82f85dd8c644",
+    "name": "NeuspesnoUnapredjivanjeNepostojeciKorisnik",
+    "commands": [{
+      "id": "68616e94-6614-4f71-aa38-46a3dd239da6",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3c9eb998-634f-4463-a5b5-4f961aacd1b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65f455e3-c98c-4cfe-b754-ed62735c7052",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Upgrade roles",
+      "targets": [
+        ["linkText=Upgrade roles", "linkText"],
+        ["css=a:nth-child(6)", "css:finder"],
+        ["xpath=//a[contains(text(),'Upgrade roles')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[8]/div/div/a[6]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/upgradeUserRoles']", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"],
+        ["xpath=//a[contains(.,'Upgrade roles')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "08ee24f2-16c7-48ae-89da-eebc81b2a6e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "adc6d0c8-bc52-40a9-ae7d-9aa8a64f7c52",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "jovan"
+    }, {
+      "id": "7d0c17d7-2d0d-46b5-a90d-79c9dd239256",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(15)",
+      "targets": [
+        ["css=label:nth-child(15)", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/label[5]", "xpath:idRelative"],
+        ["xpath=//label[5]", "xpath:position"],
+        ["xpath=//label[contains(.,'Administrator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2bdc852-fc97-4032-894f-d23f1b2e6c64",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(15)",
+      "targets": [
+        ["css=label:nth-child(15)", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/label[5]", "xpath:idRelative"],
+        ["xpath=//label[5]", "xpath:position"],
+        ["xpath=//label[contains(.,'Administrator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "23f1ed28-252f-42fb-b7bc-762d5848031f",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(15)",
+      "targets": [
+        ["css=label:nth-child(15)", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/label[5]", "xpath:idRelative"],
+        ["xpath=//label[5]", "xpath:position"],
+        ["xpath=//label[contains(.,'Administrator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "30ed889b-4e5e-4702-9ddf-d05bdf886488",
+      "comment": "",
+      "command": "click",
+      "target": "id=2UK",
+      "targets": [
+        ["id=2UK", "id"],
+        ["css=#\\32UK", "css:finder"],
+        ["xpath=//input[@id='2UK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41ea2e3f-fe88-4400-809f-68e76702e35a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(18)",
+      "targets": [
+        ["css=input:nth-child(18)", "css:finder"],
+        ["xpath=//input[@value='Upgrade']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "315b11b6-1ff2-4153-9a6b-9dd83b67a3b2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#usernameUKGreska > div",
+      "targets": [
+        ["css=#usernameUKGreska > div", "css:finder"],
+        ["xpath=//label[@id='usernameUKGreska']/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": "User with given username doesn't exist!"
+    }]
+  }, {
+    "id": "7885d2af-e5c9-4a19-8a3c-5c45442edfd3",
+    "name": "NeuspesnoUnapredjivanjeKorisnikVecImaUlogu",
+    "commands": [{
+      "id": "2f1e614d-db78-4e74-90bf-a7ce49e20974",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24eb1ee7-ffa0-4365-870d-bdbed026e1c8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da00e382-46a2-46f8-914b-7fbac97b41e0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Upgrade roles",
+      "targets": [
+        ["linkText=Upgrade roles", "linkText"],
+        ["css=a:nth-child(6)", "css:finder"],
+        ["xpath=//a[contains(text(),'Upgrade roles')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[8]/div/div/a[6]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/upgradeUserRoles']", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"],
+        ["xpath=//a[contains(.,'Upgrade roles')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c3fa557-48bd-42b1-a936-4b40edf40233",
+      "comment": "",
+      "command": "click",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4110ea59-085c-4e00-b3d8-8f081a4e2051",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "aca"
+    }, {
+      "id": "973e83c7-7482-47b9-af2a-73c23bd75bcb",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(18)",
+      "targets": [
+        ["css=input:nth-child(18)", "css:finder"],
+        ["xpath=//input[@value='Upgrade']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7854e631-eb6f-4548-876a-668daade820c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#usernameUKGreska > div",
+      "targets": [
+        ["css=#usernameUKGreska > div", "css:finder"],
+        ["xpath=//label[@id='usernameUKGreska']/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": "User is already a moderator!"
+    }]
+  }, {
+    "id": "39cbb037-0518-49d9-87a2-474c7ccee637",
+    "name": "UspesnoUnapredjivanjeModUAdmin",
+    "commands": [{
+      "id": "c7a584a0-0e25-4157-8972-846bf525c4e7",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f97cf30-4916-4c03-9319-1d46049e750e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bcd6c94-db05-48d4-b53c-5a5aaa8df85b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Upgrade roles",
+      "targets": [
+        ["linkText=Upgrade roles", "linkText"],
+        ["css=a:nth-child(6)", "css:finder"],
+        ["xpath=//a[contains(text(),'Upgrade roles')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[8]/div/div/a[6]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/upgradeUserRoles']", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"],
+        ["xpath=//a[contains(.,'Upgrade roles')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c0237c8-cee1-45c5-9d5a-ff7b0efcdb91",
+      "comment": "",
+      "command": "click",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "befa8dfb-2c6e-484f-af83-8b5ba6392a54",
+      "comment": "",
+      "command": "type",
+      "target": "id=usernameUK",
+      "targets": [
+        ["id=usernameUK", "id"],
+        ["name=usernameUK", "name"],
+        ["css=#usernameUK", "css:finder"],
+        ["xpath=//input[@id='usernameUK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "aca"
+    }, {
+      "id": "2ccc95ab-8b02-4585-a542-f1349e055c81",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(15)",
+      "targets": [
+        ["css=label:nth-child(15)", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/label[5]", "xpath:idRelative"],
+        ["xpath=//label[5]", "xpath:position"],
+        ["xpath=//label[contains(.,'Administrator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89ba48aa-eb22-4c5c-ab8e-c6bee6064146",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(15)",
+      "targets": [
+        ["css=label:nth-child(15)", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/label[5]", "xpath:idRelative"],
+        ["xpath=//label[5]", "xpath:position"],
+        ["xpath=//label[contains(.,'Administrator')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65a0df4a-660a-4469-bb30-4aa209c12613",
+      "comment": "",
+      "command": "click",
+      "target": "id=unapredjivanjeUloga",
+      "targets": [
+        ["id=unapredjivanjeUloga", "id"],
+        ["name=unapredjivanjeUloga", "name"],
+        ["css=#unapredjivanjeUloga", "css:finder"],
+        ["xpath=//form[@id='unapredjivanjeUloga']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4786ebf-8006-41c6-963e-73a699f6ff1f",
+      "comment": "",
+      "command": "click",
+      "target": "id=2UK",
+      "targets": [
+        ["id=2UK", "id"],
+        ["css=#\\32UK", "css:finder"],
+        ["xpath=//input[@id='2UK']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "267863fe-db0b-498f-8cc1-d1ed597669ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(18)",
+      "targets": [
+        ["css=input:nth-child(18)", "css:finder"],
+        ["xpath=//input[@value='Upgrade']", "xpath:attributes"],
+        ["xpath=//form[@id='unapredjivanjeUloga']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f5e6eea-049d-41e7-ba47-9f05d22cd444",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#usernameUKGreska > div",
+      "targets": [
+        ["css=#usernameUKGreska > div", "css:finder"],
+        ["xpath=//label[@id='usernameUKGreska']/div", "xpath:idRelative"],
+        ["xpath=//label/div", "xpath:position"]
+      ],
+      "value": "Success!"
+    }]
+  }],
+  "suites": [{
+    "id": "d057d798-0a49-4b35-9239-60997cbb35ba",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}

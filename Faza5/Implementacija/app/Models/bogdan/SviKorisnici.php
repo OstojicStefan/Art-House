@@ -5,7 +5,6 @@ namespace App\Models\bogdan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\SviKorisniciFactory;
 
 class SviKorisnici extends Model
 {
@@ -26,9 +25,4 @@ class SviKorisnici extends Model
         'FlagHotAuctions',
         'FlagNotifyEnding'
     ];
-
-    protected static function newFactory()
-    {
-        return SviKorisniciFactory::new();
-    }
 }
