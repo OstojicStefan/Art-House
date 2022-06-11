@@ -1,7 +1,9 @@
 <!-- Bogdan Arsic 0329/19-->
 <!-- Stranica za brisanje tagova sa sajta-->
 @extends('template_defined')
-
+<head>
+    <title> Remove Tags </title>
+</head>
 @section('content')
 <script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">
