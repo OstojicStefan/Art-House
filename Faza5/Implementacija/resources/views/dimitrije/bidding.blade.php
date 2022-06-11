@@ -14,7 +14,8 @@
         <form name = "biddingForm" action = "biddingSubmit" method = "post" id ="biddingForm">
             @csrf
             <!--<label id="bidError"></label><br> -->
-            <label>How much would you like to bid on auction: </label> <a href="{{ route('auction', ['id' => $auction->IDAuc ])  }}">  {{ $auction->Name }} </a><br>
+
+            <label  id="greska_ispis_2">How much would you like to bid on auction: </label> <a href="{{ route('auction', ['id' => $auction->IDAuc ])  }}">  {{ $auction->Name }} </a><br>
             <input type="number"  min="1" max="9999999999" id="bidInput" name="bidInput"><br><br>
 
             <input type = "submit" value =" Bid " class = "button"></input><br><br>
@@ -24,7 +25,7 @@
                 {{ session('status') }}
                 </div>
             @else
-                <font color = 'red'>{{session('status')}}</font><br>                
+                <font color = 'red' id="greska_ispis_1">{{session('status')}}</font><br>                
             @endif
         </form>
     </div>

@@ -14,7 +14,9 @@
         <form name = "biddingBotForm" action = "biddingBotSetup" method = "post" id ="biddingBotForm">
             @csrf
             <!--<label id="bidError"></label><br> -->
-            <label>What is the maximum amout you want your bot to bid on auction: </label> <a href="{{ route('auction', ['id' => $auction->IDAuc ])  }}">  {{ $auction->Name }} </a><br>
+
+            <label id="greska_ispis_2">What is the maximum amout you want your bot to bid on auction: </label> <a href="{{ route('auction', ['id' => $auction->IDAuc ])  }}">  {{ $auction->Name }} </a><br>
+
             <input type="number"  min="1" max="9999999999" id="bidBotInput" name="bidBotInput"><br><br>
 
             <input type = "submit" value =" Bid Bot " class = "button"></input><br><br>
@@ -24,7 +26,7 @@
                 {{ session('status') }}
                 </div>
             @else
-                <font color = 'red'>{{session('status')}}</font><br>                
+                <font color = 'red' id="greska_ispis_1">{{session('status')}}</font><br>                
             @endif
         </form>
     </div>

@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
-{   
-    function __construct() {
+{
+    function __construct()
+    {
         $this->middleware('registred', ['except' => [
             'indexInit'
         ]]);
@@ -25,14 +26,14 @@ class AccountController extends Controller
 
     //Funkcija koja vraca korisnikovu stranicu sa svim njegovim podacima
     public function myAccount()
-    {   
+    {
         $id = Session::get('IDUser');
         $allImages = new AllImages();
         $images = $allImages->findUsersImages($id);
 
         $allAuctions = new AllAuctions();
         $myAuctions = $allAuctions->where('Owner', $id)->orWhere([['HighestBidder', $id], ['IsActive', 0]])->get();
-    
+
         return view('stefan/myAccount', ['body_id' => 'aboutus_body'], ['images' => $images, 'auctions' => $myAuctions]);
     }
 
@@ -65,8 +66,8 @@ class AccountController extends Controller
     {
         $allExhibitions = new AllExhibitions();
 
-        if($allExhibitions->count() > 3){
-          
+        if ($allExhibitions->count() > 3) {
+
             $mostRecent = AllExhibitions::orderBy('IDExh', 'desc')->take(4)->get();
 
             $allImagesOnExhibition = new AllImagesOnExhibition();
@@ -74,10 +75,10 @@ class AccountController extends Controller
             $allImages = new AllImages();
 
             //ovaj deo regulise slanje slika 4 najskorije izlozbe
-            for($i=0;$i<4;$i++){
-                $mostRecentImages[$i]=$allImages->findImage($allImagesOnExhibition->findImageOnExhibition($mostRecent[$i]->IDExh)->IDIm);
+            for ($i = 0; $i < 4; $i++) {
+                $mostRecentImages[$i] = $allImages->findImage($allImagesOnExhibition->findImageOnExhibition($mostRecent[$i]->IDExh)->IDIm);
             }
-            
+
             $allAuctions = new AllAuctions();
 
             $mostRecentAuctions = AllAuctions::orderBy('IDAuc', 'desc')->take(4)->get();

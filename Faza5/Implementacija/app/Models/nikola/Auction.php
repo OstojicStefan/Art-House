@@ -101,11 +101,11 @@ class Auction extends Model
         return Auction::where('HighestBidder', $idU)->first();
     }
 
-     //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj aukciji
-     public static function isUserOwner($idU)
-     {
-         return Auction::where('Owner', $idU)->first();
-     }
+    //proverava da li je prosledjeni korisnik vlasnik na bilo kojoj aukciji
+    public static function isUserOwner($idU)
+    {
+        return Auction::where('Owner', $idU)->first();
+    }
     public static function updateViewCount($idAuc)
     {
         $auction = Auction::find($idAuc);
