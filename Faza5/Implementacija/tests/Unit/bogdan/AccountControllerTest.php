@@ -1,11 +1,13 @@
 <?php
-
+// Bogdan Arsic 329/19
+// Unit testovi za stefan\AccountController
 namespace Tests\Unit\bogdan;
 
 use Tests\TestCase;
 use App\Models\stefan\AllImages;
 use App\Models\bogdan\SviKorisnici;
 use App\Models\stefan\AllAuctions;
+
 
 class AccountControllerTest extends TestCase
 {
@@ -83,6 +85,7 @@ class AccountControllerTest extends TestCase
         $this->user->delete();
     }
 
+    //test za myAccount stranicu
     public function test_myAccount()
     {
         $response = $this->withSession(['privilegije' => 'Obicni', 'IDUser' => $this->user->IDUser, 'Username' => $this->user->Username])
@@ -97,6 +100,7 @@ class AccountControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
+    //test za myAccountSettings stranicu
     public function test_myAccountSettings()
     {
         $response = $this->withSession(['privilegije' => 'Obicni', 'IDUser' => $this->user->IDUser, 'E-mail' => $this->user->E_mail, 'Username' => $this->user->Username])
@@ -109,6 +113,7 @@ class AccountControllerTest extends TestCase
         $response->assertStatus(200);
     }
     
+    //test za settingsSubmit
     public function test_settingsSubmit()
     {
         $requestTest = [
@@ -124,5 +129,15 @@ class AccountControllerTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect("myAccount/settings");
         $response->assertSee($this->user->Name);
+    }
+
+    //test za aboutUs
+    public function test_aboutUs()
+    {
+        $response = $this->withSession(['privilegije' => 'Obicni', 'IDUser' => $this->user->IDUser, 'E-mail' => $this->user->E_mail, 'Username' => $this->user->Username])
+                         ->withoutMiddleware()
+                         ->get('aboutUs');
+        
+        $response->assertStatus(200);
     }
 }
