@@ -1,16 +1,19 @@
 <?php
 // Bogdan Arsic 329/19
-// Testovi za stefan\ChatController
+// Testovi za stefan\CreateExibitionController
 namespace Tests\Unit\bogdan;
 
 use Tests\TestCase;
 use App\Models\bogdan\SviKorisnici;
 use App\Models\stefan\AllExhibitions;
+use App\Models\stefan\AllImages;
 
-class ChatControllerTest extends TestCase
+class CreateExibitionControllerTest extends TestCase
 {
     protected $user;
     protected $exibition1;
+    protected $image1;
+    protected $image2;
 
     protected function setUp(): void
     {
@@ -26,6 +29,18 @@ class ChatControllerTest extends TestCase
 	            'FlagHotAuctions' => 0,
 	            'FlagNotifyEnding' => 0
             ]);
+
+            $this->image1 = AllImages::factory()->create([
+                'Imagee' => "Mona Liza",
+                'IDUser' => $this->user->IDUser,
+                'IsPhysical' => 1
+            ]);   
+
+            $this->image2 = AllImages::factory()->create([
+                'Imagee' => 'Girl with Pearl Earing',
+                'IDUser' => $this->user->IDUser,
+                'IsPhysical' => 1
+            ]);
     
             $this->exibition1 = AllExhibitions::factory()->create([
                 'Name' => 'egzibicija 1',
@@ -38,30 +53,27 @@ class ChatControllerTest extends TestCase
                 'IDUser'=> $this->user->IDUser,
                 'Rating' => 1,
                 'RatingCount' => 5
-            ]);            
+            ]); 
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
         $this->exibition1->delete();
+        $this->image1->delete();
+        $this->image2->delete();
         $this->user->delete();
     }
     
-    //test za sendMessageSubmit
-    public function test_sendMessageSubmit()
+    //test za createExhibition
+    public function test_createExhibition()
     {        
-        $requestTest = [
-            'userID' => $this->user->IDUser,
-            'exhID' => $this->exibition1->IDExh,
-            'textMsg' => "Poruka"
-        ];
-
         $response = $this->withSession(['privilegije' => 'Obicni', 'IDUser' => $this->user->IDUser, 'E-mail' => $this->user->E_mail, 'Username' => $this->user->Username])
                          ->withoutMiddleware()
-                         ->post('sendMessageSubmit', $requestTest);
+                         ->get('createExhibition');
         
-        $response->assertStatus(302);
-        $response->assertRedirect("exhibition/" . $this->exibition1->IDExh);
+        $response->assertSee('Mona Liza');
+        $response->assertSee('Girl with Pearl Earing');
+        $response->assertStatus(200);
     }
 }
