@@ -1,0 +1,529 @@
+{
+  "id": "c90590d9-a020-47de-bf0a-6a65a4eb1d1b",
+  "version": "2.0",
+  "name": "ArtHouse_PD",
+  "url": "http://localhost:8000/exhibition/5",
+  "tests": [{
+    "id": "b18e7910-5325-48bf-995c-aea682290ea5",
+    "name": "TP1_uspesno_uplacivanje",
+    "commands": [{
+      "id": "fedc98a8-3e84-4f11-b2c2-a7bcd58e11ed",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/deposit_money",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6f127cca-bf6a-4db1-8461-3c163cf05d2b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d4ab6958-e559-4d5a-98cf-b342065a0fed",
+      "comment": "",
+      "command": "click",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0ebd23f-18ea-448f-a69a-874c9d3a1eaf",
+      "comment": "",
+      "command": "type",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "462e0b25-6152-4d44-bafc-812f5ded4605",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='Deposit']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b239ddcc-bffc-4aa8-810a-5f328ef441de",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "http://localhost:8000/auctions"
+    }]
+  }, {
+    "id": "a0a96e60-1d92-4168-9095-018ebe6bdf2e",
+    "name": "TP2_neuspesno_uplacivanje",
+    "commands": [{
+      "id": "b5a7d13f-878a-4aa6-8030-baf49a792989",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/deposit_money",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63f8d22d-dde2-4309-9cbf-a0c9ad578835",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17994fd6-a3eb-46f3-adff-9dd2507c7827",
+      "comment": "",
+      "command": "click",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2957cc76-b8a4-4162-8b63-d903f73071ec",
+      "comment": "",
+      "command": "type",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asd"
+    }, {
+      "id": "c954d262-1425-4a92-9258-a8180a4f059e",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='Deposit']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e323ff73-3a58-4420-a07c-70ea49fc5200",
+      "comment": "",
+      "command": "click",
+      "target": "name=depositform",
+      "targets": [
+        ["name=depositform", "name"],
+        ["css=form", "css:finder"],
+        ["xpath=//form[@name='depositform']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "185c2a65-135c-41d3-aaa4-d4d4fabf8360",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font",
+      "targets": [
+        ["css=font", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/font", "xpath:idRelative"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'The amount must be greater than 0.')]", "xpath:innerText"]
+      ],
+      "value": "The amount must be greater than 0."
+    }]
+  }, {
+    "id": "9064eb37-9c41-4de7-9d6c-d1b562724fce",
+    "name": "TP3_uspesno_doniranje",
+    "commands": [{
+      "id": "7d022107-c7ca-4a30-8b8c-d758cc43c4c4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/donate_money/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ad1d985-b652-455a-bc83-2d3a908beffb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "51b97278-fcbe-4e56-98f2-3415aebbffdf",
+      "comment": "",
+      "command": "click",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e62c5274-2275-4929-ba6e-336ad99d0846",
+      "comment": "",
+      "command": "type",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "b636bbbe-a042-4cb3-8e6d-11f0ee15f6cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='Donate']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d1b213e-ceeb-46c3-85b4-eeccd4b8ec9e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "http://localhost:8000/exhibitions"
+    }]
+  }, {
+    "id": "8c6ed9ae-c06a-4a6c-ab45-cba330e4b0e1",
+    "name": "TP4_neuspesno_doniranje",
+    "commands": [{
+      "id": "ed9923d4-8def-47fa-9750-09d69a3ad905",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/donate_money/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e83de178-5505-4767-a8e3-1e9503268ae7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24d41adb-c915-470e-86f7-1e724f64519b",
+      "comment": "",
+      "command": "click",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f8a7d3f-2ae2-44ae-920d-082448201832",
+      "comment": "",
+      "command": "type",
+      "target": "name=amount",
+      "targets": [
+        ["name=amount", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='amount']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asd"
+    }, {
+      "id": "da17b39e-dd38-47e4-a337-c1f8eb0f9703",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(4)",
+      "targets": [
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@value='Deposit']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7114b8a-02ac-4327-97a9-dbcb0bb77c8b",
+      "comment": "",
+      "command": "click",
+      "target": "name=depositform",
+      "targets": [
+        ["name=depositform", "name"],
+        ["css=form", "css:finder"],
+        ["xpath=//form[@name='depositform']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f16ad509-c616-4a45-8e82-7a1c2d0b690f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=font",
+      "targets": [
+        ["css=font", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[2]/form/font", "xpath:idRelative"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'The amount must be greater than 0.')]", "xpath:innerText"]
+      ],
+      "value": "The amount must be greater than 0."
+    }]
+  }, {
+    "id": "14ce5886-d90a-43c9-a7c3-f2fef3bd6c53",
+    "name": "TP5_pregled_svih_aukcija",
+    "commands": [{
+      "id": "18a05b6e-ca1d-4fcf-b969-302851785468",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/auctions",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b3241f70-4dab-489c-a416-aa39fd618adb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17cde04c-2c80-4181-a04f-f69713f40243",
+      "comment": "",
+      "command": "verifyValue",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Search']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Search"
+    }, {
+      "id": "36bd6a05-76b7-4bb5-8bb5-da62c230c1c9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div[2]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'All Auctions:')]", "xpath:innerText"]
+      ],
+      "value": "All Auctions:"
+    }]
+  }, {
+    "id": "ada621ce-8616-49d0-8442-a4da24abc95a",
+    "name": "TP6_pregled_svih_izlozbi",
+    "commands": [{
+      "id": "4e7def16-dee0-4c00-8646-764d84083a32",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/exhibitions",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6c40217-d13d-41a5-ad2d-29edec07d0ba",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "938x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98daae39-da36-43b5-b240-2c9201d8e383",
+      "comment": "",
+      "command": "assertValue",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='search']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Search"
+    }, {
+      "id": "2c5e569f-84b1-4212-8df5-e94595a24b81",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div[2]/div/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'All Exhibitions:')]", "xpath:innerText"]
+      ],
+      "value": "All Exhibitions:"
+    }]
+  }, {
+    "id": "1e38d154-cca0-4c64-9f66-9a636a4879a3",
+    "name": "TP7_pregled_aukcije",
+    "commands": [{
+      "id": "dd0a4094-6bd6-40bd-9553-29b2fd368310",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/auction/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f5e0e87d-ddc2-4c22-9ce3-9246cd5fa20d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1176",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69a71fb2-0384-4362-8b20-bd51bae46fef",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.bid_menu_item:nth-child(2) p",
+      "targets": [
+        ["css=.bid_menu_item:nth-child(2) p", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[3]/div[2]/a/p", "xpath:idRelative"],
+        ["xpath=//div[2]/a/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Bot')]", "xpath:innerText"]
+      ],
+      "value": "Bot"
+    }, {
+      "id": "be06e287-fbdd-4e02-bf27-af3d6c314338",
+      "comment": "",
+      "command": "click",
+      "target": "css=p:nth-child(1)",
+      "targets": [
+        ["css=p:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/div[2]/div[2]/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Image description: Oci i maska')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2535f99e-3627-4a5f-8e2b-f4cbe012d908",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.bid_menu_item:nth-child(1) p",
+      "targets": [
+        ["css=.bid_menu_item:nth-child(1) p", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[3]/div/a/p", "xpath:idRelative"],
+        ["xpath=//a/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Bid')]", "xpath:innerText"]
+      ],
+      "value": "Bid"
+    }]
+  }, {
+    "id": "196ee3eb-a24a-4cf8-b8aa-820899c9fe42",
+    "name": "TP8_pregled_aukcije_gost",
+    "commands": [{
+      "id": "318a28e3-c252-4dd6-a51e-ad1f24b8728a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/auction/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96d1d5d3-2a75-41e4-9c8c-e610c69f07cc",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=index_login_dugme",
+      "targets": [
+        ["id=index_login_dugme", "id"],
+        ["css=#index_login_dugme", "css:finder"],
+        ["xpath=//button[@id='index_login_dugme']", "xpath:attributes"],
+        ["xpath=//div[@id='index_login']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "Login"
+    }]
+  }, {
+    "id": "d655f74a-91a5-48f3-93c5-aa865b0ae12c",
+    "name": "TP9_pregled_izlozbe",
+    "commands": [{
+      "id": "6b9e6993-147e-4a54-b8aa-993067bd2547",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/exhibition/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "942399fa-4f37-4b5f-9950-7e7a3d2a0352",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.donatebox p",
+      "targets": [
+        ["css=.donatebox p", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[4]/div/div[2]/div/div/a/p", "xpath:idRelative"],
+        ["xpath=//a/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Donate')]", "xpath:innerText"]
+      ],
+      "value": "Donate"
+    }, {
+      "id": "f00b6f42-31df-4f4f-a39d-2d96488106af",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.exitbox p",
+      "targets": [
+        ["css=.exitbox p", "css:finder"],
+        ["xpath=//div[@id='content-wrap']/div[4]/div/div[2]/div[2]/div/a/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div/a/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Exit')]", "xpath:innerText"]
+      ],
+      "value": "Exit"
+    }]
+  }, {
+    "id": "962dfffd-25ad-4991-aae6-df79d8f8ec60",
+    "name": "TP10_pregled_izlozbe_gost",
+    "commands": [{
+      "id": "38e80b2a-6121-4d1e-864c-7e6995392dd6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8000/exhibition/5",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3eea6919-5d9a-40a8-8cbf-842ed4a1c6ee",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=index_login_dugme",
+      "targets": [
+        ["id=index_login_dugme", "id"],
+        ["css=#index_login_dugme", "css:finder"],
+        ["xpath=//button[@id='index_login_dugme']", "xpath:attributes"],
+        ["xpath=//div[@id='index_login']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "Login"
+    }]
+  }],
+  "suites": [{
+    "id": "5a03ed05-03f2-448c-b0e9-3d792e3a69df",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8000/deposit_money", "http://localhost:8000/donate_money/5", "http://localhost:8000/auctions", "http://localhost:8000/exhibitions", "http://localhost:8000/auction/5", "http://localhost:8000/exhibition/5"],
+  "plugins": []
+}

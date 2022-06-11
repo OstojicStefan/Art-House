@@ -1,7 +1,9 @@
 <!-- Bogdan Arsic 0329/19-->
 <!-- Stranica za unapredjivanje korisnickih uloga-->
 @extends('template_defined')
-
+<head>
+    <title> Upgrade User Accounts </title>
+</head>
 @section('content')
 <script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">

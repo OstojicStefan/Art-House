@@ -1,7 +1,9 @@
 <!-- Bogdan Arsic 0329/19-->
 <!-- Stranica za loginovanje korisnika-->
 @extends('template_defined')
-
+<head>
+    <title>Login </title>
+</head>
 @section('content')
 <script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">

@@ -1,7 +1,9 @@
 <!-- Bogdan Arsic 0329/19-->
 <!-- Stranica za dodavanje novih tagova-->
 @extends('template_defined')
-
+<head>
+    <title> Add Tags </title>
+</head>
 @section('content')
 <script src = "{{url('js/bogdan/skriptaProveraTagova.js')}}"></script>
 <div class="row">
