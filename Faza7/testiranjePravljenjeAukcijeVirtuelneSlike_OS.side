@@ -1,0 +1,577 @@
+{
+  "id": "bde6029d-67b9-4936-ae33-dff446794c13",
+  "version": "2.0",
+  "name": "testiranjePravljenjeAukcijeVirtuelneSlike",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "c968df51-1ad2-4112-80d1-79ccca2ede95",
+    "name": "NeuspesnoKreiranjeFalePodaci",
+    "commands": [{
+      "id": "aa7e93e6-0e1c-4e32-a6ae-b821237b68b3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72986096-5597-48c8-8d99-9c0e6c0f94d2",
+      "comment": "",
+      "command": "open",
+      "target": "/createAuctionVirtual",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6bbb645-a25a-4871-b6d5-3e2e861d67a8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c6d7f27-d16c-4dd8-b68f-359811ac891b",
+      "comment": "",
+      "command": "click",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff1114d3-72d3-4510-bcc5-0e80168f1275",
+      "comment": "",
+      "command": "type",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Port colors"
+    }, {
+      "id": "b6fcf2ca-cfaf-4892-948b-49c8c30675a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9ce10c8-fe87-49bd-b7f1-1fa10e2f7d0d",
+      "comment": "",
+      "command": "type",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Very appealing port"
+    }, {
+      "id": "51d73f39-d4bd-46f3-86d7-0179be610895",
+      "comment": "",
+      "command": "click",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a1e4d9f-25d5-4336-a727-8543879956a2",
+      "comment": "",
+      "command": "type",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Steve"
+    }, {
+      "id": "1a135b9c-6c9f-40d1-ab09-f2e30d47ec76",
+      "comment": "",
+      "command": "click",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c05260d5-6726-4eca-bb7c-c4bb550c0cf3",
+      "comment": "",
+      "command": "type",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2015"
+    }, {
+      "id": "1122b90d-725f-4246-9d45-8daca43fdd2a",
+      "comment": "",
+      "command": "click",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "690ea9d5-99be-44b1-a8c7-98ecb6a5e9a0",
+      "comment": "",
+      "command": "type",
+      "target": "id=myfile",
+      "targets": [
+        ["id=myfile", "id"],
+        ["name=myfile", "name"],
+        ["css=#myfile", "css:finder"],
+        ["xpath=//input[@id='myfile']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\port.jpg"
+    }, {
+      "id": "cf58b3f6-8ea2-49bd-bc58-4e957bdb929f",
+      "comment": "",
+      "command": "addSelection",
+      "target": "id=tagoviCA",
+      "targets": [
+        ["id=tagoviCA", "id"],
+        ["name=tagoviCA[]", "name"],
+        ["css=#tagoviCA", "css:finder"],
+        ["xpath=//select[@id='tagoviCA']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Apstract"
+    }, {
+      "id": "8ae1c0cf-6fe5-4c94-b3aa-0425080e980c",
+      "comment": "",
+      "command": "click",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63be171d-5c21-4fb0-8ac9-6ee0764a3a65",
+      "comment": "",
+      "command": "type",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "5000"
+    }, {
+      "id": "0700a778-3c2d-498a-8072-586d24d3bdf1",
+      "comment": "",
+      "command": "click",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71a1025e-a35f-4aad-8aec-b0405d92c588",
+      "comment": "",
+      "command": "click",
+      "target": "id=addvirtualauction",
+      "targets": [
+        ["id=addvirtualauction", "id"],
+        ["name=addvirtualauction", "name"],
+        ["css=#addvirtualauction", "css:finder"],
+        ["xpath=//form[@id='addvirtualauction']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88f0184d-90a5-412e-9194-5c98b3b679c9",
+      "comment": "",
+      "command": "type",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7ec7ad8-cf95-4a28-b3ca-24d54ced245d",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(52)",
+      "targets": [
+        ["css=input:nth-child(52)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b29e164-ba36-4c29-a8bb-04d511a0421f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#pocetnaCenaGreska > div",
+      "targets": [
+        ["css=#pocetnaCenaGreska > div", "css:finder"],
+        ["xpath=//label[@id='pocetnaCenaGreska']/div", "xpath:idRelative"],
+        ["xpath=//label[14]/div", "xpath:position"]
+      ],
+      "value": "Starting price has to be between 0 and 10000000000!"
+    }, {
+      "id": "5d3c0b82-18ec-43b4-8f14-eb22d01a7ee8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#vremeTrajanjaGreska > div",
+      "targets": [
+        ["css=#vremeTrajanjaGreska > div", "css:finder"],
+        ["xpath=//label[@id='vremeTrajanjaGreska']/div", "xpath:idRelative"],
+        ["xpath=//label[16]/div", "xpath:position"]
+      ],
+      "value": "Auction duration has to be between 1 and 30!"
+    }]
+  }, {
+    "id": "b764a1fb-ce84-4628-a3e0-a92f70cfd9f5",
+    "name": "NeuspesnoKreiranjeSlikaNijeSelektovana",
+    "commands": [{
+      "id": "c80060b5-eb6e-4e77-a2cf-284edb4d2950",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b54b59fd-352c-4e0f-a46d-65fac2647843",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1522x827",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1afa1156-cc3f-48a8-b39f-1edcd413d43a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Virtual",
+      "targets": [
+        ["linkText=Virtual", "linkText"],
+        ["css=.nav-item:nth-child(2) a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Virtual')]", "xpath:link"],
+        ["xpath=//div[@id='content-wrap']/div/div/nav/ul/li[2]/div/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/createAuctionVirtual']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Virtual')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbfe62a1-2624-4e09-9a86-5b32f670d653",
+      "comment": "",
+      "command": "click",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5671c812-8276-440d-a28f-61d341e3a281",
+      "comment": "",
+      "command": "type",
+      "target": "id=imeSlike",
+      "targets": [
+        ["id=imeSlike", "id"],
+        ["name=imeSlike", "name"],
+        ["css=#imeSlike", "css:finder"],
+        ["xpath=//input[@id='imeSlike']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Port colors"
+    }, {
+      "id": "9b2c8cf4-253c-43a8-9f8d-7bd48ab4fc10",
+      "comment": "",
+      "command": "click",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8e1f8f6-93ef-4f00-9882-efe692e896d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=opisniTekst",
+      "targets": [
+        ["id=opisniTekst", "id"],
+        ["name=opisniTekst", "name"],
+        ["css=#opisniTekst", "css:finder"],
+        ["xpath=//textarea[@id='opisniTekst']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Very elegant port"
+    }, {
+      "id": "c2d6f911-04c7-4b90-92bd-046920ab1078",
+      "comment": "",
+      "command": "click",
+      "target": "id=addvirtualauction",
+      "targets": [
+        ["id=addvirtualauction", "id"],
+        ["name=addvirtualauction", "name"],
+        ["css=#addvirtualauction", "css:finder"],
+        ["xpath=//form[@id='addvirtualauction']", "xpath:attributes"],
+        ["xpath=//div[@id='content-wrap']/div[2]/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "087b61ea-b459-44fd-87f0-790a8bc1ce85",
+      "comment": "",
+      "command": "click",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "accf9379-e685-4702-a6de-09e1170f27a2",
+      "comment": "",
+      "command": "type",
+      "target": "id=Autor",
+      "targets": [
+        ["id=Autor", "id"],
+        ["name=Autor", "name"],
+        ["css=#Autor", "css:finder"],
+        ["xpath=//input[@id='Autor']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Steve"
+    }, {
+      "id": "6930494b-91d7-43b7-92b4-ab6e925c2a41",
+      "comment": "",
+      "command": "click",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2426617-f71d-4063-be62-3979e42f0d6f",
+      "comment": "",
+      "command": "type",
+      "target": "id=godinaSlikanja",
+      "targets": [
+        ["id=godinaSlikanja", "id"],
+        ["name=godinaSlikanja", "name"],
+        ["css=#godinaSlikanja", "css:finder"],
+        ["xpath=//input[@id='godinaSlikanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "2015"
+    }, {
+      "id": "bf508203-e177-477c-90dc-b51e957b0460",
+      "comment": "",
+      "command": "addSelection",
+      "target": "id=tagoviCA",
+      "targets": [
+        ["id=tagoviCA", "id"],
+        ["name=tagoviCA[]", "name"],
+        ["css=#tagoviCA", "css:finder"],
+        ["xpath=//select[@id='tagoviCA']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Apstract"
+    }, {
+      "id": "29b68fe7-403c-41c2-b0c7-39250d648ec8",
+      "comment": "",
+      "command": "click",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97ae877e-3582-43a4-81ac-cdd740f4275b",
+      "comment": "",
+      "command": "type",
+      "target": "id=pocetnaCena",
+      "targets": [
+        ["id=pocetnaCena", "id"],
+        ["name=pocetnaCena", "name"],
+        ["css=#pocetnaCena", "css:finder"],
+        ["xpath=//input[@id='pocetnaCena']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "15000"
+    }, {
+      "id": "f3c35532-d9ea-4cb5-8750-eaab5e67a90d",
+      "comment": "",
+      "command": "click",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34354ea1-18a9-4c41-9692-a8576cbf03a7",
+      "comment": "",
+      "command": "type",
+      "target": "id=vremeTrajanja",
+      "targets": [
+        ["id=vremeTrajanja", "id"],
+        ["name=vremeTrajanja", "name"],
+        ["css=#vremeTrajanja", "css:finder"],
+        ["xpath=//input[@id='vremeTrajanja']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "15"
+    }, {
+      "id": "17c97c81-787e-4148-adbc-b0d9cbf3c7ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(52)",
+      "targets": [
+        ["css=input:nth-child(52)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "467df21e-65cf-4b46-832a-cc7fd7439e24",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=input:nth-child(52)",
+      "targets": [
+        ["css=input:nth-child(52)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c894889-b675-4100-8a34-d898ecaefc9d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=input:nth-child(52)",
+      "targets": [
+        ["css=input:nth-child(52)", "css:finder"],
+        ["xpath=//input[@value='Create auction']", "xpath:attributes"],
+        ["xpath=//form[@id='addvirtualauction']/input[9]", "xpath:idRelative"],
+        ["xpath=//input[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a84a473d-2a83-435a-b050-6c91b474b4f1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=font",
+      "targets": [
+        ["css=font", "css:finder"],
+        ["xpath=//form[@id='addvirtualauction']/font", "xpath:idRelative"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'Server Error: Input file not in right format!')]", "xpath:innerText"]
+      ],
+      "value": "Server Error: Input file not in right format!"
+    }]
+  }],
+  "suites": [{
+    "id": "f02345eb-8ffa-42b8-94ca-18ab6d010717",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c968df51-1ad2-4112-80d1-79ccca2ede95"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
