@@ -24,7 +24,7 @@
                 {{ session('status') }}
                 </div>
             @else
-                <font color = 'red'>{{session('status')}}</font><br>                
+                <font color = 'red' id="greska_ispis_1">{{session('status')}}</font><br>                
             @endif
         </form>
     </div>

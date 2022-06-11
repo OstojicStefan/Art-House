@@ -11,8 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class ChatController extends Controller
-{   
-    function __construct() {
+{
+    function __construct()
+    {
         $this->middleware('registred');
     }
 
@@ -31,7 +32,7 @@ class ChatController extends Controller
 
     //Funkcija koja regulise slanje poruke serveru
     public function sendMessageSubmit(Request $request)
-    {   
+    {
         $newMessage = new AllMessages();
 
         $newMessage->IDUser = $request->userID;
